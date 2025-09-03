@@ -1,0 +1,10 @@
+tasks:
+  - init: |
+      git clone https://github.com/opencv/opencv_contrib.git
+      python3 -m pip install numpy
+      mkdir build
+    command: |
+      cd build
+      emcmake cmake -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib/modules ../opencv
+      emmake make -j$(nproc)
+      echo "OpenCV.js build is complete!"
