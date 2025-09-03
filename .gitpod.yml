@@ -1,16 +1,28 @@
 tasks:
   - init: |
+      # Clone necessary repositories
       git clone https://github.com/emscripten-core/emsdk.git
+      git clone https://github.com/opencv/opencv_contrib.git
+      python3 -m pip install numpy
+      
+      # Install and activate the emsdk toolchain
       cd emsdk
       ./emsdk install latest
       ./emsdk activate latest
-      source ./emsdk_env.sh
+      
+      # Return to the parent directory
       cd ..
-      git clone https://github.com/opencv/opencv_contrib.git
-      python3 -m pip install numpy
+      
+      # Create and navigate to the build directory
       mkdir build
-    command: |
       cd build
-      emcmake cmake -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib/modules ../opencv
+      
+      # Set up the environment for the current session
+      source ../emsdk/emsdk_env.sh
+
+      # Run the build commands
+      emcmake cmake -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules ../../opencv
       emmake make -j$(nproc)
-      echo "OpenCV.js build is complete!"
+    
+    command: |
+      echo "Build is complete. Files are in the 'build' directory."
