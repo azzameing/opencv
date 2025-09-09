@@ -43,7 +43,7 @@ BUILD_JAVA:BOOL=OFF
 BUILD_JPEG:BOOL=OFF
 
 //Build only listed modules (comma-separated, e.g. 'videoio,dnn,ts')
-BUILD_LIST:STRING=
+BUILD_LIST:STRING=aruco,calib3d,features2d,imgproc,core,js
 
 //Build openexr from source
 BUILD_OPENEXR:BOOL=OFF
@@ -721,28 +721,6 @@ OPENCV_DISABLE_ENV_SUPPORT:BOOL=OFF
 //Disable filesystem support
 OPENCV_DISABLE_FILESYSTEM_SUPPORT:BOOL=OFF
 
-//Default backend used by the DNN module (DNN_BACKEND_OPENCV if
-// empty)
-OPENCV_DNN_BACKEND_DEFAULT:STRING=
-
-//Build with CUDA support
-OPENCV_DNN_CUDA:BOOL=OFF
-
-//Build with OpenCL support
-OPENCV_DNN_OPENCL:BOOL=OFF
-
-//Build with OpenVINO support (2021.4+)
-OPENCV_DNN_OPENVINO:BOOL=OFF
-
-//Add performance tests of Caffe framework
-OPENCV_DNN_PERF_CAFFE:BOOL=OFF
-
-//Add performance tests of clCaffe framework
-OPENCV_DNN_PERF_CLCAFFE:BOOL=OFF
-
-//Build with TFLite support
-OPENCV_DNN_TFLITE:BOOL=ON
-
 OPENCV_DOWNLOAD_MIRROR_ID:STRING=github
 
 //Download parameters to be passed to file(DOWNLOAD ...)
@@ -791,20 +769,8 @@ OPENCV_MATHJAX_RELPATH:STRING=https://cdn.jsdelivr.net/npm/mathjax@3.0.1
 //Python3 version
 OPENCV_PYTHON3_VERSION:BOOL=OFF
 
-//Build test with CANN
-OPENCV_TEST_DNN_CANN:BOOL=OFF
-
-//Build test with OpenVINO code
-OPENCV_TEST_DNN_OPENVINO:BOOL=OFF
-
-//Build test with TFLite
-OPENCV_TEST_DNN_TFLITE:BOOL=ON
-
-//Build test with TIM-VX
-OPENCV_TEST_DNN_TIMVX:BOOL=OFF
-
 //Timestamp of OpenCV build configuration
-OPENCV_TIMESTAMP:STRING=2025-09-09T07:54:19Z
+OPENCV_TIMESTAMP:STRING=2025-09-09T11:18:52Z
 
 //Treat warnings as errors
 OPENCV_WARNINGS_ARE_ERRORS:BOOL=OFF
@@ -861,6 +827,9 @@ PYTHON3_PACKAGES_PATH:STRING=lib/python3.12/site-packages
 //No help, variable specified on the command line.
 PYTHON_DEFAULT_EXECUTABLE:UNINITIALIZED=/home/gitpod/.pyenv/versions/3.12.11/bin/python
 
+//No help, variable specified on the command line.
+SINGLE_FILE:UNINITIALIZED=0
+
 //Path to libva headers
 VA_INCLUDE_DIR:PATH=VA_INCLUDE_DIR-NOTFOUND
 
@@ -870,6 +839,9 @@ VIDEOIO_ENABLE_PLUGINS:BOOL=OFF
 //List of videoio backends to be compiled as plugins (ffmpeg, gstreamer,
 // mfx, msmf or special value 'all')
 VIDEOIO_PLUGIN_LIST:STRING=
+
+//No help, variable specified on the command line.
+WASM:UNINITIALIZED=1
 
 //Include IEEE1394 support
 WITH_1394:BOOL=OFF
@@ -1118,34 +1090,10 @@ opencv_aruco_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/aruco
 opencv_aruco_IS_TOP_LEVEL:STATIC=OFF
 
 //Dependencies for the target
-opencv_aruco_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_dnn;general;opencv_features2d;general;opencv_calib3d;general;opencv_objdetect;
+opencv_aruco_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_features2d;general;opencv_calib3d;general;opencv_objdetect;
 
 //Value Computed by CMake
 opencv_aruco_SOURCE_DIR:STATIC=/workspace/opencv_contrib/modules/aruco
-
-//Value Computed by CMake
-opencv_bgsegm_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/bgsegm
-
-//Value Computed by CMake
-opencv_bgsegm_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_bgsegm_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_dnn;general;opencv_features2d;general;opencv_calib3d;general;opencv_video;
-
-//Value Computed by CMake
-opencv_bgsegm_SOURCE_DIR:STATIC=/workspace/opencv_contrib/modules/bgsegm
-
-//Value Computed by CMake
-opencv_bioinspired_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/bioinspired
-
-//Value Computed by CMake
-opencv_bioinspired_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_bioinspired_LIB_DEPENDS:STATIC=general;opencv_core;
-
-//Value Computed by CMake
-opencv_bioinspired_SOURCE_DIR:STATIC=/workspace/opencv_contrib/modules/bioinspired
 
 //Value Computed by CMake
 opencv_calib3d_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/calib3d
@@ -1172,66 +1120,6 @@ opencv_core_LIB_DEPENDS:STATIC=general;zlib;
 opencv_core_SOURCE_DIR:STATIC=/workspace/opencv/modules/core
 
 //Value Computed by CMake
-opencv_dnn_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/dnn
-
-//Value Computed by CMake
-opencv_dnn_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_dnn_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;libprotobuf;
-
-//Value Computed by CMake
-opencv_dnn_SOURCE_DIR:STATIC=/workspace/opencv/modules/dnn
-
-//Value Computed by CMake
-opencv_dnn_objdetect_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/dnn_objdetect
-
-//Value Computed by CMake
-opencv_dnn_objdetect_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_dnn_objdetect_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_dnn;
-
-//Value Computed by CMake
-opencv_dnn_objdetect_SOURCE_DIR:STATIC=/workspace/opencv_contrib/modules/dnn_objdetect
-
-//Value Computed by CMake
-opencv_dnn_superres_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/dnn_superres
-
-//Value Computed by CMake
-opencv_dnn_superres_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_dnn_superres_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_dnn;
-
-//Value Computed by CMake
-opencv_dnn_superres_SOURCE_DIR:STATIC=/workspace/opencv_contrib/modules/dnn_superres
-
-//Value Computed by CMake
-opencv_dpm_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/dpm
-
-//Value Computed by CMake
-opencv_dpm_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_dpm_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_dnn;general;opencv_features2d;general;opencv_calib3d;general;opencv_objdetect;
-
-//Value Computed by CMake
-opencv_dpm_SOURCE_DIR:STATIC=/workspace/opencv_contrib/modules/dpm
-
-//Value Computed by CMake
-opencv_face_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/face
-
-//Value Computed by CMake
-opencv_face_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_face_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_photo;general;opencv_dnn;general;opencv_features2d;general;opencv_calib3d;general;opencv_objdetect;
-
-//Value Computed by CMake
-opencv_face_SOURCE_DIR:STATIC=/workspace/opencv_contrib/modules/face
-
-//Value Computed by CMake
 opencv_features2d_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/features2d
 
 //Value Computed by CMake
@@ -1256,42 +1144,6 @@ opencv_flann_LIB_DEPENDS:STATIC=general;opencv_core;
 opencv_flann_SOURCE_DIR:STATIC=/workspace/opencv/modules/flann
 
 //Value Computed by CMake
-opencv_fuzzy_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/fuzzy
-
-//Value Computed by CMake
-opencv_fuzzy_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_fuzzy_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;
-
-//Value Computed by CMake
-opencv_fuzzy_SOURCE_DIR:STATIC=/workspace/opencv_contrib/modules/fuzzy
-
-//Value Computed by CMake
-opencv_hfs_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/hfs
-
-//Value Computed by CMake
-opencv_hfs_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_hfs_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;
-
-//Value Computed by CMake
-opencv_hfs_SOURCE_DIR:STATIC=/workspace/opencv_contrib/modules/hfs
-
-//Value Computed by CMake
-opencv_img_hash_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/img_hash
-
-//Value Computed by CMake
-opencv_img_hash_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_img_hash_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;
-
-//Value Computed by CMake
-opencv_img_hash_SOURCE_DIR:STATIC=/workspace/opencv_contrib/modules/img_hash
-
-//Value Computed by CMake
 opencv_imgproc_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/imgproc
 
 //Value Computed by CMake
@@ -1302,27 +1154,6 @@ opencv_imgproc_LIB_DEPENDS:STATIC=general;opencv_core;
 
 //Value Computed by CMake
 opencv_imgproc_SOURCE_DIR:STATIC=/workspace/opencv/modules/imgproc
-
-//Value Computed by CMake
-opencv_intensity_transform_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/intensity_transform
-
-//Value Computed by CMake
-opencv_intensity_transform_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_intensity_transform_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;
-
-//Value Computed by CMake
-opencv_intensity_transform_SOURCE_DIR:STATIC=/workspace/opencv_contrib/modules/intensity_transform
-
-//Value Computed by CMake
-opencv_java_bindings_generator_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/java_bindings_generator
-
-//Value Computed by CMake
-opencv_java_bindings_generator_IS_TOP_LEVEL:STATIC=OFF
-
-//Value Computed by CMake
-opencv_java_bindings_generator_SOURCE_DIR:STATIC=/workspace/opencv/modules/java/generator
 
 //Value Computed by CMake
 opencv_js_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/js
@@ -1343,259 +1174,16 @@ opencv_js_bindings_generator_IS_TOP_LEVEL:STATIC=OFF
 opencv_js_bindings_generator_SOURCE_DIR:STATIC=/workspace/opencv/modules/js/generator
 
 //Value Computed by CMake
-opencv_line_descriptor_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/line_descriptor
-
-//Value Computed by CMake
-opencv_line_descriptor_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_line_descriptor_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_features2d;
-
-//Value Computed by CMake
-opencv_line_descriptor_SOURCE_DIR:STATIC=/workspace/opencv_contrib/modules/line_descriptor
-
-//Value Computed by CMake
-opencv_mcc_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/mcc
-
-//Value Computed by CMake
-opencv_mcc_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_mcc_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_dnn;general;opencv_features2d;general;opencv_calib3d;
-
-//Value Computed by CMake
-opencv_mcc_SOURCE_DIR:STATIC=/workspace/opencv_contrib/modules/mcc
-
-//Value Computed by CMake
-opencv_objc_bindings_generator_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/objc_bindings_generator
-
-//Value Computed by CMake
-opencv_objc_bindings_generator_IS_TOP_LEVEL:STATIC=OFF
-
-//Value Computed by CMake
-opencv_objc_bindings_generator_SOURCE_DIR:STATIC=/workspace/opencv/modules/objc/generator
-
-//Value Computed by CMake
 opencv_objdetect_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/objdetect
 
 //Value Computed by CMake
 opencv_objdetect_IS_TOP_LEVEL:STATIC=OFF
 
 //Dependencies for the target
-opencv_objdetect_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_dnn;general;opencv_features2d;general;opencv_calib3d;
+opencv_objdetect_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_features2d;general;opencv_calib3d;
 
 //Value Computed by CMake
 opencv_objdetect_SOURCE_DIR:STATIC=/workspace/opencv/modules/objdetect
-
-//Value Computed by CMake
-opencv_phase_unwrapping_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/phase_unwrapping
-
-//Value Computed by CMake
-opencv_phase_unwrapping_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_phase_unwrapping_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;
-
-//Value Computed by CMake
-opencv_phase_unwrapping_SOURCE_DIR:STATIC=/workspace/opencv_contrib/modules/phase_unwrapping
-
-//Value Computed by CMake
-opencv_photo_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/photo
-
-//Value Computed by CMake
-opencv_photo_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_photo_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;
-
-//Value Computed by CMake
-opencv_photo_SOURCE_DIR:STATIC=/workspace/opencv/modules/photo
-
-//Value Computed by CMake
-opencv_plot_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/plot
-
-//Value Computed by CMake
-opencv_plot_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_plot_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;
-
-//Value Computed by CMake
-opencv_plot_SOURCE_DIR:STATIC=/workspace/opencv_contrib/modules/plot
-
-//Value Computed by CMake
-opencv_python_bindings_generator_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/python_bindings_generator
-
-//Value Computed by CMake
-opencv_python_bindings_generator_IS_TOP_LEVEL:STATIC=OFF
-
-//Value Computed by CMake
-opencv_python_bindings_generator_SOURCE_DIR:STATIC=/workspace/opencv/modules/python/bindings
-
-//Value Computed by CMake
-opencv_python_tests_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/python_tests
-
-//Value Computed by CMake
-opencv_python_tests_IS_TOP_LEVEL:STATIC=OFF
-
-//Value Computed by CMake
-opencv_python_tests_SOURCE_DIR:STATIC=/workspace/opencv/modules/python/test
-
-//Value Computed by CMake
-opencv_rapid_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/rapid
-
-//Value Computed by CMake
-opencv_rapid_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_rapid_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_features2d;general;opencv_calib3d;
-
-//Value Computed by CMake
-opencv_rapid_SOURCE_DIR:STATIC=/workspace/opencv_contrib/modules/rapid
-
-//Value Computed by CMake
-opencv_reg_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/reg
-
-//Value Computed by CMake
-opencv_reg_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_reg_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;
-
-//Value Computed by CMake
-opencv_reg_SOURCE_DIR:STATIC=/workspace/opencv_contrib/modules/reg
-
-//Value Computed by CMake
-opencv_rgbd_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/rgbd
-
-//Value Computed by CMake
-opencv_rgbd_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_rgbd_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_features2d;general;opencv_calib3d;
-
-//Value Computed by CMake
-opencv_rgbd_SOURCE_DIR:STATIC=/workspace/opencv_contrib/modules/rgbd
-
-//Value Computed by CMake
-opencv_saliency_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/saliency
-
-//Value Computed by CMake
-opencv_saliency_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_saliency_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_features2d;
-
-//Value Computed by CMake
-opencv_saliency_SOURCE_DIR:STATIC=/workspace/opencv_contrib/modules/saliency
-
-//Value Computed by CMake
-opencv_signal_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/signal
-
-//Value Computed by CMake
-opencv_signal_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_signal_LIB_DEPENDS:STATIC=general;opencv_core;
-
-//Value Computed by CMake
-opencv_signal_SOURCE_DIR:STATIC=/workspace/opencv_contrib/modules/signal
-
-//Value Computed by CMake
-opencv_stereo_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/stereo
-
-//Value Computed by CMake
-opencv_stereo_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_stereo_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_plot;general;opencv_dnn;general;opencv_features2d;general;opencv_calib3d;general;opencv_video;general;opencv_tracking;
-
-//Value Computed by CMake
-opencv_stereo_SOURCE_DIR:STATIC=/workspace/opencv_contrib/modules/stereo
-
-//Value Computed by CMake
-opencv_structured_light_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/structured_light
-
-//Value Computed by CMake
-opencv_structured_light_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_structured_light_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_phase_unwrapping;general;opencv_features2d;general;opencv_calib3d;
-
-//Value Computed by CMake
-opencv_structured_light_SOURCE_DIR:STATIC=/workspace/opencv_contrib/modules/structured_light
-
-//Value Computed by CMake
-opencv_surface_matching_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/surface_matching
-
-//Value Computed by CMake
-opencv_surface_matching_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_surface_matching_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;
-
-//Value Computed by CMake
-opencv_surface_matching_SOURCE_DIR:STATIC=/workspace/opencv_contrib/modules/surface_matching
-
-//Value Computed by CMake
-opencv_tracking_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/tracking
-
-//Value Computed by CMake
-opencv_tracking_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_tracking_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_plot;general;opencv_dnn;general;opencv_features2d;general;opencv_calib3d;general;opencv_video;
-
-//Value Computed by CMake
-opencv_tracking_SOURCE_DIR:STATIC=/workspace/opencv_contrib/modules/tracking
-
-//Value Computed by CMake
-opencv_video_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/video
-
-//Value Computed by CMake
-opencv_video_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_video_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_dnn;general;opencv_features2d;general;opencv_calib3d;
-
-//Value Computed by CMake
-opencv_video_SOURCE_DIR:STATIC=/workspace/opencv/modules/video
-
-//Value Computed by CMake
-opencv_wechat_qrcode_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/wechat_qrcode
-
-//Value Computed by CMake
-opencv_wechat_qrcode_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_wechat_qrcode_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_dnn;general;opencv_features2d;general;opencv_calib3d;general;opencv_objdetect;
-
-//Value Computed by CMake
-opencv_wechat_qrcode_SOURCE_DIR:STATIC=/workspace/opencv_contrib/modules/wechat_qrcode
-
-//Value Computed by CMake
-opencv_xfeatures2d_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/xfeatures2d
-
-//Value Computed by CMake
-opencv_xfeatures2d_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_xfeatures2d_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_features2d;general;opencv_calib3d;
-
-//Value Computed by CMake
-opencv_xfeatures2d_SOURCE_DIR:STATIC=/workspace/opencv_contrib/modules/xfeatures2d
-
-//Value Computed by CMake
-opencv_xphoto_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/modules/xphoto
-
-//Value Computed by CMake
-opencv_xphoto_IS_TOP_LEVEL:STATIC=OFF
-
-//Dependencies for the target
-opencv_xphoto_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_photo;
-
-//Value Computed by CMake
-opencv_xphoto_SOURCE_DIR:STATIC=/workspace/opencv_contrib/modules/xphoto
 
 //Value Computed by CMake
 zlib_BINARY_DIR:STATIC=/workspace/opencv/build_wasm/3rdparty/zlib
@@ -1732,7 +1320,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO
 CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=145
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=112
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -1948,8 +1536,6 @@ HAVE_CXX_WNO_DELETE_NON_VIRTUAL_DTOR:INTERNAL=1
 HAVE_CXX_WNO_DEPRECATED:INTERNAL=1
 //Test HAVE_CXX_WNO_DEPRECATED_ANON_ENUM_ENUM_CONVERSION
 HAVE_CXX_WNO_DEPRECATED_ANON_ENUM_ENUM_CONVERSION:INTERNAL=1
-//Test HAVE_CXX_WNO_DEPRECATED_DECLARATIONS
-HAVE_CXX_WNO_DEPRECATED_DECLARATIONS:INTERNAL=1
 //Test HAVE_CXX_WNO_DEPRECATED_ENUM_ENUM_CONVERSION
 HAVE_CXX_WNO_DEPRECATED_ENUM_ENUM_CONVERSION:INTERNAL=1
 //Test HAVE_CXX_WNO_ENUM_COMPARE_SWITCH
@@ -1970,8 +1556,6 @@ HAVE_CXX_WNO_INVALID_OFFSETOF:INTERNAL=1
 HAVE_CXX_WNO_MISSING_DECLARATIONS:INTERNAL=1
 //Test HAVE_CXX_WNO_MISSING_PROTOTYPES
 HAVE_CXX_WNO_MISSING_PROTOTYPES:INTERNAL=1
-//Test HAVE_CXX_WNO_OVERLOADED_VIRTUAL
-HAVE_CXX_WNO_OVERLOADED_VIRTUAL:INTERNAL=1
 //Test HAVE_CXX_WNO_SHADOW
 HAVE_CXX_WNO_SHADOW:INTERNAL=1
 //Test HAVE_CXX_WNO_SHORTEN_64_TO_32
@@ -2122,10 +1706,10 @@ HAVE_SYS_TYPES_H:INTERNAL=1
 HAVE_opencv_alphamat:INTERNAL=OFF
 //Module opencv_aruco will be built in current configuration
 HAVE_opencv_aruco:INTERNAL=ON
-//Module opencv_bgsegm will be built in current configuration
-HAVE_opencv_bgsegm:INTERNAL=ON
-//Module opencv_bioinspired will be built in current configuration
-HAVE_opencv_bioinspired:INTERNAL=ON
+//Module opencv_bgsegm can not be built in current configuration
+HAVE_opencv_bgsegm:INTERNAL=OFF
+//Module opencv_bioinspired can not be built in current configuration
+HAVE_opencv_bioinspired:INTERNAL=OFF
 //Module opencv_calib3d will be built in current configuration
 HAVE_opencv_calib3d:INTERNAL=ON
 //Module opencv_cannops can not be built in current configuration
@@ -2162,16 +1746,16 @@ HAVE_opencv_cudev:INTERNAL=OFF
 HAVE_opencv_cvv:INTERNAL=OFF
 //Module opencv_datasets can not be built in current configuration
 HAVE_opencv_datasets:INTERNAL=OFF
-//Module opencv_dnn will be built in current configuration
-HAVE_opencv_dnn:INTERNAL=ON
-//Module opencv_dnn_objdetect will be built in current configuration
-HAVE_opencv_dnn_objdetect:INTERNAL=ON
-//Module opencv_dnn_superres will be built in current configuration
-HAVE_opencv_dnn_superres:INTERNAL=ON
-//Module opencv_dpm will be built in current configuration
-HAVE_opencv_dpm:INTERNAL=ON
-//Module opencv_face will be built in current configuration
-HAVE_opencv_face:INTERNAL=ON
+//Module opencv_dnn can not be built in current configuration
+HAVE_opencv_dnn:INTERNAL=OFF
+//Module opencv_dnn_objdetect can not be built in current configuration
+HAVE_opencv_dnn_objdetect:INTERNAL=OFF
+//Module opencv_dnn_superres can not be built in current configuration
+HAVE_opencv_dnn_superres:INTERNAL=OFF
+//Module opencv_dpm can not be built in current configuration
+HAVE_opencv_dpm:INTERNAL=OFF
+//Module opencv_face can not be built in current configuration
+HAVE_opencv_face:INTERNAL=OFF
 //Module opencv_fastcv can not be built in current configuration
 HAVE_opencv_fastcv:INTERNAL=OFF
 //Module opencv_features2d will be built in current configuration
@@ -2180,29 +1764,30 @@ HAVE_opencv_features2d:INTERNAL=ON
 HAVE_opencv_flann:INTERNAL=ON
 //Module opencv_freetype can not be built in current configuration
 HAVE_opencv_freetype:INTERNAL=OFF
-//Module opencv_fuzzy will be built in current configuration
-HAVE_opencv_fuzzy:INTERNAL=ON
+//Module opencv_fuzzy can not be built in current configuration
+HAVE_opencv_fuzzy:INTERNAL=OFF
 //Module opencv_gapi can not be built in current configuration
 HAVE_opencv_gapi:INTERNAL=OFF
 //Module opencv_hdf can not be built in current configuration
 HAVE_opencv_hdf:INTERNAL=OFF
-//Module opencv_hfs will be built in current configuration
-HAVE_opencv_hfs:INTERNAL=ON
+//Module opencv_hfs can not be built in current configuration
+HAVE_opencv_hfs:INTERNAL=OFF
 //Module opencv_highgui will not be built in current configuration
 HAVE_opencv_highgui:INTERNAL=OFF
-//Module opencv_img_hash will be built in current configuration
-HAVE_opencv_img_hash:INTERNAL=ON
+//Module opencv_img_hash can not be built in current configuration
+HAVE_opencv_img_hash:INTERNAL=OFF
 //Module opencv_imgcodecs will not be built in current configuration
 HAVE_opencv_imgcodecs:INTERNAL=OFF
 //Module opencv_imgproc will be built in current configuration
 HAVE_opencv_imgproc:INTERNAL=ON
-//Module opencv_intensity_transform will be built in current configuration
-HAVE_opencv_intensity_transform:INTERNAL=ON
+//Module opencv_intensity_transform can not be built in current
+// configuration
+HAVE_opencv_intensity_transform:INTERNAL=OFF
 //Module opencv_java can not be built in current configuration
 HAVE_opencv_java:INTERNAL=OFF
-//Module opencv_java_bindings_generator will be built in current
+//Module opencv_java_bindings_generator can not be built in current
 // configuration
-HAVE_opencv_java_bindings_generator:INTERNAL=ON
+HAVE_opencv_java_bindings_generator:INTERNAL=OFF
 //Module opencv_js will be built in current configuration
 HAVE_opencv_js:INTERNAL=ON
 //Module opencv_js_bindings_generator will be built in current
@@ -2210,112 +1795,94 @@ HAVE_opencv_js:INTERNAL=ON
 HAVE_opencv_js_bindings_generator:INTERNAL=ON
 //Module opencv_julia can not be built in current configuration
 HAVE_opencv_julia:INTERNAL=OFF
-//Module opencv_line_descriptor will be built in current configuration
-HAVE_opencv_line_descriptor:INTERNAL=ON
+//Module opencv_line_descriptor can not be built in current configuration
+HAVE_opencv_line_descriptor:INTERNAL=OFF
 //Module opencv_matlab can not be built in current configuration
 HAVE_opencv_matlab:INTERNAL=OFF
-//Module opencv_mcc will be built in current configuration
-HAVE_opencv_mcc:INTERNAL=ON
+//Module opencv_mcc can not be built in current configuration
+HAVE_opencv_mcc:INTERNAL=OFF
 //Module opencv_ml will not be built in current configuration
 HAVE_opencv_ml:INTERNAL=OFF
-//Module opencv_objc_bindings_generator will be built in current
+//Module opencv_objc_bindings_generator can not be built in current
 // configuration
-HAVE_opencv_objc_bindings_generator:INTERNAL=ON
+HAVE_opencv_objc_bindings_generator:INTERNAL=OFF
 //Module opencv_objdetect will be built in current configuration
 HAVE_opencv_objdetect:INTERNAL=ON
 //Module opencv_optflow can not be built in current configuration
 HAVE_opencv_optflow:INTERNAL=OFF
 //Module opencv_ovis can not be built in current configuration
 HAVE_opencv_ovis:INTERNAL=OFF
-//Module opencv_phase_unwrapping will be built in current configuration
-HAVE_opencv_phase_unwrapping:INTERNAL=ON
-//Module opencv_photo will be built in current configuration
-HAVE_opencv_photo:INTERNAL=ON
-//Module opencv_plot will be built in current configuration
-HAVE_opencv_plot:INTERNAL=ON
+//Module opencv_phase_unwrapping can not be built in current configuration
+HAVE_opencv_phase_unwrapping:INTERNAL=OFF
+//Module opencv_photo can not be built in current configuration
+HAVE_opencv_photo:INTERNAL=OFF
+//Module opencv_plot can not be built in current configuration
+HAVE_opencv_plot:INTERNAL=OFF
 //Module opencv_python2 can not be built in current configuration
 HAVE_opencv_python2:INTERNAL=OFF
 //Module opencv_python3 can not be built in current configuration
 HAVE_opencv_python3:INTERNAL=OFF
-//Module opencv_python_bindings_generator will be built in current
+//Module opencv_python_bindings_generator can not be built in current
 // configuration
-HAVE_opencv_python_bindings_generator:INTERNAL=ON
-//Module opencv_python_tests will be built in current configuration
-HAVE_opencv_python_tests:INTERNAL=ON
+HAVE_opencv_python_bindings_generator:INTERNAL=OFF
+//Module opencv_python_tests can not be built in current configuration
+HAVE_opencv_python_tests:INTERNAL=OFF
 //Module opencv_quality can not be built in current configuration
 HAVE_opencv_quality:INTERNAL=OFF
-//Module opencv_rapid will be built in current configuration
-HAVE_opencv_rapid:INTERNAL=ON
-//Module opencv_reg will be built in current configuration
-HAVE_opencv_reg:INTERNAL=ON
-//Module opencv_rgbd will be built in current configuration
-HAVE_opencv_rgbd:INTERNAL=ON
-//Module opencv_saliency will be built in current configuration
-HAVE_opencv_saliency:INTERNAL=ON
+//Module opencv_rapid can not be built in current configuration
+HAVE_opencv_rapid:INTERNAL=OFF
+//Module opencv_reg can not be built in current configuration
+HAVE_opencv_reg:INTERNAL=OFF
+//Module opencv_rgbd can not be built in current configuration
+HAVE_opencv_rgbd:INTERNAL=OFF
+//Module opencv_saliency can not be built in current configuration
+HAVE_opencv_saliency:INTERNAL=OFF
 //Module opencv_sfm can not be built in current configuration
 HAVE_opencv_sfm:INTERNAL=OFF
 //Module opencv_shape will not be built in current configuration
 HAVE_opencv_shape:INTERNAL=OFF
-//Module opencv_signal will be built in current configuration
-HAVE_opencv_signal:INTERNAL=ON
-//Module opencv_stereo will be built in current configuration
-HAVE_opencv_stereo:INTERNAL=ON
+//Module opencv_signal can not be built in current configuration
+HAVE_opencv_signal:INTERNAL=OFF
+//Module opencv_stereo can not be built in current configuration
+HAVE_opencv_stereo:INTERNAL=OFF
 //Module opencv_stitching will not be built in current configuration
 HAVE_opencv_stitching:INTERNAL=OFF
-//Module opencv_structured_light will be built in current configuration
-HAVE_opencv_structured_light:INTERNAL=ON
+//Module opencv_structured_light can not be built in current configuration
+HAVE_opencv_structured_light:INTERNAL=OFF
 //Module opencv_superres will not be built in current configuration
 HAVE_opencv_superres:INTERNAL=OFF
-//Module opencv_surface_matching will be built in current configuration
-HAVE_opencv_surface_matching:INTERNAL=ON
+//Module opencv_surface_matching can not be built in current configuration
+HAVE_opencv_surface_matching:INTERNAL=OFF
 //Module opencv_text can not be built in current configuration
 HAVE_opencv_text:INTERNAL=OFF
-//Module opencv_tracking will be built in current configuration
-HAVE_opencv_tracking:INTERNAL=ON
+//Module opencv_tracking can not be built in current configuration
+HAVE_opencv_tracking:INTERNAL=OFF
 //Module opencv_ts can not be built in current configuration
 HAVE_opencv_ts:INTERNAL=OFF
-//Module opencv_video will be built in current configuration
-HAVE_opencv_video:INTERNAL=ON
+//Module opencv_video can not be built in current configuration
+HAVE_opencv_video:INTERNAL=OFF
 //Module opencv_videoio will not be built in current configuration
 HAVE_opencv_videoio:INTERNAL=OFF
 //Module opencv_videostab will not be built in current configuration
 HAVE_opencv_videostab:INTERNAL=OFF
 //Module opencv_viz can not be built in current configuration
 HAVE_opencv_viz:INTERNAL=OFF
-//Module opencv_wechat_qrcode will be built in current configuration
-HAVE_opencv_wechat_qrcode:INTERNAL=ON
+//Module opencv_wechat_qrcode can not be built in current configuration
+HAVE_opencv_wechat_qrcode:INTERNAL=OFF
 //Module opencv_world will not be built in current configuration
 HAVE_opencv_world:INTERNAL=OFF
-//Module opencv_xfeatures2d will be built in current configuration
-HAVE_opencv_xfeatures2d:INTERNAL=ON
+//Module opencv_xfeatures2d can not be built in current configuration
+HAVE_opencv_xfeatures2d:INTERNAL=OFF
 //Module opencv_ximgproc can not be built in current configuration
 HAVE_opencv_ximgproc:INTERNAL=OFF
 //Module opencv_xobjdetect can not be built in current configuration
 HAVE_opencv_xobjdetect:INTERNAL=OFF
-//Module opencv_xphoto will be built in current configuration
-HAVE_opencv_xphoto:INTERNAL=ON
+//Module opencv_xphoto can not be built in current configuration
+HAVE_opencv_xphoto:INTERNAL=OFF
 //ADVANCED property for variable: HIGHGUI_ENABLE_PLUGINS
 HIGHGUI_ENABLE_PLUGINS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: HIGHGUI_PLUGIN_LIST
 HIGHGUI_PLUGIN_LIST-ADVANCED:INTERNAL=1
-//Test Iconv_IS_BUILT_IN
-Iconv_IS_BUILT_IN:INTERNAL=1
-OCV_DOWNLOAD_DATA_HASH_share_opencv4_testdata_cv_face_face_landmark_model_dat:INTERNAL=7505c44ca4eb54b4ab1e4777cb96ac05
-OCV_DOWNLOAD_WECHAT_QRCODE_HASH_downloads_wechat_qrcode_detect_caffemodel:INTERNAL=238e2b2d6f3c18d6c3a30de0c31e23cf
-OCV_DOWNLOAD_WECHAT_QRCODE_HASH_downloads_wechat_qrcode_detect_prototxt:INTERNAL=6fb4976b32695f9f5c6305c19f12537d
-OCV_DOWNLOAD_WECHAT_QRCODE_HASH_downloads_wechat_qrcode_sr_caffemodel:INTERNAL=cbfcd60361a73beb8c583eea7e8e6664
-OCV_DOWNLOAD_WECHAT_QRCODE_HASH_downloads_wechat_qrcode_sr_prototxt:INTERNAL=69db99927a70df953b471daaba03fbef
-OCV_DOWNLOAD_XFEATURES2D_BOOSTDESC_HASH_downloads_xfeatures2d_boostdesc_bgm_bi_i:INTERNAL=232c966b13651bd0e46a1497b0852191
-OCV_DOWNLOAD_XFEATURES2D_BOOSTDESC_HASH_downloads_xfeatures2d_boostdesc_bgm_hd_i:INTERNAL=324426a24fa56ad9c5b8e3e0b3e5303e
-OCV_DOWNLOAD_XFEATURES2D_BOOSTDESC_HASH_downloads_xfeatures2d_boostdesc_bgm_i:INTERNAL=0ea90e7a8f3f7876d450e4149c97c74f
-OCV_DOWNLOAD_XFEATURES2D_BOOSTDESC_HASH_downloads_xfeatures2d_boostdesc_binboost_064_i:INTERNAL=202e1b3e9fec871b04da31f7f016679f
-OCV_DOWNLOAD_XFEATURES2D_BOOSTDESC_HASH_downloads_xfeatures2d_boostdesc_binboost_128_i:INTERNAL=98ea99d399965c03d555cef3ea502a0b
-OCV_DOWNLOAD_XFEATURES2D_BOOSTDESC_HASH_downloads_xfeatures2d_boostdesc_binboost_256_i:INTERNAL=e6dcfa9f647779eb1ce446a8d759b6ea
-OCV_DOWNLOAD_XFEATURES2D_BOOSTDESC_HASH_downloads_xfeatures2d_boostdesc_lbgm_i:INTERNAL=0ae0675534aa318d9668f2a179c2a052
-OCV_DOWNLOAD_XFEATURES2D_VGG_HASH_downloads_xfeatures2d_vgg_generated_120_i:INTERNAL=151805e03568c9f490a5e3a872777b75
-OCV_DOWNLOAD_XFEATURES2D_VGG_HASH_downloads_xfeatures2d_vgg_generated_48_i:INTERNAL=e8d0dcd54d1bcfdc29203d011a797179
-OCV_DOWNLOAD_XFEATURES2D_VGG_HASH_downloads_xfeatures2d_vgg_generated_64_i:INTERNAL=7126a5d9a8884ebca5aea5d63d677225
-OCV_DOWNLOAD_XFEATURES2D_VGG_HASH_downloads_xfeatures2d_vgg_generated_80_i:INTERNAL=7cd47228edec52b6d82f46511af325c5
 //CHECK_TYPE_SIZE: off64_t unknown
 OFF64_T:INTERNAL=
 OPENCV_DEPHELPER:INTERNAL=/workspace/opencv/build_wasm/CMakeFiles/dephelper
@@ -2323,13 +1890,11 @@ OPENCV_DEPHELPER:INTERNAL=/workspace/opencv/build_wasm/CMakeFiles/dephelper
 OPENCV_DOWNLOAD_PARAMS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENCV_DOWNLOAD_TRIES_LIST
 OPENCV_DOWNLOAD_TRIES_LIST-ADVANCED:INTERNAL=1
-OPENCV_JAVA_BINDINGS_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/java_bindings_generator
-OPENCV_JAVA_SIGNATURES_FILE:INTERNAL=/workspace/opencv/build_wasm/modules/java_bindings_generator/opencv_java_signatures.json
 OPENCV_JS_BINDINGS_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/js_bindings_generator
 //List of OpenCV modules included into the build
-OPENCV_MODULES_BUILD:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_intensity_transform;opencv_phase_unwrapping;opencv_photo;opencv_plot;opencv_python_tests;opencv_reg;opencv_signal;opencv_surface_matching;opencv_xphoto;opencv_bioinspired;opencv_dnn;opencv_dnn_objdetect;opencv_dnn_superres;opencv_features2d;opencv_fuzzy;opencv_hfs;opencv_img_hash;opencv_line_descriptor;opencv_saliency;opencv_calib3d;opencv_mcc;opencv_objdetect;opencv_rapid;opencv_rgbd;opencv_structured_light;opencv_video;opencv_wechat_qrcode;opencv_xfeatures2d;opencv_aruco;opencv_bgsegm;opencv_dpm;opencv_face;opencv_js_bindings_generator;opencv_tracking;opencv_java_bindings_generator;opencv_js;opencv_objc_bindings_generator;opencv_stereo;opencv_python_bindings_generator
+OPENCV_MODULES_BUILD:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_features2d;opencv_calib3d;opencv_objdetect;opencv_aruco;opencv_js_bindings_generator;opencv_js
 //List of OpenCV modules implicitly disabled due to dependencies
-OPENCV_MODULES_DISABLED_AUTO:INTERNAL=opencv_ts;opencv_ccalib;opencv_datasets;opencv_optflow;opencv_quality;opencv_text;opencv_ximgproc;opencv_xobjdetect
+OPENCV_MODULES_DISABLED_AUTO:INTERNAL=opencv_dnn;opencv_java_bindings_generator;opencv_objc_bindings_generator;opencv_photo;opencv_python_bindings_generator;opencv_python_tests;opencv_ts;opencv_video;opencv_bgsegm;opencv_bioinspired;opencv_ccalib;opencv_datasets;opencv_dnn_objdetect;opencv_dnn_superres;opencv_dpm;opencv_face;opencv_fuzzy;opencv_hfs;opencv_img_hash;opencv_intensity_transform;opencv_line_descriptor;opencv_mcc;opencv_optflow;opencv_phase_unwrapping;opencv_plot;opencv_quality;opencv_rapid;opencv_reg;opencv_rgbd;opencv_saliency;opencv_signal;opencv_stereo;opencv_structured_light;opencv_surface_matching;opencv_text;opencv_tracking;opencv_wechat_qrcode;opencv_xfeatures2d;opencv_ximgproc;opencv_xobjdetect;opencv_xphoto
 //List of OpenCV modules which can not be build in current configuration
 OPENCV_MODULES_DISABLED_FORCE:INTERNAL=opencv_gapi;opencv_java;opencv_python2;opencv_python3;opencv_alphamat;opencv_cannops;opencv_cudaarithm;opencv_cudabgsegm;opencv_cudacodec;opencv_cudafeatures2d;opencv_cudafilters;opencv_cudaimgproc;opencv_cudalegacy;opencv_cudaobjdetect;opencv_cudaoptflow;opencv_cudastereo;opencv_cudawarping;opencv_cudev;opencv_cvv;opencv_fastcv;opencv_freetype;opencv_hdf;opencv_julia;opencv_matlab;opencv_ovis;opencv_sfm;opencv_viz
 //List of OpenCV modules explicitly disabled by user
@@ -2339,18 +1904,18 @@ OPENCV_MODULES_EXTRA:INTERNAL=alphamat;aruco;bgsegm;bioinspired;cannops;ccalib;c
 //List of main modules
 OPENCV_MODULES_MAIN:INTERNAL=core;imgproc;imgcodecs;videoio;highgui;video;calib3d;features2d;objdetect;dnn;ml;flann;photo;stitching;gapi;java;js;ts;world
 //List of OpenCV modules marked for export
-OPENCV_MODULES_PUBLIC:INTERNAL=opencv_calib3d;opencv_core;opencv_dnn;opencv_features2d;opencv_flann;opencv_imgproc;opencv_objdetect;opencv_photo;opencv_video;opencv_aruco;opencv_bgsegm;opencv_bioinspired;opencv_dnn_objdetect;opencv_dnn_superres;opencv_dpm;opencv_face;opencv_fuzzy;opencv_hfs;opencv_img_hash;opencv_intensity_transform;opencv_line_descriptor;opencv_mcc;opencv_phase_unwrapping;opencv_plot;opencv_rapid;opencv_reg;opencv_rgbd;opencv_saliency;opencv_signal;opencv_stereo;opencv_structured_light;opencv_surface_matching;opencv_tracking;opencv_wechat_qrcode;opencv_xfeatures2d;opencv_xphoto
+OPENCV_MODULES_PUBLIC:INTERNAL=opencv_calib3d;opencv_core;opencv_features2d;opencv_flann;opencv_imgproc;opencv_objdetect;opencv_aruco
 //Location of opencv_alphamat module sources
 OPENCV_MODULE_opencv_alphamat_LOCATION:INTERNAL=/workspace/opencv_contrib/modules/alphamat
 OPENCV_MODULE_opencv_aruco_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/aruco
 //The category of the module
 OPENCV_MODULE_opencv_aruco_CLASS:INTERNAL=PUBLIC
 //Flattened dependencies of opencv_aruco module
-OPENCV_MODULE_opencv_aruco_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_dnn;opencv_features2d;opencv_calib3d;opencv_objdetect
+OPENCV_MODULE_opencv_aruco_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_features2d;opencv_calib3d;opencv_objdetect
 //Extra dependencies of opencv_aruco module
 OPENCV_MODULE_opencv_aruco_DEPS_EXT:INTERNAL=
 //Flattened dependencies of opencv_aruco module (for linker)
-OPENCV_MODULE_opencv_aruco_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_dnn;opencv_features2d;opencv_calib3d;opencv_objdetect
+OPENCV_MODULE_opencv_aruco_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_features2d;opencv_calib3d;opencv_objdetect
 //Brief description of opencv_aruco module
 OPENCV_MODULE_opencv_aruco_DESCRIPTION:INTERNAL=ArUco Marker Detection
 //List of header files for opencv_aruco
@@ -2372,19 +1937,10 @@ OPENCV_MODULE_opencv_aruco_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_c
 OPENCV_MODULE_opencv_aruco_SOURCES:INTERNAL=/workspace/opencv_contrib/modules/aruco/src/aruco.cpp;/workspace/opencv_contrib/modules/aruco/src/aruco_calib.cpp;/workspace/opencv_contrib/modules/aruco/src/charuco.cpp;/workspace/opencv_contrib/modules/aruco/src/precomp.hpp
 //List of wrappers supporting module opencv_aruco
 OPENCV_MODULE_opencv_aruco_WRAPPERS:INTERNAL=python;java;objc;js
-OPENCV_MODULE_opencv_bgsegm_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/bgsegm
 //The category of the module
 OPENCV_MODULE_opencv_bgsegm_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_bgsegm module
-OPENCV_MODULE_opencv_bgsegm_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_dnn;opencv_features2d;opencv_calib3d;opencv_video
-//Extra dependencies of opencv_bgsegm module
-OPENCV_MODULE_opencv_bgsegm_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_bgsegm module (for linker)
-OPENCV_MODULE_opencv_bgsegm_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_dnn;opencv_features2d;opencv_calib3d;opencv_video
 //Brief description of opencv_bgsegm module
 OPENCV_MODULE_opencv_bgsegm_DESCRIPTION:INTERNAL=Background Segmentation Algorithms
-//List of header files for opencv_bgsegm
-OPENCV_MODULE_opencv_bgsegm_HEADERS:INTERNAL=/workspace/opencv_contrib/modules/bgsegm/include/opencv2/bgsegm.hpp
 OPENCV_MODULE_opencv_bgsegm_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_bgsegm_LABEL:INTERNAL=Extra;opencv_bgsegm
 OPENCV_MODULE_opencv_bgsegm_LINK_DEPS:INTERNAL=
@@ -2398,23 +1954,12 @@ OPENCV_MODULE_opencv_bgsegm_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_bgsegm_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_bgsegm module
 OPENCV_MODULE_opencv_bgsegm_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_video;opencv_calib3d
-//List of source files for opencv_bgsegm
-OPENCV_MODULE_opencv_bgsegm_SOURCES:INTERNAL=/workspace/opencv_contrib/modules/bgsegm/src/bgfg_gaussmix.cpp;/workspace/opencv_contrib/modules/bgsegm/src/bgfg_gmg.cpp;/workspace/opencv_contrib/modules/bgsegm/src/bgfg_gsoc.cpp;/workspace/opencv_contrib/modules/bgsegm/src/bgfg_subcnt.cpp;/workspace/opencv_contrib/modules/bgsegm/src/synthetic_seq.cpp;/workspace/opencv_contrib/modules/bgsegm/src/precomp.hpp
 //List of wrappers supporting module opencv_bgsegm
 OPENCV_MODULE_opencv_bgsegm_WRAPPERS:INTERNAL=python;java;objc
-OPENCV_MODULE_opencv_bioinspired_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/bioinspired
 //The category of the module
 OPENCV_MODULE_opencv_bioinspired_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_bioinspired module
-OPENCV_MODULE_opencv_bioinspired_DEPS:INTERNAL=opencv_core
-//Extra dependencies of opencv_bioinspired module
-OPENCV_MODULE_opencv_bioinspired_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_bioinspired module (for linker)
-OPENCV_MODULE_opencv_bioinspired_DEPS_TO_LINK:INTERNAL=opencv_core
 //Brief description of opencv_bioinspired module
 OPENCV_MODULE_opencv_bioinspired_DESCRIPTION:INTERNAL=Biologically inspired algorithms
-//List of header files for opencv_bioinspired
-OPENCV_MODULE_opencv_bioinspired_HEADERS:INTERNAL=/workspace/opencv_contrib/modules/bioinspired/include/opencv2/bioinspired.hpp;/workspace/opencv_contrib/modules/bioinspired/include/opencv2/bioinspired/bioinspired.hpp;/workspace/opencv_contrib/modules/bioinspired/include/opencv2/bioinspired/retina.hpp;/workspace/opencv_contrib/modules/bioinspired/include/opencv2/bioinspired/retinafasttonemapping.hpp;/workspace/opencv_contrib/modules/bioinspired/include/opencv2/bioinspired/transientareassegmentationmodule.hpp
 OPENCV_MODULE_opencv_bioinspired_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_bioinspired_LABEL:INTERNAL=Extra;opencv_bioinspired
 OPENCV_MODULE_opencv_bioinspired_LINK_DEPS:INTERNAL=
@@ -2428,8 +1973,6 @@ OPENCV_MODULE_opencv_bioinspired_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_bioinspired_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_bioinspired module
 OPENCV_MODULE_opencv_bioinspired_REQ_DEPS:INTERNAL=opencv_core
-//List of source files for opencv_bioinspired
-OPENCV_MODULE_opencv_bioinspired_SOURCES:INTERNAL=/workspace/opencv_contrib/modules/bioinspired/src/basicretinafilter.cpp;/workspace/opencv_contrib/modules/bioinspired/src/imagelogpolprojection.cpp;/workspace/opencv_contrib/modules/bioinspired/src/magnoretinafilter.cpp;/workspace/opencv_contrib/modules/bioinspired/src/parvoretinafilter.cpp;/workspace/opencv_contrib/modules/bioinspired/src/retina.cpp;/workspace/opencv_contrib/modules/bioinspired/src/retina_ocl.cpp;/workspace/opencv_contrib/modules/bioinspired/src/retinacolor.cpp;/workspace/opencv_contrib/modules/bioinspired/src/retinafasttonemapping.cpp;/workspace/opencv_contrib/modules/bioinspired/src/retinafilter.cpp;/workspace/opencv_contrib/modules/bioinspired/src/transientareassegmentationmodule.cpp;/workspace/opencv_contrib/modules/bioinspired/src/opencl/retina_kernel.cl;/workspace/opencv/build_wasm/modules/bioinspired/opencl_kernels_bioinspired.cpp;/workspace/opencv/build_wasm/modules/bioinspired/opencl_kernels_bioinspired.hpp;/workspace/opencv_contrib/modules/bioinspired/src/basicretinafilter.hpp;/workspace/opencv_contrib/modules/bioinspired/src/imagelogpolprojection.hpp;/workspace/opencv_contrib/modules/bioinspired/src/magnoretinafilter.hpp;/workspace/opencv_contrib/modules/bioinspired/src/parvoretinafilter.hpp;/workspace/opencv_contrib/modules/bioinspired/src/precomp.hpp;/workspace/opencv_contrib/modules/bioinspired/src/retina_ocl.hpp;/workspace/opencv_contrib/modules/bioinspired/src/retinacolor.hpp;/workspace/opencv_contrib/modules/bioinspired/src/retinafilter.hpp;/workspace/opencv_contrib/modules/bioinspired/src/templatebuffer.hpp
 //List of wrappers supporting module opencv_bioinspired
 OPENCV_MODULE_opencv_bioinspired_WRAPPERS:INTERNAL=java;objc;python
 OPENCV_MODULE_opencv_calib3d_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/calib3d
@@ -2558,22 +2101,13 @@ OPENCV_MODULE_opencv_datasets_PRIVATE_REQ_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_datasets_REQ_DEPS:INTERNAL=opencv_core;opencv_imgcodecs;opencv_ml;opencv_flann
 //List of wrappers supporting module opencv_datasets
 OPENCV_MODULE_opencv_datasets_WRAPPERS:INTERNAL=python
-OPENCV_MODULE_opencv_dnn_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/dnn
 //The category of the module
 OPENCV_MODULE_opencv_dnn_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_dnn module
-OPENCV_MODULE_opencv_dnn_DEPS:INTERNAL=opencv_core;opencv_imgproc
-//Extra dependencies of opencv_dnn module
-OPENCV_MODULE_opencv_dnn_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_dnn module (for linker)
-OPENCV_MODULE_opencv_dnn_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_imgproc
 //Brief description of opencv_dnn module
 OPENCV_MODULE_opencv_dnn_DESCRIPTION:INTERNAL=Deep neural network module. It allows to load models from different frameworks and to make forward pass
-//List of header files for opencv_dnn
-OPENCV_MODULE_opencv_dnn_HEADERS:INTERNAL=/workspace/opencv/modules/dnn/include/opencv2/dnn.hpp;/workspace/opencv/modules/dnn/include/opencv2/dnn/all_layers.hpp;/workspace/opencv/modules/dnn/include/opencv2/dnn/dict.hpp;/workspace/opencv/modules/dnn/include/opencv2/dnn/dnn.hpp;/workspace/opencv/modules/dnn/include/opencv2/dnn/dnn.inl.hpp;/workspace/opencv/modules/dnn/include/opencv2/dnn/layer.details.hpp;/workspace/opencv/modules/dnn/include/opencv2/dnn/layer.hpp;/workspace/opencv/modules/dnn/include/opencv2/dnn/layer_reg.private.hpp;/workspace/opencv/modules/dnn/include/opencv2/dnn/shape_utils.hpp;/workspace/opencv/modules/dnn/include/opencv2/dnn/utils/debug_utils.hpp;/workspace/opencv/modules/dnn/include/opencv2/dnn/utils/inference_engine.hpp;/workspace/opencv/modules/dnn/include/opencv2/dnn/version.hpp
 OPENCV_MODULE_opencv_dnn_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_dnn_LABEL:INTERNAL=Main;opencv_dnn
-OPENCV_MODULE_opencv_dnn_LINK_DEPS:INTERNAL=;ocv.3rdparty.flatbuffers;libprotobuf
+OPENCV_MODULE_opencv_dnn_LINK_DEPS:INTERNAL=
 //Location of opencv_dnn module sources
 OPENCV_MODULE_opencv_dnn_LOCATION:INTERNAL=/workspace/opencv/modules/dnn
 //Optional dependencies of opencv_dnn module
@@ -2584,23 +2118,12 @@ OPENCV_MODULE_opencv_dnn_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_dnn_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_dnn module
 OPENCV_MODULE_opencv_dnn_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc
-//List of source files for opencv_dnn
-OPENCV_MODULE_opencv_dnn_SOURCES:INTERNAL=/workspace/opencv/modules/dnn/misc/caffe/opencv-caffe.pb.cc;/workspace/opencv/modules/dnn/misc/onnx/opencv-onnx.pb.cc;/workspace/opencv/modules/dnn/misc/tensorflow/attr_value.pb.cc;/workspace/opencv/modules/dnn/misc/tensorflow/function.pb.cc;/workspace/opencv/modules/dnn/misc/tensorflow/graph.pb.cc;/workspace/opencv/modules/dnn/misc/tensorflow/op_def.pb.cc;/workspace/opencv/modules/dnn/misc/tensorflow/tensor.pb.cc;/workspace/opencv/modules/dnn/misc/tensorflow/tensor_shape.pb.cc;/workspace/opencv/modules/dnn/misc/tensorflow/types.pb.cc;/workspace/opencv/modules/dnn/misc/tensorflow/versions.pb.cc;/workspace/opencv/modules/dnn/src/backend.cpp;/workspace/opencv/modules/dnn/src/caffe/caffe_importer.cpp;/workspace/opencv/modules/dnn/src/caffe/caffe_io.cpp;/workspace/opencv/modules/dnn/src/caffe/caffe_shrinker.cpp;/workspace/opencv/modules/dnn/src/darknet/darknet_importer.cpp;/workspace/opencv/modules/dnn/src/darknet/darknet_io.cpp;/workspace/opencv/modules/dnn/src/debug_utils.cpp;/workspace/opencv/modules/dnn/src/dnn.cpp;/workspace/opencv/modules/dnn/src/dnn_params.cpp;/workspace/opencv/modules/dnn/src/dnn_read.cpp;/workspace/opencv/modules/dnn/src/dnn_utils.cpp;/workspace/opencv/modules/dnn/src/graph_simplifier.cpp;/workspace/opencv/modules/dnn/src/halide_scheduler.cpp;/workspace/opencv/modules/dnn/src/ie_ngraph.cpp;/workspace/opencv/modules/dnn/src/init.cpp;/workspace/opencv/modules/dnn/src/int8layers/batch_norm_layer.cpp;/workspace/opencv/modules/dnn/src/int8layers/convolution_layer.cpp;/workspace/opencv/modules/dnn/src/int8layers/elementwise_layers.cpp;/workspace/opencv/modules/dnn/src/int8layers/eltwise_layer.cpp;/workspace/opencv/modules/dnn/src/int8layers/fully_connected_layer.cpp;/workspace/opencv/modules/dnn/src/int8layers/layers_rvp052.cpp;/workspace/opencv/modules/dnn/src/int8layers/pooling_layer.cpp;/workspace/opencv/modules/dnn/src/int8layers/quantization_utils.cpp;/workspace/opencv/modules/dnn/src/int8layers/scale_layer.cpp;/workspace/opencv/modules/dnn/src/int8layers/softmax_layer.cpp;/workspace/opencv/modules/dnn/src/layer.cpp;/workspace/opencv/modules/dnn/src/layer_factory.cpp;/workspace/opencv/modules/dnn/src/layers/accum_layer.cpp;/workspace/opencv/modules/dnn/src/layers/arg_layer.cpp;/workspace/opencv/modules/dnn/src/layers/attention_layer.cpp;/workspace/opencv/modules/dnn/src/layers/batch_norm_layer.cpp;/workspace/opencv/modules/dnn/src/layers/blank_layer.cpp;/workspace/opencv/modules/dnn/src/layers/concat_layer.cpp;/workspace/opencv/modules/dnn/src/layers/const_layer.cpp;/workspace/opencv/modules/dnn/src/layers/convolution_layer.cpp;/workspace/opencv/modules/dnn/src/layers/correlation_layer.cpp;/workspace/opencv/modules/dnn/src/layers/cpu_kernels/conv_depthwise.cpp;/workspace/opencv/modules/dnn/src/layers/cpu_kernels/conv_winograd_f63.cpp;/workspace/opencv/modules/dnn/src/layers/cpu_kernels/conv_winograd_f63.dispatch.cpp;/workspace/opencv/modules/dnn/src/layers/cpu_kernels/convolution.cpp;/workspace/opencv/modules/dnn/src/layers/cpu_kernels/fast_gemm.cpp;/workspace/opencv/modules/dnn/src/layers/cpu_kernels/fast_norm.cpp;/workspace/opencv/modules/dnn/src/layers/cpu_kernels/softmax.cpp;/workspace/opencv/modules/dnn/src/layers/crop_and_resize_layer.cpp;/workspace/opencv/modules/dnn/src/layers/cumsum_layer.cpp;/workspace/opencv/modules/dnn/src/layers/depth_space_ops_layer.cpp;/workspace/opencv/modules/dnn/src/layers/detection_output_layer.cpp;/workspace/opencv/modules/dnn/src/layers/einsum_layer.cpp;/workspace/opencv/modules/dnn/src/layers/elementwise_layers.cpp;/workspace/opencv/modules/dnn/src/layers/eltwise_layer.cpp;/workspace/opencv/modules/dnn/src/layers/expand_layer.cpp;/workspace/opencv/modules/dnn/src/layers/flatten_layer.cpp;/workspace/opencv/modules/dnn/src/layers/flow_warp_layer.cpp;/workspace/opencv/modules/dnn/src/layers/fully_connected_layer.cpp;/workspace/opencv/modules/dnn/src/layers/gather_elements_layer.cpp;/workspace/opencv/modules/dnn/src/layers/gather_layer.cpp;/workspace/opencv/modules/dnn/src/layers/gemm_layer.cpp;/workspace/opencv/modules/dnn/src/layers/group_norm_layer.cpp;/workspace/opencv/modules/dnn/src/layers/instance_norm_layer.cpp;/workspace/opencv/modules/dnn/src/layers/layer_norm.cpp;/workspace/opencv/modules/dnn/src/layers/layers_common.cpp;/workspace/opencv/modules/dnn/src/layers/lrn_layer.cpp;/workspace/opencv/modules/dnn/src/layers/matmul_layer.cpp;/workspace/opencv/modules/dnn/src/layers/max_unpooling_layer.cpp;/workspace/opencv/modules/dnn/src/layers/mvn_layer.cpp;/workspace/opencv/modules/dnn/src/layers/nary_eltwise_layers.cpp;/workspace/opencv/modules/dnn/src/layers/normalize_bbox_layer.cpp;/workspace/opencv/modules/dnn/src/layers/not_implemented_layer.cpp;/workspace/opencv/modules/dnn/src/layers/padding_layer.cpp;/workspace/opencv/modules/dnn/src/layers/permute_layer.cpp;/workspace/opencv/modules/dnn/src/layers/pooling_layer.cpp;/workspace/opencv/modules/dnn/src/layers/prior_box_layer.cpp;/workspace/opencv/modules/dnn/src/layers/proposal_layer.cpp;/workspace/opencv/modules/dnn/src/layers/recurrent_layers.cpp;/workspace/opencv/modules/dnn/src/layers/reduce_layer.cpp;/workspace/opencv/modules/dnn/src/layers/region_layer.cpp;/workspace/opencv/modules/dnn/src/layers/reorg_layer.cpp;/workspace/opencv/modules/dnn/src/layers/reshape_layer.cpp;/workspace/opencv/modules/dnn/src/layers/resize_layer.cpp;/workspace/opencv/modules/dnn/src/layers/scale_layer.cpp;/workspace/opencv/modules/dnn/src/layers/scatterND_layer.cpp;/workspace/opencv/modules/dnn/src/layers/scatter_layer.cpp;/workspace/opencv/modules/dnn/src/layers/shuffle_channel_layer.cpp;/workspace/opencv/modules/dnn/src/layers/slice_layer.cpp;/workspace/opencv/modules/dnn/src/layers/softmax_layer.cpp;/workspace/opencv/modules/dnn/src/layers/split_layer.cpp;/workspace/opencv/modules/dnn/src/layers/tile_layer.cpp;/workspace/opencv/modules/dnn/src/layers/topk_layer.cpp;/workspace/opencv/modules/dnn/src/legacy_backend.cpp;/workspace/opencv/modules/dnn/src/model.cpp;/workspace/opencv/modules/dnn/src/net.cpp;/workspace/opencv/modules/dnn/src/net_cann.cpp;/workspace/opencv/modules/dnn/src/net_impl.cpp;/workspace/opencv/modules/dnn/src/net_impl_backend.cpp;/workspace/opencv/modules/dnn/src/net_impl_fuse.cpp;/workspace/opencv/modules/dnn/src/net_openvino.cpp;/workspace/opencv/modules/dnn/src/net_quantization.cpp;/workspace/opencv/modules/dnn/src/nms.cpp;/workspace/opencv/modules/dnn/src/onnx/onnx_graph_simplifier.cpp;/workspace/opencv/modules/dnn/src/onnx/onnx_importer.cpp;/workspace/opencv/modules/dnn/src/op_cann.cpp;/workspace/opencv/modules/dnn/src/op_cuda.cpp;/workspace/opencv/modules/dnn/src/op_halide.cpp;/workspace/opencv/modules/dnn/src/op_inf_engine.cpp;/workspace/opencv/modules/dnn/src/op_timvx.cpp;/workspace/opencv/modules/dnn/src/op_vkcom.cpp;/workspace/opencv/modules/dnn/src/op_webnn.cpp;/workspace/opencv/modules/dnn/src/registry.cpp;/workspace/opencv/modules/dnn/src/tensorflow/tf_graph_simplifier.cpp;/workspace/opencv/modules/dnn/src/tensorflow/tf_importer.cpp;/workspace/opencv/modules/dnn/src/tensorflow/tf_io.cpp;/workspace/opencv/modules/dnn/src/tflite/tflite_importer.cpp;/workspace/opencv/modules/dnn/src/torch/THDiskFile.cpp;/workspace/opencv/modules/dnn/src/torch/THFile.cpp;/workspace/opencv/modules/dnn/src/torch/THGeneral.cpp;/workspace/opencv/modules/dnn/src/torch/torch_importer.cpp;/workspace/opencv/modules/dnn/src/vkcom/shader/conv_1x1_fast_spv.cpp;/workspace/opencv/modules/dnn/src/vkcom/shader/conv_depthwise_3x3_spv.cpp;/workspace/opencv/modules/dnn/src/vkcom/shader/conv_depthwise_spv.cpp;/workspace/opencv/modules/dnn/src/vkcom/shader/conv_implicit_gemm_spv.cpp;/workspace/opencv/modules/dnn/src/vkcom/shader/gemm_spv.cpp;/workspace/opencv/modules/dnn/src/vkcom/shader/nary_eltwise_binary_forward_spv.cpp;/workspace/opencv/modules/dnn/src/vkcom/shader/spv_shader.cpp;/workspace/opencv/modules/dnn/src/vkcom/src/buffer.cpp;/workspace/opencv/modules/dnn/src/vkcom/src/command.cpp;/workspace/opencv/modules/dnn/src/vkcom/src/context.cpp;/workspace/opencv/modules/dnn/src/vkcom/src/fence.cpp;/workspace/opencv/modules/dnn/src/vkcom/src/internal.cpp;/workspace/opencv/modules/dnn/src/vkcom/src/op_base.cpp;/workspace/opencv/modules/dnn/src/vkcom/src/op_conv.cpp;/workspace/opencv/modules/dnn/src/vkcom/src/op_matmul.cpp;/workspace/opencv/modules/dnn/src/vkcom/src/op_naryEltwise.cpp;/workspace/opencv/modules/dnn/src/vkcom/src/pipeline.cpp;/workspace/opencv/modules/dnn/src/vkcom/src/tensor.cpp;/workspace/opencv/modules/dnn/src/vkcom/vulkan/vk_functions.cpp;/workspace/opencv/modules/dnn/src/vkcom/vulkan/vk_loader.cpp;/workspace/opencv/modules/dnn/src/backend.hpp;/workspace/opencv/modules/dnn/src/caffe/caffe_io.hpp;/workspace/opencv/modules/dnn/src/caffe/glog_emulator.hpp;/workspace/opencv/modules/dnn/src/cuda/array.hpp;/workspace/opencv/modules/dnn/src/cuda/atomics.hpp;/workspace/opencv/modules/dnn/src/cuda/bbox_utils.hpp;/workspace/opencv/modules/dnn/src/cuda/block_stride_range.hpp;/workspace/opencv/modules/dnn/src/cuda/execution.hpp;/workspace/opencv/modules/dnn/src/cuda/functors.hpp;/workspace/opencv/modules/dnn/src/cuda/grid_stride_range.hpp;/workspace/opencv/modules/dnn/src/cuda/index_helpers.hpp;/workspace/opencv/modules/dnn/src/cuda/kernel_dispatcher.hpp;/workspace/opencv/modules/dnn/src/cuda/limits.hpp;/workspace/opencv/modules/dnn/src/cuda/math.hpp;/workspace/opencv/modules/dnn/src/cuda/memory.hpp;/workspace/opencv/modules/dnn/src/cuda/types.hpp;/workspace/opencv/modules/dnn/src/cuda/vector_traits.hpp;/workspace/opencv/modules/dnn/src/darknet/darknet_io.hpp;/workspace/opencv/modules/dnn/src/dnn_common.hpp;/workspace/opencv/modules/dnn/src/factory.hpp;/workspace/opencv/modules/dnn/src/graph_simplifier.hpp;/workspace/opencv/modules/dnn/src/halide_scheduler.hpp;/workspace/opencv/modules/dnn/src/ie_ngraph.hpp;/workspace/opencv/modules/dnn/src/int8layers/layers_common.hpp;/workspace/opencv/modules/dnn/src/int8layers/layers_common.simd.hpp;/workspace/opencv/modules/dnn/src/int8layers/layers_rvp052.hpp;/workspace/opencv/modules/dnn/src/layer_internals.hpp;/workspace/opencv/modules/dnn/src/layers/cpu_kernels/conv_block.simd.hpp;/workspace/opencv/modules/dnn/src/layers/cpu_kernels/conv_depthwise.simd.hpp;/workspace/opencv/modules/dnn/src/layers/cpu_kernels/conv_winograd_f63.simd.hpp;/workspace/opencv/modules/dnn/src/layers/cpu_kernels/convolution.hpp;/workspace/opencv/modules/dnn/src/layers/cpu_kernels/fast_gemm.hpp;/workspace/opencv/modules/dnn/src/layers/cpu_kernels/fast_gemm_kernels.default.hpp;/workspace/opencv/modules/dnn/src/layers/cpu_kernels/fast_gemm_kernels.simd.hpp;/workspace/opencv/modules/dnn/src/layers/cpu_kernels/fast_norm.hpp;/workspace/opencv/modules/dnn/src/layers/cpu_kernels/softmax.hpp;/workspace/opencv/modules/dnn/src/layers/layers_common.hpp;/workspace/opencv/modules/dnn/src/layers/layers_common.simd.hpp;/workspace/opencv/modules/dnn/src/legacy_backend.hpp;/workspace/opencv/modules/dnn/src/math_utils.hpp;/workspace/opencv/modules/dnn/src/net_impl.hpp;/workspace/opencv/modules/dnn/src/nms.inl.hpp;/workspace/opencv/modules/dnn/src/onnx/onnx_graph_simplifier.hpp;/workspace/opencv/modules/dnn/src/op_cann.hpp;/workspace/opencv/modules/dnn/src/op_cuda.hpp;/workspace/opencv/modules/dnn/src/op_halide.hpp;/workspace/opencv/modules/dnn/src/op_inf_engine.hpp;/workspace/opencv/modules/dnn/src/op_timvx.hpp;/workspace/opencv/modules/dnn/src/op_vkcom.hpp;/workspace/opencv/modules/dnn/src/op_webnn.hpp;/workspace/opencv/modules/dnn/src/plugin_api.hpp;/workspace/opencv/modules/dnn/src/plugin_wrapper.impl.hpp;/workspace/opencv/modules/dnn/src/precomp.hpp;/workspace/opencv/modules/dnn/src/tensorflow/tf_graph_simplifier.hpp;/workspace/opencv/modules/dnn/src/tensorflow/tf_io.hpp;/workspace/opencv/modules/dnn/src/tflite/builtin_op_data.h;/workspace/opencv/modules/dnn/src/torch/THDiskFile.h;/workspace/opencv/modules/dnn/src/torch/THFile.h;/workspace/opencv/modules/dnn/src/torch/THFilePrivate.h;/workspace/opencv/modules/dnn/src/torch/THGeneral.h;/workspace/opencv/modules/dnn/src/vkcom/include/buffer.hpp;/workspace/opencv/modules/dnn/src/vkcom/include/command.hpp;/workspace/opencv/modules/dnn/src/vkcom/include/context.hpp;/workspace/opencv/modules/dnn/src/vkcom/include/fence.hpp;/workspace/opencv/modules/dnn/src/vkcom/include/op_base.hpp;/workspace/opencv/modules/dnn/src/vkcom/include/op_conv.hpp;/workspace/opencv/modules/dnn/src/vkcom/include/op_matmul.hpp;/workspace/opencv/modules/dnn/src/vkcom/include/op_naryeltwise.hpp;/workspace/opencv/modules/dnn/src/vkcom/include/pipeline.hpp;/workspace/opencv/modules/dnn/src/vkcom/include/tensor.hpp;/workspace/opencv/modules/dnn/src/vkcom/include/vkcom.hpp;/workspace/opencv/modules/dnn/src/vkcom/shader/spv_shader.hpp;/workspace/opencv/modules/dnn/src/vkcom/src/internal.hpp;/workspace/opencv/modules/dnn/src/vkcom/vulkan/function_list.inl.hpp;/workspace/opencv/modules/dnn/src/vkcom/vulkan/vk_functions.hpp;/workspace/opencv/modules/dnn/src/vkcom/vulkan/vk_loader.hpp
 //List of wrappers supporting module opencv_dnn
 OPENCV_MODULE_opencv_dnn_WRAPPERS:INTERNAL=python;java;objc;js
-OPENCV_MODULE_opencv_dnn_objdetect_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/dnn_objdetect
 //The category of the module
 OPENCV_MODULE_opencv_dnn_objdetect_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_dnn_objdetect module
-OPENCV_MODULE_opencv_dnn_objdetect_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_dnn
-//Extra dependencies of opencv_dnn_objdetect module
-OPENCV_MODULE_opencv_dnn_objdetect_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_dnn_objdetect module (for linker)
-OPENCV_MODULE_opencv_dnn_objdetect_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_imgproc;opencv_dnn
 //Brief description of opencv_dnn_objdetect module
 OPENCV_MODULE_opencv_dnn_objdetect_DESCRIPTION:INTERNAL=Object Detection using CNNs
-//List of header files for opencv_dnn_objdetect
-OPENCV_MODULE_opencv_dnn_objdetect_HEADERS:INTERNAL=/workspace/opencv_contrib/modules/dnn_objdetect/include/opencv2/core_detect.hpp
 OPENCV_MODULE_opencv_dnn_objdetect_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_dnn_objdetect_LABEL:INTERNAL=Extra;opencv_dnn_objdetect
 OPENCV_MODULE_opencv_dnn_objdetect_LINK_DEPS:INTERNAL=
@@ -2614,23 +2137,12 @@ OPENCV_MODULE_opencv_dnn_objdetect_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_dnn_objdetect_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_dnn_objdetect module
 OPENCV_MODULE_opencv_dnn_objdetect_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_dnn
-//List of source files for opencv_dnn_objdetect
-OPENCV_MODULE_opencv_dnn_objdetect_SOURCES:INTERNAL=/workspace/opencv_contrib/modules/dnn_objdetect/src/core_detect.cpp;/workspace/opencv_contrib/modules/dnn_objdetect/src/precomp.hpp
 //List of wrappers supporting module opencv_dnn_objdetect
 OPENCV_MODULE_opencv_dnn_objdetect_WRAPPERS:INTERNAL=
-OPENCV_MODULE_opencv_dnn_superres_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/dnn_superres
 //The category of the module
 OPENCV_MODULE_opencv_dnn_superres_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_dnn_superres module
-OPENCV_MODULE_opencv_dnn_superres_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_dnn
-//Extra dependencies of opencv_dnn_superres module
-OPENCV_MODULE_opencv_dnn_superres_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_dnn_superres module (for linker)
-OPENCV_MODULE_opencv_dnn_superres_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_imgproc;opencv_dnn
 //Brief description of opencv_dnn_superres module
 OPENCV_MODULE_opencv_dnn_superres_DESCRIPTION:INTERNAL=Super Resolution using CNNs
-//List of header files for opencv_dnn_superres
-OPENCV_MODULE_opencv_dnn_superres_HEADERS:INTERNAL=/workspace/opencv_contrib/modules/dnn_superres/include/opencv2/dnn_superres.hpp
 OPENCV_MODULE_opencv_dnn_superres_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_dnn_superres_LABEL:INTERNAL=Extra;opencv_dnn_superres
 OPENCV_MODULE_opencv_dnn_superres_LINK_DEPS:INTERNAL=
@@ -2644,23 +2156,12 @@ OPENCV_MODULE_opencv_dnn_superres_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_dnn_superres_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_dnn_superres module
 OPENCV_MODULE_opencv_dnn_superres_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_dnn
-//List of source files for opencv_dnn_superres
-OPENCV_MODULE_opencv_dnn_superres_SOURCES:INTERNAL=/workspace/opencv_contrib/modules/dnn_superres/src/dnn_superres.cpp;/workspace/opencv_contrib/modules/dnn_superres/src/precomp.hpp
 //List of wrappers supporting module opencv_dnn_superres
 OPENCV_MODULE_opencv_dnn_superres_WRAPPERS:INTERNAL=python;java
-OPENCV_MODULE_opencv_dpm_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/dpm
 //The category of the module
 OPENCV_MODULE_opencv_dpm_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_dpm module
-OPENCV_MODULE_opencv_dpm_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_dnn;opencv_features2d;opencv_calib3d;opencv_objdetect
-//Extra dependencies of opencv_dpm module
-OPENCV_MODULE_opencv_dpm_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_dpm module (for linker)
-OPENCV_MODULE_opencv_dpm_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_dnn;opencv_features2d;opencv_calib3d;opencv_objdetect
 //Brief description of opencv_dpm module
 OPENCV_MODULE_opencv_dpm_DESCRIPTION:INTERNAL=Object Detection
-//List of header files for opencv_dpm
-OPENCV_MODULE_opencv_dpm_HEADERS:INTERNAL=/workspace/opencv_contrib/modules/dpm/include/opencv2/dpm.hpp
 OPENCV_MODULE_opencv_dpm_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_dpm_LABEL:INTERNAL=Extra;opencv_dpm
 OPENCV_MODULE_opencv_dpm_LINK_DEPS:INTERNAL=
@@ -2674,23 +2175,12 @@ OPENCV_MODULE_opencv_dpm_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_dpm_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_dpm module
 OPENCV_MODULE_opencv_dpm_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_objdetect
-//List of source files for opencv_dpm
-OPENCV_MODULE_opencv_dpm_SOURCES:INTERNAL=/workspace/opencv_contrib/modules/dpm/src/dpm_cascade.cpp;/workspace/opencv_contrib/modules/dpm/src/dpm_cascade_detector.cpp;/workspace/opencv_contrib/modules/dpm/src/dpm_convolution.cpp;/workspace/opencv_contrib/modules/dpm/src/dpm_feature.cpp;/workspace/opencv_contrib/modules/dpm/src/dpm_model.cpp;/workspace/opencv_contrib/modules/dpm/src/dpm_nms.cpp;/workspace/opencv_contrib/modules/dpm/src/dpm_cascade.hpp;/workspace/opencv_contrib/modules/dpm/src/dpm_convolution.hpp;/workspace/opencv_contrib/modules/dpm/src/dpm_feature.hpp;/workspace/opencv_contrib/modules/dpm/src/dpm_model.hpp;/workspace/opencv_contrib/modules/dpm/src/dpm_nms.hpp;/workspace/opencv_contrib/modules/dpm/src/precomp.hpp
 //List of wrappers supporting module opencv_dpm
 OPENCV_MODULE_opencv_dpm_WRAPPERS:INTERNAL=python
-OPENCV_MODULE_opencv_face_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/face
 //The category of the module
 OPENCV_MODULE_opencv_face_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_face module
-OPENCV_MODULE_opencv_face_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_photo;opencv_dnn;opencv_features2d;opencv_calib3d;opencv_objdetect
-//Extra dependencies of opencv_face module
-OPENCV_MODULE_opencv_face_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_face module (for linker)
-OPENCV_MODULE_opencv_face_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_photo;opencv_dnn;opencv_features2d;opencv_calib3d;opencv_objdetect
 //Brief description of opencv_face module
 OPENCV_MODULE_opencv_face_DESCRIPTION:INTERNAL=Face recognition etc
-//List of header files for opencv_face
-OPENCV_MODULE_opencv_face_HEADERS:INTERNAL=/workspace/opencv_contrib/modules/face/include/opencv2/face.hpp;/workspace/opencv_contrib/modules/face/include/opencv2/face/bif.hpp;/workspace/opencv_contrib/modules/face/include/opencv2/face/face_alignment.hpp;/workspace/opencv_contrib/modules/face/include/opencv2/face/facemark.hpp;/workspace/opencv_contrib/modules/face/include/opencv2/face/facemarkAAM.hpp;/workspace/opencv_contrib/modules/face/include/opencv2/face/facemarkLBF.hpp;/workspace/opencv_contrib/modules/face/include/opencv2/face/facemark_train.hpp;/workspace/opencv_contrib/modules/face/include/opencv2/face/facerec.hpp;/workspace/opencv_contrib/modules/face/include/opencv2/face/mace.hpp;/workspace/opencv_contrib/modules/face/include/opencv2/face/predict_collector.hpp
 OPENCV_MODULE_opencv_face_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_face_LABEL:INTERNAL=Extra;opencv_face
 OPENCV_MODULE_opencv_face_LINK_DEPS:INTERNAL=
@@ -2704,8 +2194,6 @@ OPENCV_MODULE_opencv_face_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_face_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_face module
 OPENCV_MODULE_opencv_face_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_objdetect;opencv_calib3d;opencv_photo
-//List of source files for opencv_face
-OPENCV_MODULE_opencv_face_SOURCES:INTERNAL=/workspace/opencv_contrib/modules/face/src/bif.cpp;/workspace/opencv_contrib/modules/face/src/eigen_faces.cpp;/workspace/opencv_contrib/modules/face/src/face_alignment.cpp;/workspace/opencv_contrib/modules/face/src/face_basic.cpp;/workspace/opencv_contrib/modules/face/src/facemark.cpp;/workspace/opencv_contrib/modules/face/src/facemarkAAM.cpp;/workspace/opencv_contrib/modules/face/src/facemarkLBF.cpp;/workspace/opencv_contrib/modules/face/src/facerec.cpp;/workspace/opencv_contrib/modules/face/src/fisher_faces.cpp;/workspace/opencv_contrib/modules/face/src/getlandmarks.cpp;/workspace/opencv_contrib/modules/face/src/lbph_faces.cpp;/workspace/opencv_contrib/modules/face/src/mace.cpp;/workspace/opencv_contrib/modules/face/src/predict_collector.cpp;/workspace/opencv_contrib/modules/face/src/regtree.cpp;/workspace/opencv_contrib/modules/face/src/trainFacemark.cpp;/workspace/opencv_contrib/modules/face/src/face_alignmentimpl.hpp;/workspace/opencv_contrib/modules/face/src/face_utils.hpp;/workspace/opencv_contrib/modules/face/src/precomp.hpp
 //List of wrappers supporting module opencv_face
 OPENCV_MODULE_opencv_face_WRAPPERS:INTERNAL=python;java;objc
 //Location of opencv_fastcv module sources
@@ -2772,19 +2260,10 @@ OPENCV_MODULE_opencv_flann_SOURCES:INTERNAL=/workspace/opencv/modules/flann/src/
 OPENCV_MODULE_opencv_flann_WRAPPERS:INTERNAL=python
 //Location of opencv_freetype module sources
 OPENCV_MODULE_opencv_freetype_LOCATION:INTERNAL=/workspace/opencv_contrib/modules/freetype
-OPENCV_MODULE_opencv_fuzzy_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/fuzzy
 //The category of the module
 OPENCV_MODULE_opencv_fuzzy_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_fuzzy module
-OPENCV_MODULE_opencv_fuzzy_DEPS:INTERNAL=opencv_core;opencv_imgproc
-//Extra dependencies of opencv_fuzzy module
-OPENCV_MODULE_opencv_fuzzy_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_fuzzy module (for linker)
-OPENCV_MODULE_opencv_fuzzy_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_imgproc
 //Brief description of opencv_fuzzy module
 OPENCV_MODULE_opencv_fuzzy_DESCRIPTION:INTERNAL=Fuzzy mathematical image processing
-//List of header files for opencv_fuzzy
-OPENCV_MODULE_opencv_fuzzy_HEADERS:INTERNAL=/workspace/opencv_contrib/modules/fuzzy/include/opencv2/fuzzy.hpp;/workspace/opencv_contrib/modules/fuzzy/include/opencv2/fuzzy/fuzzy_F0_math.hpp;/workspace/opencv_contrib/modules/fuzzy/include/opencv2/fuzzy/fuzzy_F1_math.hpp;/workspace/opencv_contrib/modules/fuzzy/include/opencv2/fuzzy/fuzzy_image.hpp;/workspace/opencv_contrib/modules/fuzzy/include/opencv2/fuzzy/types.hpp
 OPENCV_MODULE_opencv_fuzzy_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_fuzzy_LABEL:INTERNAL=Extra;opencv_fuzzy
 OPENCV_MODULE_opencv_fuzzy_LINK_DEPS:INTERNAL=
@@ -2798,27 +2277,16 @@ OPENCV_MODULE_opencv_fuzzy_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_fuzzy_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_fuzzy module
 OPENCV_MODULE_opencv_fuzzy_REQ_DEPS:INTERNAL=opencv_imgproc;opencv_core
-//List of source files for opencv_fuzzy
-OPENCV_MODULE_opencv_fuzzy_SOURCES:INTERNAL=/workspace/opencv_contrib/modules/fuzzy/src/fuzzy_F0_math.cpp;/workspace/opencv_contrib/modules/fuzzy/src/fuzzy_F1_math.cpp;/workspace/opencv_contrib/modules/fuzzy/src/fuzzy_image.cpp;/workspace/opencv_contrib/modules/fuzzy/src/precomp.hpp
 //List of wrappers supporting module opencv_fuzzy
 OPENCV_MODULE_opencv_fuzzy_WRAPPERS:INTERNAL=python
 //Location of opencv_gapi module sources
 OPENCV_MODULE_opencv_gapi_LOCATION:INTERNAL=/workspace/opencv/modules/gapi
 //Location of opencv_hdf module sources
 OPENCV_MODULE_opencv_hdf_LOCATION:INTERNAL=/workspace/opencv_contrib/modules/hdf
-OPENCV_MODULE_opencv_hfs_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/hfs
 //The category of the module
 OPENCV_MODULE_opencv_hfs_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_hfs module
-OPENCV_MODULE_opencv_hfs_DEPS:INTERNAL=opencv_core;opencv_imgproc
-//Extra dependencies of opencv_hfs module
-OPENCV_MODULE_opencv_hfs_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_hfs module (for linker)
-OPENCV_MODULE_opencv_hfs_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_imgproc
 //Brief description of opencv_hfs module
 OPENCV_MODULE_opencv_hfs_DESCRIPTION:INTERNAL=Hierarchical Feature Selection for Efficient Image Segmentation
-//List of header files for opencv_hfs
-OPENCV_MODULE_opencv_hfs_HEADERS:INTERNAL=/workspace/opencv_contrib/modules/hfs/include/opencv2/hfs.hpp
 OPENCV_MODULE_opencv_hfs_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_hfs_LABEL:INTERNAL=Extra;opencv_hfs
 OPENCV_MODULE_opencv_hfs_LINK_DEPS:INTERNAL=
@@ -2832,8 +2300,6 @@ OPENCV_MODULE_opencv_hfs_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_hfs_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_hfs module
 OPENCV_MODULE_opencv_hfs_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc
-//List of source files for opencv_hfs
-OPENCV_MODULE_opencv_hfs_SOURCES:INTERNAL=/workspace/opencv_contrib/modules/hfs/src/hfs.cpp;/workspace/opencv_contrib/modules/hfs/src/hfs_core.cpp;/workspace/opencv_contrib/modules/hfs/src/magnitude/magnitude.cpp;/workspace/opencv_contrib/modules/hfs/src/merge/merge.cpp;/workspace/opencv_contrib/modules/hfs/src/slic/gslic_engine.cpp;/workspace/opencv_contrib/modules/hfs/src/slic/slic.cpp;/workspace/opencv_contrib/modules/hfs/src/hfs_core.hpp;/workspace/opencv_contrib/modules/hfs/src/magnitude/magnitude.hpp;/workspace/opencv_contrib/modules/hfs/src/merge/merge.hpp;/workspace/opencv_contrib/modules/hfs/src/or_utils/or_image.hpp;/workspace/opencv_contrib/modules/hfs/src/or_utils/or_memory_block.hpp;/workspace/opencv_contrib/modules/hfs/src/or_utils/or_types.hpp;/workspace/opencv_contrib/modules/hfs/src/or_utils/or_vector.hpp;/workspace/opencv_contrib/modules/hfs/src/precomp.hpp;/workspace/opencv_contrib/modules/hfs/src/slic/slic.hpp
 //List of wrappers supporting module opencv_hfs
 OPENCV_MODULE_opencv_hfs_WRAPPERS:INTERNAL=python
 //The category of the module
@@ -2855,19 +2321,10 @@ OPENCV_MODULE_opencv_highgui_PRIVATE_REQ_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_highgui_REQ_DEPS:INTERNAL=opencv_imgproc
 //List of wrappers supporting module opencv_highgui
 OPENCV_MODULE_opencv_highgui_WRAPPERS:INTERNAL=python;java
-OPENCV_MODULE_opencv_img_hash_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/img_hash
 //The category of the module
 OPENCV_MODULE_opencv_img_hash_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_img_hash module
-OPENCV_MODULE_opencv_img_hash_DEPS:INTERNAL=opencv_core;opencv_imgproc
-//Extra dependencies of opencv_img_hash module
-OPENCV_MODULE_opencv_img_hash_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_img_hash module (for linker)
-OPENCV_MODULE_opencv_img_hash_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_imgproc
 //Brief description of opencv_img_hash module
 OPENCV_MODULE_opencv_img_hash_DESCRIPTION:INTERNAL=Image hash algorithms
-//List of header files for opencv_img_hash
-OPENCV_MODULE_opencv_img_hash_HEADERS:INTERNAL=/workspace/opencv_contrib/modules/img_hash/include/opencv2/img_hash.hpp;/workspace/opencv_contrib/modules/img_hash/include/opencv2/img_hash/average_hash.hpp;/workspace/opencv_contrib/modules/img_hash/include/opencv2/img_hash/block_mean_hash.hpp;/workspace/opencv_contrib/modules/img_hash/include/opencv2/img_hash/color_moment_hash.hpp;/workspace/opencv_contrib/modules/img_hash/include/opencv2/img_hash/img_hash_base.hpp;/workspace/opencv_contrib/modules/img_hash/include/opencv2/img_hash/marr_hildreth_hash.hpp;/workspace/opencv_contrib/modules/img_hash/include/opencv2/img_hash/phash.hpp;/workspace/opencv_contrib/modules/img_hash/include/opencv2/img_hash/radial_variance_hash.hpp
 OPENCV_MODULE_opencv_img_hash_IS_PART_OF_WORLD:INTERNAL=OFF
 OPENCV_MODULE_opencv_img_hash_LABEL:INTERNAL=Extra;opencv_img_hash
 OPENCV_MODULE_opencv_img_hash_LINK_DEPS:INTERNAL=
@@ -2881,8 +2338,6 @@ OPENCV_MODULE_opencv_img_hash_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_img_hash_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_img_hash module
 OPENCV_MODULE_opencv_img_hash_REQ_DEPS:INTERNAL=opencv_imgproc;opencv_core
-//List of source files for opencv_img_hash
-OPENCV_MODULE_opencv_img_hash_SOURCES:INTERNAL=/workspace/opencv_contrib/modules/img_hash/src/average_hash.cpp;/workspace/opencv_contrib/modules/img_hash/src/block_mean_hash.cpp;/workspace/opencv_contrib/modules/img_hash/src/color_moment_hash.cpp;/workspace/opencv_contrib/modules/img_hash/src/img_hash_base.cpp;/workspace/opencv_contrib/modules/img_hash/src/marr_hildreth_hash.cpp;/workspace/opencv_contrib/modules/img_hash/src/phash.cpp;/workspace/opencv_contrib/modules/img_hash/src/radial_variance_hash.cpp;/workspace/opencv_contrib/modules/img_hash/src/precomp.hpp
 //List of wrappers supporting module opencv_img_hash
 OPENCV_MODULE_opencv_img_hash_WRAPPERS:INTERNAL=python;java;objc
 //The category of the module
@@ -2934,20 +2389,10 @@ OPENCV_MODULE_opencv_imgproc_REQ_DEPS:INTERNAL=opencv_core
 OPENCV_MODULE_opencv_imgproc_SOURCES:INTERNAL=/workspace/opencv/modules/imgproc/src/accum.cpp;/workspace/opencv/modules/imgproc/src/accum.dispatch.cpp;/workspace/opencv/modules/imgproc/src/approx.cpp;/workspace/opencv/modules/imgproc/src/bilateral_filter.dispatch.cpp;/workspace/opencv/modules/imgproc/src/blend.cpp;/workspace/opencv/modules/imgproc/src/box_filter.dispatch.cpp;/workspace/opencv/modules/imgproc/src/canny.cpp;/workspace/opencv/modules/imgproc/src/clahe.cpp;/workspace/opencv/modules/imgproc/src/color.cpp;/workspace/opencv/modules/imgproc/src/color_hsv.dispatch.cpp;/workspace/opencv/modules/imgproc/src/color_lab.cpp;/workspace/opencv/modules/imgproc/src/color_rgb.dispatch.cpp;/workspace/opencv/modules/imgproc/src/color_yuv.dispatch.cpp;/workspace/opencv/modules/imgproc/src/colormap.cpp;/workspace/opencv/modules/imgproc/src/connectedcomponents.cpp;/workspace/opencv/modules/imgproc/src/contours.cpp;/workspace/opencv/modules/imgproc/src/contours_approx.cpp;/workspace/opencv/modules/imgproc/src/contours_common.cpp;/workspace/opencv/modules/imgproc/src/contours_link.cpp;/workspace/opencv/modules/imgproc/src/contours_new.cpp;/workspace/opencv/modules/imgproc/src/convhull.cpp;/workspace/opencv/modules/imgproc/src/corner.cpp;/workspace/opencv/modules/imgproc/src/cornersubpix.cpp;/workspace/opencv/modules/imgproc/src/demosaicing.cpp;/workspace/opencv/modules/imgproc/src/deriv.cpp;/workspace/opencv/modules/imgproc/src/distransform.cpp;/workspace/opencv/modules/imgproc/src/drawing.cpp;/workspace/opencv/modules/imgproc/src/emd.cpp;/workspace/opencv/modules/imgproc/src/emd_new.cpp;/workspace/opencv/modules/imgproc/src/featureselect.cpp;/workspace/opencv/modules/imgproc/src/filter.dispatch.cpp;/workspace/opencv/modules/imgproc/src/floodfill.cpp;/workspace/opencv/modules/imgproc/src/gabor.cpp;/workspace/opencv/modules/imgproc/src/generalized_hough.cpp;/workspace/opencv/modules/imgproc/src/geometry.cpp;/workspace/opencv/modules/imgproc/src/grabcut.cpp;/workspace/opencv/modules/imgproc/src/hershey_fonts.cpp;/workspace/opencv/modules/imgproc/src/histogram.cpp;/workspace/opencv/modules/imgproc/src/hough.cpp;/workspace/opencv/modules/imgproc/src/imgwarp.cpp;/workspace/opencv/modules/imgproc/src/intelligent_scissors.cpp;/workspace/opencv/modules/imgproc/src/intersection.cpp;/workspace/opencv/modules/imgproc/src/linefit.cpp;/workspace/opencv/modules/imgproc/src/lsd.cpp;/workspace/opencv/modules/imgproc/src/main.cpp;/workspace/opencv/modules/imgproc/src/matchcontours.cpp;/workspace/opencv/modules/imgproc/src/median_blur.dispatch.cpp;/workspace/opencv/modules/imgproc/src/min_enclosing_triangle.cpp;/workspace/opencv/modules/imgproc/src/moments.cpp;/workspace/opencv/modules/imgproc/src/morph.dispatch.cpp;/workspace/opencv/modules/imgproc/src/phasecorr.cpp;/workspace/opencv/modules/imgproc/src/pyramids.cpp;/workspace/opencv/modules/imgproc/src/resize.cpp;/workspace/opencv/modules/imgproc/src/rotcalipers.cpp;/workspace/opencv/modules/imgproc/src/samplers.cpp;/workspace/opencv/modules/imgproc/src/segmentation.cpp;/workspace/opencv/modules/imgproc/src/shapedescr.cpp;/workspace/opencv/modules/imgproc/src/smooth.dispatch.cpp;/workspace/opencv/modules/imgproc/src/spatialgradient.cpp;/workspace/opencv/modules/imgproc/src/stackblur.cpp;/workspace/opencv/modules/imgproc/src/subdivision2d.cpp;/workspace/opencv/modules/imgproc/src/sumpixels.dispatch.cpp;/workspace/opencv/modules/imgproc/src/tables.cpp;/workspace/opencv/modules/imgproc/src/templmatch.cpp;/workspace/opencv/modules/imgproc/src/thresh.cpp;/workspace/opencv/modules/imgproc/src/utils.cpp;/workspace/opencv/modules/imgproc/src/opencl/accumulate.cl;/workspace/opencv/modules/imgproc/src/opencl/bilateral.cl;/workspace/opencv/modules/imgproc/src/opencl/blend_linear.cl;/workspace/opencv/modules/imgproc/src/opencl/boxFilter.cl;/workspace/opencv/modules/imgproc/src/opencl/boxFilter3x3.cl;/workspace/opencv/modules/imgproc/src/opencl/calc_back_project.cl;/workspace/opencv/modules/imgproc/src/opencl/canny.cl;/workspace/opencv/modules/imgproc/src/opencl/clahe.cl;/workspace/opencv/modules/imgproc/src/opencl/color_hsv.cl;/workspace/opencv/modules/imgproc/src/opencl/color_lab.cl;/workspace/opencv/modules/imgproc/src/opencl/color_rgb.cl;/workspace/opencv/modules/imgproc/src/opencl/color_yuv.cl;/workspace/opencv/modules/imgproc/src/opencl/corner.cl;/workspace/opencv/modules/imgproc/src/opencl/covardata.cl;/workspace/opencv/modules/imgproc/src/opencl/filter2D.cl;/workspace/opencv/modules/imgproc/src/opencl/filter2DSmall.cl;/workspace/opencv/modules/imgproc/src/opencl/filterSepCol.cl;/workspace/opencv/modules/imgproc/src/opencl/filterSepRow.cl;/workspace/opencv/modules/imgproc/src/opencl/filterSep_singlePass.cl;/workspace/opencv/modules/imgproc/src/opencl/filterSmall.cl;/workspace/opencv/modules/imgproc/src/opencl/gaussianBlur3x3.cl;/workspace/opencv/modules/imgproc/src/opencl/gaussianBlur5x5.cl;/workspace/opencv/modules/imgproc/src/opencl/gftt.cl;/workspace/opencv/modules/imgproc/src/opencl/histogram.cl;/workspace/opencv/modules/imgproc/src/opencl/hough_lines.cl;/workspace/opencv/modules/imgproc/src/opencl/integral_sum.cl;/workspace/opencv/modules/imgproc/src/opencl/laplacian3.cl;/workspace/opencv/modules/imgproc/src/opencl/laplacian5.cl;/workspace/opencv/modules/imgproc/src/opencl/linearPolar.cl;/workspace/opencv/modules/imgproc/src/opencl/logPolar.cl;/workspace/opencv/modules/imgproc/src/opencl/match_template.cl;/workspace/opencv/modules/imgproc/src/opencl/medianFilter.cl;/workspace/opencv/modules/imgproc/src/opencl/moments.cl;/workspace/opencv/modules/imgproc/src/opencl/morph.cl;/workspace/opencv/modules/imgproc/src/opencl/morph3x3.cl;/workspace/opencv/modules/imgproc/src/opencl/precornerdetect.cl;/workspace/opencv/modules/imgproc/src/opencl/pyr_down.cl;/workspace/opencv/modules/imgproc/src/opencl/pyr_up.cl;/workspace/opencv/modules/imgproc/src/opencl/pyramid_up.cl;/workspace/opencv/modules/imgproc/src/opencl/remap.cl;/workspace/opencv/modules/imgproc/src/opencl/resize.cl;/workspace/opencv/modules/imgproc/src/opencl/sepFilter3x3.cl;/workspace/opencv/modules/imgproc/src/opencl/threshold.cl;/workspace/opencv/modules/imgproc/src/opencl/threshold_mask.cl;/workspace/opencv/modules/imgproc/src/opencl/warp_affine.cl;/workspace/opencv/modules/imgproc/src/opencl/warp_perspective.cl;/workspace/opencv/modules/imgproc/src/opencl/warp_transform.cl;/workspace/opencv/build_wasm/modules/imgproc/opencl_kernels_imgproc.cpp;/workspace/opencv/build_wasm/modules/imgproc/opencl_kernels_imgproc.hpp;/workspace/opencv/modules/imgproc/src/_geom.h;/workspace/opencv/modules/imgproc/src/accum.simd.hpp;/workspace/opencv/modules/imgproc/src/bilateral_filter.simd.hpp;/workspace/opencv/modules/imgproc/src/box_filter.simd.hpp;/workspace/opencv/modules/imgproc/src/ccl_bolelli_forest.inc.hpp;/workspace/opencv/modules/imgproc/src/ccl_bolelli_forest_firstline.inc.hpp;/workspace/opencv/modules/imgproc/src/ccl_bolelli_forest_lastline.inc.hpp;/workspace/opencv/modules/imgproc/src/ccl_bolelli_forest_singleline.inc.hpp;/workspace/opencv/modules/imgproc/src/color.hpp;/workspace/opencv/modules/imgproc/src/color.simd_helpers.hpp;/workspace/opencv/modules/imgproc/src/color_hsv.simd.hpp;/workspace/opencv/modules/imgproc/src/color_rgb.simd.hpp;/workspace/opencv/modules/imgproc/src/color_yuv.simd.hpp;/workspace/opencv/modules/imgproc/src/contours_blockstorage.hpp;/workspace/opencv/modules/imgproc/src/contours_common.hpp;/workspace/opencv/modules/imgproc/src/corner.hpp;/workspace/opencv/modules/imgproc/src/filter.hpp;/workspace/opencv/modules/imgproc/src/filter.simd.hpp;/workspace/opencv/modules/imgproc/src/filterengine.hpp;/workspace/opencv/modules/imgproc/src/fixedpoint.inl.hpp;/workspace/opencv/modules/imgproc/src/hal_replacement.hpp;/workspace/opencv/modules/imgproc/src/imgwarp.hpp;/workspace/opencv/modules/imgproc/src/median_blur.simd.hpp;/workspace/opencv/modules/imgproc/src/morph.simd.hpp;/workspace/opencv/modules/imgproc/src/precomp.hpp;/workspace/opencv/modules/imgproc/src/resize.hpp;/workspace/opencv/modules/imgproc/src/smooth.simd.hpp;/workspace/opencv/modules/imgproc/src/sumpixels.avx512_skx.hpp;/workspace/opencv/modules/imgproc/src/sumpixels.simd.hpp
 //List of wrappers supporting module opencv_imgproc
 OPENCV_MODULE_opencv_imgproc_WRAPPERS:INTERNAL=java;objc;python;js
-OPENCV_MODULE_opencv_intensity_transform_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/intensity_transform
 //The category of the module
 OPENCV_MODULE_opencv_intensity_transform_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_intensity_transform module
-OPENCV_MODULE_opencv_intensity_transform_DEPS:INTERNAL=opencv_core;opencv_imgproc
-//Extra dependencies of opencv_intensity_transform module
-OPENCV_MODULE_opencv_intensity_transform_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_intensity_transform module (for
-// linker)
-OPENCV_MODULE_opencv_intensity_transform_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_imgproc
 //Brief description of opencv_intensity_transform module
 OPENCV_MODULE_opencv_intensity_transform_DESCRIPTION:INTERNAL=Intensity transformations
-//List of header files for opencv_intensity_transform
-OPENCV_MODULE_opencv_intensity_transform_HEADERS:INTERNAL=/workspace/opencv_contrib/modules/intensity_transform/include/opencv2/intensity_transform.hpp
 OPENCV_MODULE_opencv_intensity_transform_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_intensity_transform_LABEL:INTERNAL=Extra;opencv_intensity_transform
 OPENCV_MODULE_opencv_intensity_transform_LINK_DEPS:INTERNAL=
@@ -2961,14 +2406,12 @@ OPENCV_MODULE_opencv_intensity_transform_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_intensity_transform_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_intensity_transform module
 OPENCV_MODULE_opencv_intensity_transform_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc
-//List of source files for opencv_intensity_transform
-OPENCV_MODULE_opencv_intensity_transform_SOURCES:INTERNAL=/workspace/opencv_contrib/modules/intensity_transform/src/bimef.cpp;/workspace/opencv_contrib/modules/intensity_transform/src/intensity_transform.cpp;/workspace/opencv_contrib/modules/intensity_transform/src/precomp.hpp
 //List of wrappers supporting module opencv_intensity_transform
 OPENCV_MODULE_opencv_intensity_transform_WRAPPERS:INTERNAL=python
 //Location of opencv_java module sources
 OPENCV_MODULE_opencv_java_LOCATION:INTERNAL=/workspace/opencv/modules/java
 //Optional dependencies of opencv_java module
-OPENCV_MODULE_opencv_java_OPT_DEPS:INTERNAL=opencv_calib3d;opencv_core;opencv_dnn;opencv_features2d;opencv_imgproc;opencv_objdetect;opencv_photo;opencv_video;opencv_aruco;opencv_bgsegm;opencv_bioinspired;opencv_dnn_superres;opencv_face;opencv_img_hash;opencv_phase_unwrapping;opencv_plot;opencv_structured_light;opencv_text;opencv_tracking;opencv_wechat_qrcode;opencv_xfeatures2d;opencv_ximgproc;opencv_xphoto
+OPENCV_MODULE_opencv_java_OPT_DEPS:INTERNAL=opencv_calib3d;opencv_core;opencv_features2d;opencv_imgproc;opencv_objdetect;opencv_aruco
 //Optional private dependencies of opencv_java module
 OPENCV_MODULE_opencv_java_PRIVATE_OPT_DEPS:INTERNAL=
 //Required private dependencies of opencv_java module
@@ -2977,16 +2420,8 @@ OPENCV_MODULE_opencv_java_PRIVATE_REQ_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_java_REQ_DEPS:INTERNAL=
 //List of wrappers supporting module opencv_java
 OPENCV_MODULE_opencv_java_WRAPPERS:INTERNAL=
-OPENCV_MODULE_opencv_java_bindings_generator_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/java_bindings_generator
 //The category of the module
 OPENCV_MODULE_opencv_java_bindings_generator_CLASS:INTERNAL=INTERNAL
-//Flattened dependencies of opencv_java_bindings_generator module
-OPENCV_MODULE_opencv_java_bindings_generator_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_phase_unwrapping;opencv_photo;opencv_plot;opencv_xphoto;opencv_bioinspired;opencv_dnn;opencv_dnn_superres;opencv_features2d;opencv_img_hash;opencv_calib3d;opencv_objdetect;opencv_structured_light;opencv_video;opencv_wechat_qrcode;opencv_xfeatures2d;opencv_aruco;opencv_bgsegm;opencv_face;opencv_tracking
-//Extra dependencies of opencv_java_bindings_generator module
-OPENCV_MODULE_opencv_java_bindings_generator_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_java_bindings_generator module
-// (for linker)
-OPENCV_MODULE_opencv_java_bindings_generator_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_phase_unwrapping;opencv_photo;opencv_plot;opencv_xphoto;opencv_bioinspired;opencv_dnn;opencv_dnn_superres;opencv_features2d;opencv_img_hash;opencv_calib3d;opencv_objdetect;opencv_structured_light;opencv_video;opencv_wechat_qrcode;opencv_xfeatures2d;opencv_aruco;opencv_bgsegm;opencv_face;opencv_tracking
 //Brief description of opencv_java_bindings_generator module
 OPENCV_MODULE_opencv_java_bindings_generator_DESCRIPTION:INTERNAL=The java_bindings_generator OpenCV module
 OPENCV_MODULE_opencv_java_bindings_generator_IS_PART_OF_WORLD:INTERNAL=OFF
@@ -2995,7 +2430,7 @@ OPENCV_MODULE_opencv_java_bindings_generator_LINK_DEPS:INTERNAL=
 //Location of opencv_java_bindings_generator module sources
 OPENCV_MODULE_opencv_java_bindings_generator_LOCATION:INTERNAL=/workspace/opencv/modules/java/generator
 //Optional dependencies of opencv_java_bindings_generator module
-OPENCV_MODULE_opencv_java_bindings_generator_OPT_DEPS:INTERNAL=opencv_calib3d;opencv_core;opencv_dnn;opencv_features2d;opencv_imgproc;opencv_objdetect;opencv_photo;opencv_video;opencv_aruco;opencv_bgsegm;opencv_bioinspired;opencv_dnn_superres;opencv_face;opencv_img_hash;opencv_phase_unwrapping;opencv_plot;opencv_structured_light;opencv_text;opencv_tracking;opencv_wechat_qrcode;opencv_xfeatures2d;opencv_ximgproc;opencv_xphoto
+OPENCV_MODULE_opencv_java_bindings_generator_OPT_DEPS:INTERNAL=opencv_calib3d;opencv_core;opencv_features2d;opencv_imgproc;opencv_objdetect;opencv_aruco
 //Optional private dependencies of opencv_java_bindings_generator
 // module
 OPENCV_MODULE_opencv_java_bindings_generator_PRIVATE_OPT_DEPS:INTERNAL=
@@ -3010,11 +2445,11 @@ OPENCV_MODULE_opencv_js_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules
 //The category of the module
 OPENCV_MODULE_opencv_js_CLASS:INTERNAL=BINDINGS
 //Flattened dependencies of opencv_js module
-OPENCV_MODULE_opencv_js_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_photo;opencv_dnn;opencv_features2d;opencv_calib3d;opencv_objdetect;opencv_video;opencv_wechat_qrcode;opencv_aruco;opencv_js_bindings_generator
+OPENCV_MODULE_opencv_js_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_features2d;opencv_calib3d;opencv_objdetect;opencv_aruco;opencv_js_bindings_generator
 //Extra dependencies of opencv_js module
 OPENCV_MODULE_opencv_js_DEPS_EXT:INTERNAL=
 //Flattened dependencies of opencv_js module (for linker)
-OPENCV_MODULE_opencv_js_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_photo;opencv_dnn;opencv_features2d;opencv_calib3d;opencv_objdetect;opencv_video;opencv_wechat_qrcode;opencv_aruco;opencv_js_bindings_generator
+OPENCV_MODULE_opencv_js_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_features2d;opencv_calib3d;opencv_objdetect;opencv_aruco;opencv_js_bindings_generator
 //Brief description of opencv_js module
 OPENCV_MODULE_opencv_js_DESCRIPTION:INTERNAL=The JavaScript(JS) bindings
 OPENCV_MODULE_opencv_js_IS_PART_OF_WORLD:INTERNAL=OFF
@@ -3023,7 +2458,7 @@ OPENCV_MODULE_opencv_js_LINK_DEPS:INTERNAL=
 //Location of opencv_js module sources
 OPENCV_MODULE_opencv_js_LOCATION:INTERNAL=/workspace/opencv/modules/js
 //Optional dependencies of opencv_js module
-OPENCV_MODULE_opencv_js_OPT_DEPS:INTERNAL=opencv_calib3d;opencv_core;opencv_dnn;opencv_features2d;opencv_imgproc;opencv_objdetect;opencv_photo;opencv_video;opencv_aruco;opencv_wechat_qrcode
+OPENCV_MODULE_opencv_js_OPT_DEPS:INTERNAL=opencv_calib3d;opencv_core;opencv_features2d;opencv_imgproc;opencv_objdetect;opencv_aruco
 //Optional private dependencies of opencv_js module
 OPENCV_MODULE_opencv_js_PRIVATE_OPT_DEPS:INTERNAL=
 //Required private dependencies of opencv_js module
@@ -3036,12 +2471,12 @@ OPENCV_MODULE_opencv_js_bindings_generator_BINARY_DIR:INTERNAL=/workspace/opencv
 //The category of the module
 OPENCV_MODULE_opencv_js_bindings_generator_CLASS:INTERNAL=INTERNAL
 //Flattened dependencies of opencv_js_bindings_generator module
-OPENCV_MODULE_opencv_js_bindings_generator_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_photo;opencv_dnn;opencv_features2d;opencv_calib3d;opencv_objdetect;opencv_video;opencv_wechat_qrcode;opencv_aruco
+OPENCV_MODULE_opencv_js_bindings_generator_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_features2d;opencv_calib3d;opencv_objdetect;opencv_aruco
 //Extra dependencies of opencv_js_bindings_generator module
 OPENCV_MODULE_opencv_js_bindings_generator_DEPS_EXT:INTERNAL=
 //Flattened dependencies of opencv_js_bindings_generator module
 // (for linker)
-OPENCV_MODULE_opencv_js_bindings_generator_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_photo;opencv_dnn;opencv_features2d;opencv_calib3d;opencv_objdetect;opencv_video;opencv_wechat_qrcode;opencv_aruco
+OPENCV_MODULE_opencv_js_bindings_generator_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_features2d;opencv_calib3d;opencv_objdetect;opencv_aruco
 //Brief description of opencv_js_bindings_generator module
 OPENCV_MODULE_opencv_js_bindings_generator_DESCRIPTION:INTERNAL=The js_bindings_generator OpenCV module
 OPENCV_MODULE_opencv_js_bindings_generator_IS_PART_OF_WORLD:INTERNAL=OFF
@@ -3050,7 +2485,7 @@ OPENCV_MODULE_opencv_js_bindings_generator_LINK_DEPS:INTERNAL=
 //Location of opencv_js_bindings_generator module sources
 OPENCV_MODULE_opencv_js_bindings_generator_LOCATION:INTERNAL=/workspace/opencv/modules/js/generator
 //Optional dependencies of opencv_js_bindings_generator module
-OPENCV_MODULE_opencv_js_bindings_generator_OPT_DEPS:INTERNAL=opencv_calib3d;opencv_core;opencv_dnn;opencv_features2d;opencv_imgproc;opencv_objdetect;opencv_photo;opencv_video;opencv_aruco;opencv_wechat_qrcode
+OPENCV_MODULE_opencv_js_bindings_generator_OPT_DEPS:INTERNAL=opencv_calib3d;opencv_core;opencv_features2d;opencv_imgproc;opencv_objdetect;opencv_aruco
 //Optional private dependencies of opencv_js_bindings_generator
 // module
 OPENCV_MODULE_opencv_js_bindings_generator_PRIVATE_OPT_DEPS:INTERNAL=
@@ -3063,20 +2498,10 @@ OPENCV_MODULE_opencv_js_bindings_generator_REQ_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_js_bindings_generator_WRAPPERS:INTERNAL=
 //Location of opencv_julia module sources
 OPENCV_MODULE_opencv_julia_LOCATION:INTERNAL=/workspace/opencv_contrib/modules/julia
-OPENCV_MODULE_opencv_line_descriptor_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/line_descriptor
 //The category of the module
 OPENCV_MODULE_opencv_line_descriptor_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_line_descriptor module
-OPENCV_MODULE_opencv_line_descriptor_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_features2d
-//Extra dependencies of opencv_line_descriptor module
-OPENCV_MODULE_opencv_line_descriptor_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_line_descriptor module (for
-// linker)
-OPENCV_MODULE_opencv_line_descriptor_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_features2d
 //Brief description of opencv_line_descriptor module
 OPENCV_MODULE_opencv_line_descriptor_DESCRIPTION:INTERNAL=Line descriptor
-//List of header files for opencv_line_descriptor
-OPENCV_MODULE_opencv_line_descriptor_HEADERS:INTERNAL=/workspace/opencv_contrib/modules/line_descriptor/include/opencv2/line_descriptor.hpp;/workspace/opencv_contrib/modules/line_descriptor/include/opencv2/line_descriptor/descriptor.hpp
 OPENCV_MODULE_opencv_line_descriptor_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_line_descriptor_LABEL:INTERNAL=Extra;opencv_line_descriptor
 OPENCV_MODULE_opencv_line_descriptor_LINK_DEPS:INTERNAL=
@@ -3090,25 +2515,14 @@ OPENCV_MODULE_opencv_line_descriptor_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_line_descriptor_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_line_descriptor module
 OPENCV_MODULE_opencv_line_descriptor_REQ_DEPS:INTERNAL=opencv_imgproc
-//List of source files for opencv_line_descriptor
-OPENCV_MODULE_opencv_line_descriptor_SOURCES:INTERNAL=/workspace/opencv_contrib/modules/line_descriptor/src/LSDDetector.cpp;/workspace/opencv_contrib/modules/line_descriptor/src/binary_descriptor.cpp;/workspace/opencv_contrib/modules/line_descriptor/src/binary_descriptor_matcher.cpp;/workspace/opencv_contrib/modules/line_descriptor/src/draw.cpp;/workspace/opencv_contrib/modules/line_descriptor/src/bitarray.hpp;/workspace/opencv_contrib/modules/line_descriptor/src/bitops.hpp;/workspace/opencv_contrib/modules/line_descriptor/src/precomp.hpp;/workspace/opencv_contrib/modules/line_descriptor/src/types.hpp
 //List of wrappers supporting module opencv_line_descriptor
 OPENCV_MODULE_opencv_line_descriptor_WRAPPERS:INTERNAL=python
 //Location of opencv_matlab module sources
 OPENCV_MODULE_opencv_matlab_LOCATION:INTERNAL=/workspace/opencv_contrib/modules/matlab
-OPENCV_MODULE_opencv_mcc_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/mcc
 //The category of the module
 OPENCV_MODULE_opencv_mcc_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_mcc module
-OPENCV_MODULE_opencv_mcc_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_dnn;opencv_features2d;opencv_calib3d
-//Extra dependencies of opencv_mcc module
-OPENCV_MODULE_opencv_mcc_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_mcc module (for linker)
-OPENCV_MODULE_opencv_mcc_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_dnn;opencv_features2d;opencv_calib3d
 //Brief description of opencv_mcc module
 OPENCV_MODULE_opencv_mcc_DESCRIPTION:INTERNAL=Macbeth Chart Detection
-//List of header files for opencv_mcc
-OPENCV_MODULE_opencv_mcc_HEADERS:INTERNAL=/workspace/opencv_contrib/modules/mcc/include/opencv2/mcc.hpp;/workspace/opencv_contrib/modules/mcc/include/opencv2/mcc/ccm.hpp;/workspace/opencv_contrib/modules/mcc/include/opencv2/mcc/checker_detector.hpp;/workspace/opencv_contrib/modules/mcc/include/opencv2/mcc/checker_model.hpp
 OPENCV_MODULE_opencv_mcc_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_mcc_LABEL:INTERNAL=Extra;opencv_mcc
 OPENCV_MODULE_opencv_mcc_LINK_DEPS:INTERNAL=
@@ -3122,8 +2536,6 @@ OPENCV_MODULE_opencv_mcc_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_mcc_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_mcc module
 OPENCV_MODULE_opencv_mcc_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_calib3d;opencv_dnn
-//List of source files for opencv_mcc
-OPENCV_MODULE_opencv_mcc_SOURCES:INTERNAL=/workspace/opencv_contrib/modules/mcc/src/bound_min.cpp;/workspace/opencv_contrib/modules/mcc/src/ccm.cpp;/workspace/opencv_contrib/modules/mcc/src/charts.cpp;/workspace/opencv_contrib/modules/mcc/src/checker_detector.cpp;/workspace/opencv_contrib/modules/mcc/src/checker_model.cpp;/workspace/opencv_contrib/modules/mcc/src/color.cpp;/workspace/opencv_contrib/modules/mcc/src/colorspace.cpp;/workspace/opencv_contrib/modules/mcc/src/common.cpp;/workspace/opencv_contrib/modules/mcc/src/debug.cpp;/workspace/opencv_contrib/modules/mcc/src/distance.cpp;/workspace/opencv_contrib/modules/mcc/src/graph_cluster.cpp;/workspace/opencv_contrib/modules/mcc/src/io.cpp;/workspace/opencv_contrib/modules/mcc/src/linearize.cpp;/workspace/opencv_contrib/modules/mcc/src/mcc.cpp;/workspace/opencv_contrib/modules/mcc/src/operations.cpp;/workspace/opencv_contrib/modules/mcc/src/utils.cpp;/workspace/opencv_contrib/modules/mcc/src/wiener_filter.cpp;/workspace/opencv_contrib/modules/mcc/src/bound_min.hpp;/workspace/opencv_contrib/modules/mcc/src/charts.hpp;/workspace/opencv_contrib/modules/mcc/src/checker_detector.hpp;/workspace/opencv_contrib/modules/mcc/src/checker_model.hpp;/workspace/opencv_contrib/modules/mcc/src/color.hpp;/workspace/opencv_contrib/modules/mcc/src/colorspace.hpp;/workspace/opencv_contrib/modules/mcc/src/common.hpp;/workspace/opencv_contrib/modules/mcc/src/debug.hpp;/workspace/opencv_contrib/modules/mcc/src/dictionary.hpp;/workspace/opencv_contrib/modules/mcc/src/distance.hpp;/workspace/opencv_contrib/modules/mcc/src/graph_cluster.hpp;/workspace/opencv_contrib/modules/mcc/src/io.hpp;/workspace/opencv_contrib/modules/mcc/src/linearize.hpp;/workspace/opencv_contrib/modules/mcc/src/operations.hpp;/workspace/opencv_contrib/modules/mcc/src/precomp.hpp;/workspace/opencv_contrib/modules/mcc/src/utils.hpp;/workspace/opencv_contrib/modules/mcc/src/wiener_filter.hpp
 //List of wrappers supporting module opencv_mcc
 OPENCV_MODULE_opencv_mcc_WRAPPERS:INTERNAL=python
 //The category of the module
@@ -3146,7 +2558,7 @@ OPENCV_MODULE_opencv_ml_REQ_DEPS:INTERNAL=opencv_core
 //List of wrappers supporting module opencv_ml
 OPENCV_MODULE_opencv_ml_WRAPPERS:INTERNAL=java;objc;python
 //Optional dependencies of opencv_objc module
-OPENCV_MODULE_opencv_objc_OPT_DEPS:INTERNAL=opencv_calib3d;opencv_core;opencv_dnn;opencv_features2d;opencv_imgproc;opencv_objdetect;opencv_photo;opencv_video;opencv_aruco;opencv_bgsegm;opencv_bioinspired;opencv_face;opencv_img_hash;opencv_phase_unwrapping;opencv_plot;opencv_structured_light;opencv_text;opencv_tracking;opencv_wechat_qrcode;opencv_xfeatures2d;opencv_ximgproc;opencv_xphoto
+OPENCV_MODULE_opencv_objc_OPT_DEPS:INTERNAL=opencv_calib3d;opencv_core;opencv_features2d;opencv_imgproc;opencv_objdetect;opencv_aruco
 //Optional private dependencies of opencv_objc module
 OPENCV_MODULE_opencv_objc_PRIVATE_OPT_DEPS:INTERNAL=
 //Required private dependencies of opencv_objc module
@@ -3155,16 +2567,8 @@ OPENCV_MODULE_opencv_objc_PRIVATE_REQ_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_objc_REQ_DEPS:INTERNAL=
 //List of wrappers supporting module opencv_objc
 OPENCV_MODULE_opencv_objc_WRAPPERS:INTERNAL=
-OPENCV_MODULE_opencv_objc_bindings_generator_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/objc_bindings_generator
 //The category of the module
 OPENCV_MODULE_opencv_objc_bindings_generator_CLASS:INTERNAL=INTERNAL
-//Flattened dependencies of opencv_objc_bindings_generator module
-OPENCV_MODULE_opencv_objc_bindings_generator_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_phase_unwrapping;opencv_photo;opencv_plot;opencv_xphoto;opencv_bioinspired;opencv_dnn;opencv_features2d;opencv_img_hash;opencv_calib3d;opencv_objdetect;opencv_structured_light;opencv_video;opencv_wechat_qrcode;opencv_xfeatures2d;opencv_aruco;opencv_bgsegm;opencv_face;opencv_tracking
-//Extra dependencies of opencv_objc_bindings_generator module
-OPENCV_MODULE_opencv_objc_bindings_generator_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_objc_bindings_generator module
-// (for linker)
-OPENCV_MODULE_opencv_objc_bindings_generator_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_phase_unwrapping;opencv_photo;opencv_plot;opencv_xphoto;opencv_bioinspired;opencv_dnn;opencv_features2d;opencv_img_hash;opencv_calib3d;opencv_objdetect;opencv_structured_light;opencv_video;opencv_wechat_qrcode;opencv_xfeatures2d;opencv_aruco;opencv_bgsegm;opencv_face;opencv_tracking
 //Brief description of opencv_objc_bindings_generator module
 OPENCV_MODULE_opencv_objc_bindings_generator_DESCRIPTION:INTERNAL=The objc_bindings_generator OpenCV module
 OPENCV_MODULE_opencv_objc_bindings_generator_IS_PART_OF_WORLD:INTERNAL=OFF
@@ -3173,7 +2577,7 @@ OPENCV_MODULE_opencv_objc_bindings_generator_LINK_DEPS:INTERNAL=
 //Location of opencv_objc_bindings_generator module sources
 OPENCV_MODULE_opencv_objc_bindings_generator_LOCATION:INTERNAL=/workspace/opencv/modules/objc/generator
 //Optional dependencies of opencv_objc_bindings_generator module
-OPENCV_MODULE_opencv_objc_bindings_generator_OPT_DEPS:INTERNAL=opencv_calib3d;opencv_core;opencv_dnn;opencv_features2d;opencv_imgproc;opencv_objdetect;opencv_photo;opencv_video;opencv_aruco;opencv_bgsegm;opencv_bioinspired;opencv_face;opencv_img_hash;opencv_phase_unwrapping;opencv_plot;opencv_structured_light;opencv_text;opencv_tracking;opencv_wechat_qrcode;opencv_xfeatures2d;opencv_ximgproc;opencv_xphoto
+OPENCV_MODULE_opencv_objc_bindings_generator_OPT_DEPS:INTERNAL=opencv_calib3d;opencv_core;opencv_features2d;opencv_imgproc;opencv_objdetect;opencv_aruco
 //Optional private dependencies of opencv_objc_bindings_generator
 // module
 OPENCV_MODULE_opencv_objc_bindings_generator_PRIVATE_OPT_DEPS:INTERNAL=
@@ -3188,11 +2592,11 @@ OPENCV_MODULE_opencv_objdetect_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/
 //The category of the module
 OPENCV_MODULE_opencv_objdetect_CLASS:INTERNAL=PUBLIC
 //Flattened dependencies of opencv_objdetect module
-OPENCV_MODULE_opencv_objdetect_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_dnn;opencv_features2d;opencv_calib3d
+OPENCV_MODULE_opencv_objdetect_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_features2d;opencv_calib3d
 //Extra dependencies of opencv_objdetect module
 OPENCV_MODULE_opencv_objdetect_DEPS_EXT:INTERNAL=
 //Flattened dependencies of opencv_objdetect module (for linker)
-OPENCV_MODULE_opencv_objdetect_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_dnn;opencv_features2d;opencv_calib3d
+OPENCV_MODULE_opencv_objdetect_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_features2d;opencv_calib3d
 //Brief description of opencv_objdetect module
 OPENCV_MODULE_opencv_objdetect_DESCRIPTION:INTERNAL=Object Detection
 //List of header files for opencv_objdetect
@@ -3235,20 +2639,10 @@ OPENCV_MODULE_opencv_optflow_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv
 OPENCV_MODULE_opencv_optflow_WRAPPERS:INTERNAL=python
 //Location of opencv_ovis module sources
 OPENCV_MODULE_opencv_ovis_LOCATION:INTERNAL=/workspace/opencv_contrib/modules/ovis
-OPENCV_MODULE_opencv_phase_unwrapping_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/phase_unwrapping
 //The category of the module
 OPENCV_MODULE_opencv_phase_unwrapping_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_phase_unwrapping module
-OPENCV_MODULE_opencv_phase_unwrapping_DEPS:INTERNAL=opencv_core;opencv_imgproc
-//Extra dependencies of opencv_phase_unwrapping module
-OPENCV_MODULE_opencv_phase_unwrapping_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_phase_unwrapping module (for
-// linker)
-OPENCV_MODULE_opencv_phase_unwrapping_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_imgproc
 //Brief description of opencv_phase_unwrapping module
 OPENCV_MODULE_opencv_phase_unwrapping_DESCRIPTION:INTERNAL=Phase Unwrapping API
-//List of header files for opencv_phase_unwrapping
-OPENCV_MODULE_opencv_phase_unwrapping_HEADERS:INTERNAL=/workspace/opencv_contrib/modules/phase_unwrapping/include/opencv2/phase_unwrapping.hpp;/workspace/opencv_contrib/modules/phase_unwrapping/include/opencv2/phase_unwrapping/histogramphaseunwrapping.hpp;/workspace/opencv_contrib/modules/phase_unwrapping/include/opencv2/phase_unwrapping/phase_unwrapping.hpp
 OPENCV_MODULE_opencv_phase_unwrapping_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_phase_unwrapping_LABEL:INTERNAL=Extra;opencv_phase_unwrapping
 OPENCV_MODULE_opencv_phase_unwrapping_LINK_DEPS:INTERNAL=
@@ -3262,23 +2656,12 @@ OPENCV_MODULE_opencv_phase_unwrapping_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_phase_unwrapping_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_phase_unwrapping module
 OPENCV_MODULE_opencv_phase_unwrapping_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc
-//List of source files for opencv_phase_unwrapping
-OPENCV_MODULE_opencv_phase_unwrapping_SOURCES:INTERNAL=/workspace/opencv_contrib/modules/phase_unwrapping/src/histogramphaseunwrapping.cpp;/workspace/opencv_contrib/modules/phase_unwrapping/src/precomp.hpp
 //List of wrappers supporting module opencv_phase_unwrapping
 OPENCV_MODULE_opencv_phase_unwrapping_WRAPPERS:INTERNAL=python;java;objc
-OPENCV_MODULE_opencv_photo_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/photo
 //The category of the module
 OPENCV_MODULE_opencv_photo_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_photo module
-OPENCV_MODULE_opencv_photo_DEPS:INTERNAL=opencv_core;opencv_imgproc
-//Extra dependencies of opencv_photo module
-OPENCV_MODULE_opencv_photo_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_photo module (for linker)
-OPENCV_MODULE_opencv_photo_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_imgproc
 //Brief description of opencv_photo module
 OPENCV_MODULE_opencv_photo_DESCRIPTION:INTERNAL=Computational Photography
-//List of header files for opencv_photo
-OPENCV_MODULE_opencv_photo_HEADERS:INTERNAL=/workspace/opencv/modules/photo/include/opencv2/photo.hpp;/workspace/opencv/modules/photo/include/opencv2/photo/cuda.hpp;/workspace/opencv/modules/photo/include/opencv2/photo/legacy/constants_c.h;/workspace/opencv/modules/photo/include/opencv2/photo/photo.hpp
 OPENCV_MODULE_opencv_photo_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_photo_LABEL:INTERNAL=Main;opencv_photo
 OPENCV_MODULE_opencv_photo_LINK_DEPS:INTERNAL=
@@ -3292,23 +2675,12 @@ OPENCV_MODULE_opencv_photo_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_photo_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_photo module
 OPENCV_MODULE_opencv_photo_REQ_DEPS:INTERNAL=opencv_imgproc
-//List of source files for opencv_photo
-OPENCV_MODULE_opencv_photo_SOURCES:INTERNAL=/workspace/opencv/modules/photo/src/align.cpp;/workspace/opencv/modules/photo/src/calibrate.cpp;/workspace/opencv/modules/photo/src/contrast_preserve.cpp;/workspace/opencv/modules/photo/src/denoise_tvl1.cpp;/workspace/opencv/modules/photo/src/denoising.cpp;/workspace/opencv/modules/photo/src/denoising.cuda.cpp;/workspace/opencv/modules/photo/src/hdr_common.cpp;/workspace/opencv/modules/photo/src/inpaint.cpp;/workspace/opencv/modules/photo/src/merge.cpp;/workspace/opencv/modules/photo/src/npr.cpp;/workspace/opencv/modules/photo/src/seamless_cloning.cpp;/workspace/opencv/modules/photo/src/seamless_cloning_impl.cpp;/workspace/opencv/modules/photo/src/tonemap.cpp;/workspace/opencv/modules/photo/src/opencl/nlmeans.cl;/workspace/opencv/build_wasm/modules/photo/opencl_kernels_photo.cpp;/workspace/opencv/build_wasm/modules/photo/opencl_kernels_photo.hpp;/workspace/opencv/modules/photo/src/arrays.hpp;/workspace/opencv/modules/photo/src/contrast_preserve.hpp;/workspace/opencv/modules/photo/src/fast_nlmeans_denoising_invoker.hpp;/workspace/opencv/modules/photo/src/fast_nlmeans_denoising_invoker_commons.hpp;/workspace/opencv/modules/photo/src/fast_nlmeans_denoising_opencl.hpp;/workspace/opencv/modules/photo/src/fast_nlmeans_multi_denoising_invoker.hpp;/workspace/opencv/modules/photo/src/hdr_common.hpp;/workspace/opencv/modules/photo/src/npr.hpp;/workspace/opencv/modules/photo/src/precomp.hpp;/workspace/opencv/modules/photo/src/seamless_cloning.hpp
 //List of wrappers supporting module opencv_photo
 OPENCV_MODULE_opencv_photo_WRAPPERS:INTERNAL=java;objc;python;js
-OPENCV_MODULE_opencv_plot_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/plot
 //The category of the module
 OPENCV_MODULE_opencv_plot_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_plot module
-OPENCV_MODULE_opencv_plot_DEPS:INTERNAL=opencv_core;opencv_imgproc
-//Extra dependencies of opencv_plot module
-OPENCV_MODULE_opencv_plot_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_plot module (for linker)
-OPENCV_MODULE_opencv_plot_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_imgproc
 //Brief description of opencv_plot module
 OPENCV_MODULE_opencv_plot_DESCRIPTION:INTERNAL=Plot function for Mat data.
-//List of header files for opencv_plot
-OPENCV_MODULE_opencv_plot_HEADERS:INTERNAL=/workspace/opencv_contrib/modules/plot/include/opencv2/plot.hpp
 OPENCV_MODULE_opencv_plot_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_plot_LABEL:INTERNAL=Extra;opencv_plot
 OPENCV_MODULE_opencv_plot_LINK_DEPS:INTERNAL=
@@ -3322,14 +2694,12 @@ OPENCV_MODULE_opencv_plot_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_plot_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_plot module
 OPENCV_MODULE_opencv_plot_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc
-//List of source files for opencv_plot
-OPENCV_MODULE_opencv_plot_SOURCES:INTERNAL=/workspace/opencv_contrib/modules/plot/src/plot.cpp;/workspace/opencv_contrib/modules/plot/src/precomp.hpp
 //List of wrappers supporting module opencv_plot
 OPENCV_MODULE_opencv_plot_WRAPPERS:INTERNAL=python;java;objc
 //Location of opencv_python2 module sources
 OPENCV_MODULE_opencv_python2_LOCATION:INTERNAL=/workspace/opencv/modules/python/python2
 //Optional dependencies of opencv_python2 module
-OPENCV_MODULE_opencv_python2_OPT_DEPS:INTERNAL=opencv_calib3d;opencv_core;opencv_dnn;opencv_features2d;opencv_flann;opencv_imgproc;opencv_objdetect;opencv_photo;opencv_video;opencv_aruco;opencv_bgsegm;opencv_bioinspired;opencv_ccalib;opencv_datasets;opencv_dnn_superres;opencv_dpm;opencv_face;opencv_fuzzy;opencv_hfs;opencv_img_hash;opencv_intensity_transform;opencv_line_descriptor;opencv_mcc;opencv_optflow;opencv_phase_unwrapping;opencv_plot;opencv_quality;opencv_rapid;opencv_reg;opencv_rgbd;opencv_saliency;opencv_signal;opencv_stereo;opencv_structured_light;opencv_surface_matching;opencv_text;opencv_tracking;opencv_wechat_qrcode;opencv_xfeatures2d;opencv_ximgproc;opencv_xobjdetect;opencv_xphoto
+OPENCV_MODULE_opencv_python2_OPT_DEPS:INTERNAL=opencv_calib3d;opencv_core;opencv_features2d;opencv_flann;opencv_imgproc;opencv_objdetect;opencv_aruco
 //Optional private dependencies of opencv_python2 module
 OPENCV_MODULE_opencv_python2_PRIVATE_OPT_DEPS:INTERNAL=
 //Required private dependencies of opencv_python2 module
@@ -3341,7 +2711,7 @@ OPENCV_MODULE_opencv_python2_WRAPPERS:INTERNAL=
 //Location of opencv_python3 module sources
 OPENCV_MODULE_opencv_python3_LOCATION:INTERNAL=/workspace/opencv/modules/python/python3
 //Optional dependencies of opencv_python3 module
-OPENCV_MODULE_opencv_python3_OPT_DEPS:INTERNAL=opencv_calib3d;opencv_core;opencv_dnn;opencv_features2d;opencv_flann;opencv_imgproc;opencv_objdetect;opencv_photo;opencv_video;opencv_aruco;opencv_bgsegm;opencv_bioinspired;opencv_ccalib;opencv_datasets;opencv_dnn_superres;opencv_dpm;opencv_face;opencv_fuzzy;opencv_hfs;opencv_img_hash;opencv_intensity_transform;opencv_line_descriptor;opencv_mcc;opencv_optflow;opencv_phase_unwrapping;opencv_plot;opencv_quality;opencv_rapid;opencv_reg;opencv_rgbd;opencv_saliency;opencv_signal;opencv_stereo;opencv_structured_light;opencv_surface_matching;opencv_text;opencv_tracking;opencv_wechat_qrcode;opencv_xfeatures2d;opencv_ximgproc;opencv_xobjdetect;opencv_xphoto
+OPENCV_MODULE_opencv_python3_OPT_DEPS:INTERNAL=opencv_calib3d;opencv_core;opencv_features2d;opencv_flann;opencv_imgproc;opencv_objdetect;opencv_aruco
 //Optional private dependencies of opencv_python3 module
 OPENCV_MODULE_opencv_python3_PRIVATE_OPT_DEPS:INTERNAL=
 //Required private dependencies of opencv_python3 module
@@ -3350,16 +2720,8 @@ OPENCV_MODULE_opencv_python3_PRIVATE_REQ_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_python3_REQ_DEPS:INTERNAL=
 //List of wrappers supporting module opencv_python3
 OPENCV_MODULE_opencv_python3_WRAPPERS:INTERNAL=
-OPENCV_MODULE_opencv_python_bindings_generator_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/python_bindings_generator
 //The category of the module
 OPENCV_MODULE_opencv_python_bindings_generator_CLASS:INTERNAL=INTERNAL
-//Flattened dependencies of opencv_python_bindings_generator module
-OPENCV_MODULE_opencv_python_bindings_generator_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_intensity_transform;opencv_phase_unwrapping;opencv_photo;opencv_plot;opencv_reg;opencv_signal;opencv_surface_matching;opencv_xphoto;opencv_bioinspired;opencv_dnn;opencv_dnn_superres;opencv_features2d;opencv_fuzzy;opencv_hfs;opencv_img_hash;opencv_line_descriptor;opencv_saliency;opencv_calib3d;opencv_mcc;opencv_objdetect;opencv_rapid;opencv_rgbd;opencv_structured_light;opencv_video;opencv_wechat_qrcode;opencv_xfeatures2d;opencv_aruco;opencv_bgsegm;opencv_dpm;opencv_face;opencv_tracking;opencv_stereo
-//Extra dependencies of opencv_python_bindings_generator module
-OPENCV_MODULE_opencv_python_bindings_generator_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_python_bindings_generator module
-// (for linker)
-OPENCV_MODULE_opencv_python_bindings_generator_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_intensity_transform;opencv_phase_unwrapping;opencv_photo;opencv_plot;opencv_reg;opencv_signal;opencv_surface_matching;opencv_xphoto;opencv_bioinspired;opencv_dnn;opencv_dnn_superres;opencv_features2d;opencv_fuzzy;opencv_hfs;opencv_img_hash;opencv_line_descriptor;opencv_saliency;opencv_calib3d;opencv_mcc;opencv_objdetect;opencv_rapid;opencv_rgbd;opencv_structured_light;opencv_video;opencv_wechat_qrcode;opencv_xfeatures2d;opencv_aruco;opencv_bgsegm;opencv_dpm;opencv_face;opencv_tracking;opencv_stereo
 //Brief description of opencv_python_bindings_generator module
 OPENCV_MODULE_opencv_python_bindings_generator_DESCRIPTION:INTERNAL=The python_bindings_generator OpenCV module
 OPENCV_MODULE_opencv_python_bindings_generator_IS_PART_OF_WORLD:INTERNAL=OFF
@@ -3368,7 +2730,7 @@ OPENCV_MODULE_opencv_python_bindings_generator_LINK_DEPS:INTERNAL=
 //Location of opencv_python_bindings_generator module sources
 OPENCV_MODULE_opencv_python_bindings_generator_LOCATION:INTERNAL=/workspace/opencv/modules/python/bindings
 //Optional dependencies of opencv_python_bindings_generator module
-OPENCV_MODULE_opencv_python_bindings_generator_OPT_DEPS:INTERNAL=opencv_calib3d;opencv_core;opencv_dnn;opencv_features2d;opencv_flann;opencv_imgproc;opencv_objdetect;opencv_photo;opencv_video;opencv_aruco;opencv_bgsegm;opencv_bioinspired;opencv_ccalib;opencv_datasets;opencv_dnn_superres;opencv_dpm;opencv_face;opencv_fuzzy;opencv_hfs;opencv_img_hash;opencv_intensity_transform;opencv_line_descriptor;opencv_mcc;opencv_optflow;opencv_phase_unwrapping;opencv_plot;opencv_quality;opencv_rapid;opencv_reg;opencv_rgbd;opencv_saliency;opencv_signal;opencv_stereo;opencv_structured_light;opencv_surface_matching;opencv_text;opencv_tracking;opencv_wechat_qrcode;opencv_xfeatures2d;opencv_ximgproc;opencv_xobjdetect;opencv_xphoto
+OPENCV_MODULE_opencv_python_bindings_generator_OPT_DEPS:INTERNAL=opencv_calib3d;opencv_core;opencv_features2d;opencv_flann;opencv_imgproc;opencv_objdetect;opencv_aruco
 //Optional private dependencies of opencv_python_bindings_generator
 // module
 OPENCV_MODULE_opencv_python_bindings_generator_PRIVATE_OPT_DEPS:INTERNAL=
@@ -3379,15 +2741,8 @@ OPENCV_MODULE_opencv_python_bindings_generator_PRIVATE_REQ_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_python_bindings_generator_REQ_DEPS:INTERNAL=
 //List of wrappers supporting module opencv_python_bindings_generator
 OPENCV_MODULE_opencv_python_bindings_generator_WRAPPERS:INTERNAL=
-OPENCV_MODULE_opencv_python_tests_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/python_tests
 //The category of the module
 OPENCV_MODULE_opencv_python_tests_CLASS:INTERNAL=INTERNAL
-//Flattened dependencies of opencv_python_tests module
-OPENCV_MODULE_opencv_python_tests_DEPS:INTERNAL=
-//Extra dependencies of opencv_python_tests module
-OPENCV_MODULE_opencv_python_tests_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_python_tests module (for linker)
-OPENCV_MODULE_opencv_python_tests_DEPS_TO_LINK:INTERNAL=
 //Brief description of opencv_python_tests module
 OPENCV_MODULE_opencv_python_tests_DESCRIPTION:INTERNAL=The python_tests OpenCV module
 OPENCV_MODULE_opencv_python_tests_IS_PART_OF_WORLD:INTERNAL=OFF
@@ -3424,19 +2779,10 @@ OPENCV_MODULE_opencv_quality_PRIVATE_REQ_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_quality_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_ml
 //List of wrappers supporting module opencv_quality
 OPENCV_MODULE_opencv_quality_WRAPPERS:INTERNAL=python
-OPENCV_MODULE_opencv_rapid_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/rapid
 //The category of the module
 OPENCV_MODULE_opencv_rapid_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_rapid module
-OPENCV_MODULE_opencv_rapid_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_features2d;opencv_calib3d
-//Extra dependencies of opencv_rapid module
-OPENCV_MODULE_opencv_rapid_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_rapid module (for linker)
-OPENCV_MODULE_opencv_rapid_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_features2d;opencv_calib3d
 //Brief description of opencv_rapid module
 OPENCV_MODULE_opencv_rapid_DESCRIPTION:INTERNAL=rapid - silhouette based 3D object tracking
-//List of header files for opencv_rapid
-OPENCV_MODULE_opencv_rapid_HEADERS:INTERNAL=/workspace/opencv_contrib/modules/rapid/include/opencv2/rapid.hpp
 OPENCV_MODULE_opencv_rapid_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_rapid_LABEL:INTERNAL=Extra;opencv_rapid
 OPENCV_MODULE_opencv_rapid_LINK_DEPS:INTERNAL=
@@ -3450,23 +2796,12 @@ OPENCV_MODULE_opencv_rapid_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_rapid_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_rapid module
 OPENCV_MODULE_opencv_rapid_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_calib3d
-//List of source files for opencv_rapid
-OPENCV_MODULE_opencv_rapid_SOURCES:INTERNAL=/workspace/opencv_contrib/modules/rapid/src/histogram.cpp;/workspace/opencv_contrib/modules/rapid/src/rapid.cpp;/workspace/opencv_contrib/modules/rapid/src/precomp.hpp
 //List of wrappers supporting module opencv_rapid
 OPENCV_MODULE_opencv_rapid_WRAPPERS:INTERNAL=python
-OPENCV_MODULE_opencv_reg_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/reg
 //The category of the module
 OPENCV_MODULE_opencv_reg_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_reg module
-OPENCV_MODULE_opencv_reg_DEPS:INTERNAL=opencv_core;opencv_imgproc
-//Extra dependencies of opencv_reg module
-OPENCV_MODULE_opencv_reg_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_reg module (for linker)
-OPENCV_MODULE_opencv_reg_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_imgproc
 //Brief description of opencv_reg module
 OPENCV_MODULE_opencv_reg_DESCRIPTION:INTERNAL=Image Registration
-//List of header files for opencv_reg
-OPENCV_MODULE_opencv_reg_HEADERS:INTERNAL=/workspace/opencv_contrib/modules/reg/include/opencv2/reg/map.hpp;/workspace/opencv_contrib/modules/reg/include/opencv2/reg/mapaffine.hpp;/workspace/opencv_contrib/modules/reg/include/opencv2/reg/mapper.hpp;/workspace/opencv_contrib/modules/reg/include/opencv2/reg/mappergradaffine.hpp;/workspace/opencv_contrib/modules/reg/include/opencv2/reg/mappergradeuclid.hpp;/workspace/opencv_contrib/modules/reg/include/opencv2/reg/mappergradproj.hpp;/workspace/opencv_contrib/modules/reg/include/opencv2/reg/mappergradshift.hpp;/workspace/opencv_contrib/modules/reg/include/opencv2/reg/mappergradsimilar.hpp;/workspace/opencv_contrib/modules/reg/include/opencv2/reg/mapperpyramid.hpp;/workspace/opencv_contrib/modules/reg/include/opencv2/reg/mapprojec.hpp;/workspace/opencv_contrib/modules/reg/include/opencv2/reg/mapshift.hpp
 OPENCV_MODULE_opencv_reg_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_reg_LABEL:INTERNAL=Extra;opencv_reg
 OPENCV_MODULE_opencv_reg_LINK_DEPS:INTERNAL=
@@ -3480,23 +2815,12 @@ OPENCV_MODULE_opencv_reg_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_reg_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_reg module
 OPENCV_MODULE_opencv_reg_REQ_DEPS:INTERNAL=opencv_imgproc;opencv_core
-//List of source files for opencv_reg
-OPENCV_MODULE_opencv_reg_SOURCES:INTERNAL=/workspace/opencv_contrib/modules/reg/src/map.cpp;/workspace/opencv_contrib/modules/reg/src/mapaffine.cpp;/workspace/opencv_contrib/modules/reg/src/mapper.cpp;/workspace/opencv_contrib/modules/reg/src/mappergradaffine.cpp;/workspace/opencv_contrib/modules/reg/src/mappergradeuclid.cpp;/workspace/opencv_contrib/modules/reg/src/mappergradproj.cpp;/workspace/opencv_contrib/modules/reg/src/mappergradshift.cpp;/workspace/opencv_contrib/modules/reg/src/mappergradsimilar.cpp;/workspace/opencv_contrib/modules/reg/src/mapperpyramid.cpp;/workspace/opencv_contrib/modules/reg/src/mapprojec.cpp;/workspace/opencv_contrib/modules/reg/src/mapshift.cpp;/workspace/opencv_contrib/modules/reg/src/precomp.hpp
 //List of wrappers supporting module opencv_reg
 OPENCV_MODULE_opencv_reg_WRAPPERS:INTERNAL=python
-OPENCV_MODULE_opencv_rgbd_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/rgbd
 //The category of the module
 OPENCV_MODULE_opencv_rgbd_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_rgbd module
-OPENCV_MODULE_opencv_rgbd_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_features2d;opencv_calib3d
-//Extra dependencies of opencv_rgbd module
-OPENCV_MODULE_opencv_rgbd_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_rgbd module (for linker)
-OPENCV_MODULE_opencv_rgbd_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_features2d;opencv_calib3d
 //Brief description of opencv_rgbd module
 OPENCV_MODULE_opencv_rgbd_DESCRIPTION:INTERNAL=RGBD algorithms
-//List of header files for opencv_rgbd
-OPENCV_MODULE_opencv_rgbd_HEADERS:INTERNAL=/workspace/opencv_contrib/modules/rgbd/include/opencv2/rgbd.hpp;/workspace/opencv_contrib/modules/rgbd/include/opencv2/rgbd/colored_kinfu.hpp;/workspace/opencv_contrib/modules/rgbd/include/opencv2/rgbd/depth.hpp;/workspace/opencv_contrib/modules/rgbd/include/opencv2/rgbd/detail/pose_graph.hpp;/workspace/opencv_contrib/modules/rgbd/include/opencv2/rgbd/dynafu.hpp;/workspace/opencv_contrib/modules/rgbd/include/opencv2/rgbd/intrinsics.hpp;/workspace/opencv_contrib/modules/rgbd/include/opencv2/rgbd/kinfu.hpp;/workspace/opencv_contrib/modules/rgbd/include/opencv2/rgbd/large_kinfu.hpp;/workspace/opencv_contrib/modules/rgbd/include/opencv2/rgbd/linemod.hpp;/workspace/opencv_contrib/modules/rgbd/include/opencv2/rgbd/volume.hpp
 OPENCV_MODULE_opencv_rgbd_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_rgbd_LABEL:INTERNAL=Extra;opencv_rgbd
 OPENCV_MODULE_opencv_rgbd_LINK_DEPS:INTERNAL=
@@ -3510,23 +2834,12 @@ OPENCV_MODULE_opencv_rgbd_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_rgbd_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_rgbd module
 OPENCV_MODULE_opencv_rgbd_REQ_DEPS:INTERNAL=opencv_core;opencv_calib3d;opencv_imgproc
-//List of source files for opencv_rgbd
-OPENCV_MODULE_opencv_rgbd_SOURCES:INTERNAL=/workspace/opencv_contrib/modules/rgbd/src/colored_kinfu.cpp;/workspace/opencv_contrib/modules/rgbd/src/colored_tsdf.cpp;/workspace/opencv_contrib/modules/rgbd/src/depth_cleaner.cpp;/workspace/opencv_contrib/modules/rgbd/src/depth_registration.cpp;/workspace/opencv_contrib/modules/rgbd/src/depth_to_3d.cpp;/workspace/opencv_contrib/modules/rgbd/src/dqb.cpp;/workspace/opencv_contrib/modules/rgbd/src/dynafu.cpp;/workspace/opencv_contrib/modules/rgbd/src/dynafu_tsdf.cpp;/workspace/opencv_contrib/modules/rgbd/src/fast_icp.cpp;/workspace/opencv_contrib/modules/rgbd/src/hash_tsdf.cpp;/workspace/opencv_contrib/modules/rgbd/src/kinfu.cpp;/workspace/opencv_contrib/modules/rgbd/src/kinfu_frame.cpp;/workspace/opencv_contrib/modules/rgbd/src/large_kinfu.cpp;/workspace/opencv_contrib/modules/rgbd/src/linemod.cpp;/workspace/opencv_contrib/modules/rgbd/src/nonrigid_icp.cpp;/workspace/opencv_contrib/modules/rgbd/src/normal.cpp;/workspace/opencv_contrib/modules/rgbd/src/odometry.cpp;/workspace/opencv_contrib/modules/rgbd/src/plane.cpp;/workspace/opencv_contrib/modules/rgbd/src/pose_graph.cpp;/workspace/opencv_contrib/modules/rgbd/src/tsdf.cpp;/workspace/opencv_contrib/modules/rgbd/src/tsdf_functions.cpp;/workspace/opencv_contrib/modules/rgbd/src/utils.cpp;/workspace/opencv_contrib/modules/rgbd/src/volume.cpp;/workspace/opencv_contrib/modules/rgbd/src/warpfield.cpp;/workspace/opencv_contrib/modules/rgbd/src/opencl/hash_tsdf.cl;/workspace/opencv_contrib/modules/rgbd/src/opencl/icp.cl;/workspace/opencv_contrib/modules/rgbd/src/opencl/kinfu_frame.cl;/workspace/opencv_contrib/modules/rgbd/src/opencl/tsdf.cl;/workspace/opencv_contrib/modules/rgbd/src/opencl/tsdf_functions.cl;/workspace/opencv/build_wasm/modules/rgbd/opencl_kernels_rgbd.cpp;/workspace/opencv/build_wasm/modules/rgbd/opencl_kernels_rgbd.hpp;/workspace/opencv_contrib/modules/rgbd/src/colored_tsdf.hpp;/workspace/opencv_contrib/modules/rgbd/src/depth_to_3d.hpp;/workspace/opencv_contrib/modules/rgbd/src/dqb.hpp;/workspace/opencv_contrib/modules/rgbd/src/dynafu_tsdf.hpp;/workspace/opencv_contrib/modules/rgbd/src/fast_icp.hpp;/workspace/opencv_contrib/modules/rgbd/src/hash_tsdf.hpp;/workspace/opencv_contrib/modules/rgbd/src/kinfu_frame.hpp;/workspace/opencv_contrib/modules/rgbd/src/marchingcubes.hpp;/workspace/opencv_contrib/modules/rgbd/src/nonrigid_icp.hpp;/workspace/opencv_contrib/modules/rgbd/src/precomp.hpp;/workspace/opencv_contrib/modules/rgbd/src/sparse_block_matrix.hpp;/workspace/opencv_contrib/modules/rgbd/src/submap.hpp;/workspace/opencv_contrib/modules/rgbd/src/tsdf.hpp;/workspace/opencv_contrib/modules/rgbd/src/tsdf_functions.hpp;/workspace/opencv_contrib/modules/rgbd/src/utils.hpp;/workspace/opencv_contrib/modules/rgbd/src/warpfield.hpp
 //List of wrappers supporting module opencv_rgbd
 OPENCV_MODULE_opencv_rgbd_WRAPPERS:INTERNAL=python
-OPENCV_MODULE_opencv_saliency_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/saliency
 //The category of the module
 OPENCV_MODULE_opencv_saliency_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_saliency module
-OPENCV_MODULE_opencv_saliency_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_features2d
-//Extra dependencies of opencv_saliency module
-OPENCV_MODULE_opencv_saliency_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_saliency module (for linker)
-OPENCV_MODULE_opencv_saliency_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_features2d
 //Brief description of opencv_saliency module
 OPENCV_MODULE_opencv_saliency_DESCRIPTION:INTERNAL=Saliency API
-//List of header files for opencv_saliency
-OPENCV_MODULE_opencv_saliency_HEADERS:INTERNAL=/workspace/opencv_contrib/modules/saliency/include/opencv2/saliency.hpp;/workspace/opencv_contrib/modules/saliency/include/opencv2/saliency/saliencyBaseClasses.hpp;/workspace/opencv_contrib/modules/saliency/include/opencv2/saliency/saliencySpecializedClasses.hpp
 OPENCV_MODULE_opencv_saliency_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_saliency_LABEL:INTERNAL=Extra;opencv_saliency
 OPENCV_MODULE_opencv_saliency_LINK_DEPS:INTERNAL=
@@ -3540,8 +2853,6 @@ OPENCV_MODULE_opencv_saliency_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_saliency_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_saliency module
 OPENCV_MODULE_opencv_saliency_REQ_DEPS:INTERNAL=opencv_imgproc;opencv_features2d
-//List of source files for opencv_saliency
-OPENCV_MODULE_opencv_saliency_SOURCES:INTERNAL=/workspace/opencv_contrib/modules/saliency/src/BING/CmFile.cpp;/workspace/opencv_contrib/modules/saliency/src/BING/CmShow.cpp;/workspace/opencv_contrib/modules/saliency/src/BING/FilterTIG.cpp;/workspace/opencv_contrib/modules/saliency/src/BING/ValStructVec.cpp;/workspace/opencv_contrib/modules/saliency/src/BING/objectnessBING.cpp;/workspace/opencv_contrib/modules/saliency/src/motionSaliency.cpp;/workspace/opencv_contrib/modules/saliency/src/motionSaliencyBinWangApr2014.cpp;/workspace/opencv_contrib/modules/saliency/src/objectness.cpp;/workspace/opencv_contrib/modules/saliency/src/saliency.cpp;/workspace/opencv_contrib/modules/saliency/src/staticSaliency.cpp;/workspace/opencv_contrib/modules/saliency/src/staticSaliencyFineGrained.cpp;/workspace/opencv_contrib/modules/saliency/src/staticSaliencySpectralResidual.cpp;/workspace/opencv_contrib/modules/saliency/src/BING/CmFile.hpp;/workspace/opencv_contrib/modules/saliency/src/BING/CmShow.hpp;/workspace/opencv_contrib/modules/saliency/src/BING/CmTimer.hpp;/workspace/opencv_contrib/modules/saliency/src/BING/kyheader.hpp;/workspace/opencv_contrib/modules/saliency/src/precomp.hpp
 //List of wrappers supporting module opencv_saliency
 OPENCV_MODULE_opencv_saliency_WRAPPERS:INTERNAL=python
 //Location of opencv_sfm module sources
@@ -3565,19 +2876,10 @@ OPENCV_MODULE_opencv_shape_PRIVATE_REQ_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_shape_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_calib3d
 //List of wrappers supporting module opencv_shape
 OPENCV_MODULE_opencv_shape_WRAPPERS:INTERNAL=python
-OPENCV_MODULE_opencv_signal_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/signal
 //The category of the module
 OPENCV_MODULE_opencv_signal_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_signal module
-OPENCV_MODULE_opencv_signal_DEPS:INTERNAL=opencv_core
-//Extra dependencies of opencv_signal module
-OPENCV_MODULE_opencv_signal_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_signal module (for linker)
-OPENCV_MODULE_opencv_signal_DEPS_TO_LINK:INTERNAL=opencv_core
 //Brief description of opencv_signal module
 OPENCV_MODULE_opencv_signal_DESCRIPTION:INTERNAL=Signal processing algorithms
-//List of header files for opencv_signal
-OPENCV_MODULE_opencv_signal_HEADERS:INTERNAL=/workspace/opencv_contrib/modules/signal/include/opencv2/signal.hpp;/workspace/opencv_contrib/modules/signal/include/opencv2/signal/signal_resample.hpp
 OPENCV_MODULE_opencv_signal_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_signal_LABEL:INTERNAL=Extra;opencv_signal
 OPENCV_MODULE_opencv_signal_LINK_DEPS:INTERNAL=
@@ -3591,23 +2893,12 @@ OPENCV_MODULE_opencv_signal_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_signal_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_signal module
 OPENCV_MODULE_opencv_signal_REQ_DEPS:INTERNAL=opencv_core
-//List of source files for opencv_signal
-OPENCV_MODULE_opencv_signal_SOURCES:INTERNAL=/workspace/opencv_contrib/modules/signal/src/signal_resample.cpp;/workspace/opencv_contrib/modules/signal/src/precomp.hpp
 //List of wrappers supporting module opencv_signal
 OPENCV_MODULE_opencv_signal_WRAPPERS:INTERNAL=python
-OPENCV_MODULE_opencv_stereo_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/stereo
 //The category of the module
 OPENCV_MODULE_opencv_stereo_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_stereo module
-OPENCV_MODULE_opencv_stereo_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_plot;opencv_dnn;opencv_features2d;opencv_calib3d;opencv_video;opencv_tracking
-//Extra dependencies of opencv_stereo module
-OPENCV_MODULE_opencv_stereo_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_stereo module (for linker)
-OPENCV_MODULE_opencv_stereo_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_plot;opencv_dnn;opencv_features2d;opencv_calib3d;opencv_video;opencv_tracking
 //Brief description of opencv_stereo module
 OPENCV_MODULE_opencv_stereo_DESCRIPTION:INTERNAL=Stereo Correspondence
-//List of header files for opencv_stereo
-OPENCV_MODULE_opencv_stereo_HEADERS:INTERNAL=/workspace/opencv_contrib/modules/stereo/include/opencv2/stereo.hpp;/workspace/opencv_contrib/modules/stereo/include/opencv2/stereo/descriptor.hpp;/workspace/opencv_contrib/modules/stereo/include/opencv2/stereo/quasi_dense_stereo.hpp;/workspace/opencv_contrib/modules/stereo/include/opencv2/stereo/stereo.hpp
 OPENCV_MODULE_opencv_stereo_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_stereo_LABEL:INTERNAL=Extra;opencv_stereo
 OPENCV_MODULE_opencv_stereo_LINK_DEPS:INTERNAL=
@@ -3621,8 +2912,6 @@ OPENCV_MODULE_opencv_stereo_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_stereo_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_stereo module
 OPENCV_MODULE_opencv_stereo_REQ_DEPS:INTERNAL=opencv_imgproc;opencv_features2d;opencv_core;opencv_tracking
-//List of source files for opencv_stereo
-OPENCV_MODULE_opencv_stereo_SOURCES:INTERNAL=/workspace/opencv_contrib/modules/stereo/src/descriptor.cpp;/workspace/opencv_contrib/modules/stereo/src/quasi_dense_stereo.cpp;/workspace/opencv_contrib/modules/stereo/src/stereo_binary_bm.cpp;/workspace/opencv_contrib/modules/stereo/src/stereo_binary_sgbm.cpp;/workspace/opencv_contrib/modules/stereo/src/descriptor.hpp;/workspace/opencv_contrib/modules/stereo/src/matching.hpp;/workspace/opencv_contrib/modules/stereo/src/precomp.hpp
 //List of wrappers supporting module opencv_stereo
 OPENCV_MODULE_opencv_stereo_WRAPPERS:INTERNAL=python
 //The category of the module
@@ -3644,20 +2933,10 @@ OPENCV_MODULE_opencv_stitching_PRIVATE_REQ_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_stitching_REQ_DEPS:INTERNAL=opencv_imgproc;opencv_features2d;opencv_calib3d;opencv_flann
 //List of wrappers supporting module opencv_stitching
 OPENCV_MODULE_opencv_stitching_WRAPPERS:INTERNAL=python
-OPENCV_MODULE_opencv_structured_light_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/structured_light
 //The category of the module
 OPENCV_MODULE_opencv_structured_light_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_structured_light module
-OPENCV_MODULE_opencv_structured_light_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_phase_unwrapping;opencv_features2d;opencv_calib3d
-//Extra dependencies of opencv_structured_light module
-OPENCV_MODULE_opencv_structured_light_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_structured_light module (for
-// linker)
-OPENCV_MODULE_opencv_structured_light_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_phase_unwrapping;opencv_features2d;opencv_calib3d
 //Brief description of opencv_structured_light module
 OPENCV_MODULE_opencv_structured_light_DESCRIPTION:INTERNAL=Structured Light API
-//List of header files for opencv_structured_light
-OPENCV_MODULE_opencv_structured_light_HEADERS:INTERNAL=/workspace/opencv_contrib/modules/structured_light/include/opencv2/structured_light.hpp;/workspace/opencv_contrib/modules/structured_light/include/opencv2/structured_light/graycodepattern.hpp;/workspace/opencv_contrib/modules/structured_light/include/opencv2/structured_light/sinusoidalpattern.hpp;/workspace/opencv_contrib/modules/structured_light/include/opencv2/structured_light/structured_light.hpp
 OPENCV_MODULE_opencv_structured_light_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_structured_light_LABEL:INTERNAL=Extra;opencv_structured_light
 OPENCV_MODULE_opencv_structured_light_LINK_DEPS:INTERNAL=
@@ -3671,8 +2950,6 @@ OPENCV_MODULE_opencv_structured_light_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_structured_light_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_structured_light module
 OPENCV_MODULE_opencv_structured_light_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_calib3d;opencv_phase_unwrapping
-//List of source files for opencv_structured_light
-OPENCV_MODULE_opencv_structured_light_SOURCES:INTERNAL=/workspace/opencv_contrib/modules/structured_light/src/graycodepattern.cpp;/workspace/opencv_contrib/modules/structured_light/src/sinusoidalpattern.cpp;/workspace/opencv_contrib/modules/structured_light/src/precomp.hpp
 //List of wrappers supporting module opencv_structured_light
 OPENCV_MODULE_opencv_structured_light_WRAPPERS:INTERNAL=python;java;objc
 //The category of the module
@@ -3694,20 +2971,10 @@ OPENCV_MODULE_opencv_superres_PRIVATE_REQ_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_superres_REQ_DEPS:INTERNAL=opencv_imgproc;opencv_video;opencv_optflow
 //List of wrappers supporting module opencv_superres
 OPENCV_MODULE_opencv_superres_WRAPPERS:INTERNAL=python
-OPENCV_MODULE_opencv_surface_matching_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/surface_matching
 //The category of the module
 OPENCV_MODULE_opencv_surface_matching_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_surface_matching module
-OPENCV_MODULE_opencv_surface_matching_DEPS:INTERNAL=opencv_core;opencv_flann
-//Extra dependencies of opencv_surface_matching module
-OPENCV_MODULE_opencv_surface_matching_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_surface_matching module (for
-// linker)
-OPENCV_MODULE_opencv_surface_matching_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann
 //Brief description of opencv_surface_matching module
 OPENCV_MODULE_opencv_surface_matching_DESCRIPTION:INTERNAL=3D point features
-//List of header files for opencv_surface_matching
-OPENCV_MODULE_opencv_surface_matching_HEADERS:INTERNAL=/workspace/opencv_contrib/modules/surface_matching/include/opencv2/surface_matching.hpp;/workspace/opencv_contrib/modules/surface_matching/include/opencv2/surface_matching/icp.hpp;/workspace/opencv_contrib/modules/surface_matching/include/opencv2/surface_matching/pose_3d.hpp;/workspace/opencv_contrib/modules/surface_matching/include/opencv2/surface_matching/ppf_helpers.hpp;/workspace/opencv_contrib/modules/surface_matching/include/opencv2/surface_matching/ppf_match_3d.hpp;/workspace/opencv_contrib/modules/surface_matching/include/opencv2/surface_matching/t_hash_int.hpp
 OPENCV_MODULE_opencv_surface_matching_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_surface_matching_LABEL:INTERNAL=Extra;opencv_surface_matching
 OPENCV_MODULE_opencv_surface_matching_LINK_DEPS:INTERNAL=
@@ -3721,8 +2988,6 @@ OPENCV_MODULE_opencv_surface_matching_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_surface_matching_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_surface_matching module
 OPENCV_MODULE_opencv_surface_matching_REQ_DEPS:INTERNAL=opencv_core;opencv_flann
-//List of source files for opencv_surface_matching
-OPENCV_MODULE_opencv_surface_matching_SOURCES:INTERNAL=/workspace/opencv_contrib/modules/surface_matching/src/icp.cpp;/workspace/opencv_contrib/modules/surface_matching/src/pose_3d.cpp;/workspace/opencv_contrib/modules/surface_matching/src/ppf_helpers.cpp;/workspace/opencv_contrib/modules/surface_matching/src/ppf_match_3d.cpp;/workspace/opencv_contrib/modules/surface_matching/src/t_hash_int.cpp;/workspace/opencv_contrib/modules/surface_matching/src/c_utils.hpp;/workspace/opencv_contrib/modules/surface_matching/src/hash_murmur.hpp;/workspace/opencv_contrib/modules/surface_matching/src/hash_murmur64.hpp;/workspace/opencv_contrib/modules/surface_matching/src/hash_murmur86.hpp;/workspace/opencv_contrib/modules/surface_matching/src/precomp.hpp
 //List of wrappers supporting module opencv_surface_matching
 OPENCV_MODULE_opencv_surface_matching_WRAPPERS:INTERNAL=python
 //The category of the module
@@ -3744,19 +3009,10 @@ OPENCV_MODULE_opencv_text_PRIVATE_REQ_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_text_REQ_DEPS:INTERNAL=opencv_ml;opencv_imgproc;opencv_core;opencv_features2d;opencv_dnn
 //List of wrappers supporting module opencv_text
 OPENCV_MODULE_opencv_text_WRAPPERS:INTERNAL=python;java;objc
-OPENCV_MODULE_opencv_tracking_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/tracking
 //The category of the module
 OPENCV_MODULE_opencv_tracking_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_tracking module
-OPENCV_MODULE_opencv_tracking_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_plot;opencv_dnn;opencv_features2d;opencv_calib3d;opencv_video
-//Extra dependencies of opencv_tracking module
-OPENCV_MODULE_opencv_tracking_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_tracking module (for linker)
-OPENCV_MODULE_opencv_tracking_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_plot;opencv_dnn;opencv_features2d;opencv_calib3d;opencv_video
 //Brief description of opencv_tracking module
 OPENCV_MODULE_opencv_tracking_DESCRIPTION:INTERNAL=Tracking API
-//List of header files for opencv_tracking
-OPENCV_MODULE_opencv_tracking_HEADERS:INTERNAL=/workspace/opencv_contrib/modules/tracking/include/opencv2/tracking.hpp;/workspace/opencv_contrib/modules/tracking/include/opencv2/tracking/feature.hpp;/workspace/opencv_contrib/modules/tracking/include/opencv2/tracking/kalman_filters.hpp;/workspace/opencv_contrib/modules/tracking/include/opencv2/tracking/onlineBoosting.hpp;/workspace/opencv_contrib/modules/tracking/include/opencv2/tracking/tldDataset.hpp;/workspace/opencv_contrib/modules/tracking/include/opencv2/tracking/tracking.hpp;/workspace/opencv_contrib/modules/tracking/include/opencv2/tracking/tracking_by_matching.hpp;/workspace/opencv_contrib/modules/tracking/include/opencv2/tracking/tracking_internals.hpp;/workspace/opencv_contrib/modules/tracking/include/opencv2/tracking/tracking_legacy.hpp;/workspace/opencv_contrib/modules/tracking/include/opencv2/tracking/twist.hpp
 OPENCV_MODULE_opencv_tracking_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_tracking_LABEL:INTERNAL=Extra;opencv_tracking
 OPENCV_MODULE_opencv_tracking_LINK_DEPS:INTERNAL=
@@ -3770,8 +3026,6 @@ OPENCV_MODULE_opencv_tracking_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_tracking_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_tracking module
 OPENCV_MODULE_opencv_tracking_REQ_DEPS:INTERNAL=opencv_imgproc;opencv_core;opencv_video;opencv_plot
-//List of source files for opencv_tracking
-OPENCV_MODULE_opencv_tracking_SOURCES:INTERNAL=/workspace/opencv_contrib/modules/tracking/src/augmented_unscented_kalman.cpp;/workspace/opencv_contrib/modules/tracking/src/feature.cpp;/workspace/opencv_contrib/modules/tracking/src/featureColorName.cpp;/workspace/opencv_contrib/modules/tracking/src/gtrUtils.cpp;/workspace/opencv_contrib/modules/tracking/src/kuhn_munkres.cpp;/workspace/opencv_contrib/modules/tracking/src/mosseTracker.cpp;/workspace/opencv_contrib/modules/tracking/src/multiTracker.cpp;/workspace/opencv_contrib/modules/tracking/src/multiTracker_alt.cpp;/workspace/opencv_contrib/modules/tracking/src/onlineBoosting.cpp;/workspace/opencv_contrib/modules/tracking/src/tldDataset.cpp;/workspace/opencv_contrib/modules/tracking/src/tldDetector.cpp;/workspace/opencv_contrib/modules/tracking/src/tldEnsembleClassifier.cpp;/workspace/opencv_contrib/modules/tracking/src/tldModel.cpp;/workspace/opencv_contrib/modules/tracking/src/tldTracker.cpp;/workspace/opencv_contrib/modules/tracking/src/tldUtils.cpp;/workspace/opencv_contrib/modules/tracking/src/tracker.cpp;/workspace/opencv_contrib/modules/tracking/src/trackerBoosting.cpp;/workspace/opencv_contrib/modules/tracking/src/trackerBoostingModel.cpp;/workspace/opencv_contrib/modules/tracking/src/trackerCSRT.cpp;/workspace/opencv_contrib/modules/tracking/src/trackerCSRTScaleEstimation.cpp;/workspace/opencv_contrib/modules/tracking/src/trackerCSRTSegmentation.cpp;/workspace/opencv_contrib/modules/tracking/src/trackerCSRTUtils.cpp;/workspace/opencv_contrib/modules/tracking/src/trackerFeature.cpp;/workspace/opencv_contrib/modules/tracking/src/trackerFeatureSet.cpp;/workspace/opencv_contrib/modules/tracking/src/trackerKCF.cpp;/workspace/opencv_contrib/modules/tracking/src/trackerMIL_legacy.cpp;/workspace/opencv_contrib/modules/tracking/src/trackerMedianFlow.cpp;/workspace/opencv_contrib/modules/tracking/src/trackerSampler.cpp;/workspace/opencv_contrib/modules/tracking/src/trackerSamplerAlgorithm.cpp;/workspace/opencv_contrib/modules/tracking/src/trackerStateEstimator.cpp;/workspace/opencv_contrib/modules/tracking/src/tracking_by_matching.cpp;/workspace/opencv_contrib/modules/tracking/src/tracking_utils.cpp;/workspace/opencv_contrib/modules/tracking/src/twist.cpp;/workspace/opencv_contrib/modules/tracking/src/unscented_kalman.cpp;/workspace/opencv_contrib/modules/tracking/src/opencl/tldDetector.cl;/workspace/opencv_contrib/modules/tracking/src/opencl/tmm.cl;/workspace/opencv/build_wasm/modules/tracking/opencl_kernels_tracking.cpp;/workspace/opencv/build_wasm/modules/tracking/opencl_kernels_tracking.hpp;/workspace/opencv_contrib/modules/tracking/src/PFSolver.hpp;/workspace/opencv_contrib/modules/tracking/src/TrackingFunctionPF.hpp;/workspace/opencv_contrib/modules/tracking/src/gtrUtils.hpp;/workspace/opencv_contrib/modules/tracking/src/kuhn_munkres.hpp;/workspace/opencv_contrib/modules/tracking/src/legacy/tracker.legacy.hpp;/workspace/opencv_contrib/modules/tracking/src/legacy/trackerCSRT.legacy.hpp;/workspace/opencv_contrib/modules/tracking/src/legacy/trackerKCF.legacy.hpp;/workspace/opencv_contrib/modules/tracking/src/multiTracker.hpp;/workspace/opencv_contrib/modules/tracking/src/precomp.hpp;/workspace/opencv_contrib/modules/tracking/src/tldDetector.hpp;/workspace/opencv_contrib/modules/tracking/src/tldEnsembleClassifier.hpp;/workspace/opencv_contrib/modules/tracking/src/tldModel.hpp;/workspace/opencv_contrib/modules/tracking/src/tldTracker.hpp;/workspace/opencv_contrib/modules/tracking/src/tldUtils.hpp;/workspace/opencv_contrib/modules/tracking/src/trackerBoostingModel.hpp;/workspace/opencv_contrib/modules/tracking/src/trackerCSRTScaleEstimation.hpp;/workspace/opencv_contrib/modules/tracking/src/trackerCSRTSegmentation.hpp;/workspace/opencv_contrib/modules/tracking/src/trackerCSRTUtils.hpp;/workspace/opencv_contrib/modules/tracking/src/tracking_utils.hpp
 //List of wrappers supporting module opencv_tracking
 OPENCV_MODULE_opencv_tracking_WRAPPERS:INTERNAL=java;python;objc
 //The category of the module
@@ -3793,19 +3047,10 @@ OPENCV_MODULE_opencv_ts_PRIVATE_REQ_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_ts_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_imgcodecs;opencv_videoio;opencv_highgui
 //List of wrappers supporting module opencv_ts
 OPENCV_MODULE_opencv_ts_WRAPPERS:INTERNAL=
-OPENCV_MODULE_opencv_video_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/video
 //The category of the module
 OPENCV_MODULE_opencv_video_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_video module
-OPENCV_MODULE_opencv_video_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_dnn;opencv_features2d;opencv_calib3d
-//Extra dependencies of opencv_video module
-OPENCV_MODULE_opencv_video_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_video module (for linker)
-OPENCV_MODULE_opencv_video_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_dnn;opencv_features2d;opencv_calib3d
 //Brief description of opencv_video module
 OPENCV_MODULE_opencv_video_DESCRIPTION:INTERNAL=Video Analysis
-//List of header files for opencv_video
-OPENCV_MODULE_opencv_video_HEADERS:INTERNAL=/workspace/opencv/modules/video/include/opencv2/video.hpp;/workspace/opencv/modules/video/include/opencv2/video/background_segm.hpp;/workspace/opencv/modules/video/include/opencv2/video/detail/tracking.detail.hpp;/workspace/opencv/modules/video/include/opencv2/video/legacy/constants_c.h;/workspace/opencv/modules/video/include/opencv2/video/tracking.hpp;/workspace/opencv/modules/video/include/opencv2/video/video.hpp
 OPENCV_MODULE_opencv_video_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_video_LABEL:INTERNAL=Main;opencv_video
 OPENCV_MODULE_opencv_video_LINK_DEPS:INTERNAL=
@@ -3819,8 +3064,6 @@ OPENCV_MODULE_opencv_video_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_video_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_video module
 OPENCV_MODULE_opencv_video_REQ_DEPS:INTERNAL=opencv_imgproc
-//List of source files for opencv_video
-OPENCV_MODULE_opencv_video_SOURCES:INTERNAL=/workspace/opencv/modules/video/src/bgfg_KNN.cpp;/workspace/opencv/modules/video/src/bgfg_gaussmix2.cpp;/workspace/opencv/modules/video/src/camshift.cpp;/workspace/opencv/modules/video/src/dis_flow.cpp;/workspace/opencv/modules/video/src/ecc.cpp;/workspace/opencv/modules/video/src/kalman.cpp;/workspace/opencv/modules/video/src/lkpyramid.cpp;/workspace/opencv/modules/video/src/optflowgf.cpp;/workspace/opencv/modules/video/src/optical_flow_io.cpp;/workspace/opencv/modules/video/src/tracking/detail/tracker_feature.cpp;/workspace/opencv/modules/video/src/tracking/detail/tracker_feature_set.cpp;/workspace/opencv/modules/video/src/tracking/detail/tracker_mil_model.cpp;/workspace/opencv/modules/video/src/tracking/detail/tracker_mil_state.cpp;/workspace/opencv/modules/video/src/tracking/detail/tracker_model.cpp;/workspace/opencv/modules/video/src/tracking/detail/tracker_sampler.cpp;/workspace/opencv/modules/video/src/tracking/detail/tracker_sampler_algorithm.cpp;/workspace/opencv/modules/video/src/tracking/detail/tracker_state_estimator.cpp;/workspace/opencv/modules/video/src/tracking/detail/tracking_feature.cpp;/workspace/opencv/modules/video/src/tracking/detail/tracking_online_mil.cpp;/workspace/opencv/modules/video/src/tracking/tracker.cpp;/workspace/opencv/modules/video/src/tracking/tracker_dasiamrpn.cpp;/workspace/opencv/modules/video/src/tracking/tracker_goturn.cpp;/workspace/opencv/modules/video/src/tracking/tracker_mil.cpp;/workspace/opencv/modules/video/src/tracking/tracker_nano.cpp;/workspace/opencv/modules/video/src/tracking/tracker_vit.cpp;/workspace/opencv/modules/video/src/variational_refinement.cpp;/workspace/opencv/modules/video/src/opencl/bgfg_knn.cl;/workspace/opencv/modules/video/src/opencl/bgfg_mog2.cl;/workspace/opencv/modules/video/src/opencl/dis_flow.cl;/workspace/opencv/modules/video/src/opencl/optical_flow_farneback.cl;/workspace/opencv/modules/video/src/opencl/pyrlk.cl;/workspace/opencv/build_wasm/modules/video/opencl_kernels_video.cpp;/workspace/opencv/build_wasm/modules/video/opencl_kernels_video.hpp;/workspace/opencv/modules/video/src/hal_replacement.hpp;/workspace/opencv/modules/video/src/lkpyramid.hpp;/workspace/opencv/modules/video/src/precomp.hpp;/workspace/opencv/modules/video/src/tracking/detail/tracker_feature_haar.impl.hpp;/workspace/opencv/modules/video/src/tracking/detail/tracker_mil_model.hpp;/workspace/opencv/modules/video/src/tracking/detail/tracker_mil_state.hpp;/workspace/opencv/modules/video/src/tracking/detail/tracking_feature.hpp;/workspace/opencv/modules/video/src/tracking/detail/tracking_online_mil.hpp
 //List of wrappers supporting module opencv_video
 OPENCV_MODULE_opencv_video_WRAPPERS:INTERNAL=java;objc;python;js
 //The category of the module
@@ -3863,19 +3106,10 @@ OPENCV_MODULE_opencv_videostab_REQ_DEPS:INTERNAL=opencv_imgproc;opencv_features2
 OPENCV_MODULE_opencv_videostab_WRAPPERS:INTERNAL=python
 //Location of opencv_viz module sources
 OPENCV_MODULE_opencv_viz_LOCATION:INTERNAL=/workspace/opencv_contrib/modules/viz
-OPENCV_MODULE_opencv_wechat_qrcode_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/wechat_qrcode
 //The category of the module
 OPENCV_MODULE_opencv_wechat_qrcode_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_wechat_qrcode module
-OPENCV_MODULE_opencv_wechat_qrcode_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_dnn;opencv_features2d;opencv_calib3d;opencv_objdetect
-//Extra dependencies of opencv_wechat_qrcode module
-OPENCV_MODULE_opencv_wechat_qrcode_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_wechat_qrcode module (for linker)
-OPENCV_MODULE_opencv_wechat_qrcode_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_dnn;opencv_features2d;opencv_calib3d;opencv_objdetect
 //Brief description of opencv_wechat_qrcode module
 OPENCV_MODULE_opencv_wechat_qrcode_DESCRIPTION:INTERNAL=WeChat QR code Detector
-//List of header files for opencv_wechat_qrcode
-OPENCV_MODULE_opencv_wechat_qrcode_HEADERS:INTERNAL=/workspace/opencv_contrib/modules/wechat_qrcode/include/opencv2/wechat_qrcode.hpp
 OPENCV_MODULE_opencv_wechat_qrcode_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_wechat_qrcode_LABEL:INTERNAL=Extra;opencv_wechat_qrcode
 OPENCV_MODULE_opencv_wechat_qrcode_LINK_DEPS:INTERNAL=
@@ -3889,8 +3123,6 @@ OPENCV_MODULE_opencv_wechat_qrcode_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_wechat_qrcode_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_wechat_qrcode module
 OPENCV_MODULE_opencv_wechat_qrcode_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_objdetect;opencv_dnn
-//List of source files for opencv_wechat_qrcode
-OPENCV_MODULE_opencv_wechat_qrcode_SOURCES:INTERNAL=/workspace/opencv_contrib/modules/wechat_qrcode/src/binarizermgr.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/decodermgr.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/detector/align.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/detector/ssd_detector.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/imgsource.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/scale/super_scale.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/wechat_qrcode.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/binarizer.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/binarybitmap.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/binarizer/adaptive_threshold_mean_binarizer.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/binarizer/fast_window_binarizer.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/binarizer/global_histogram_binarizer.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/binarizer/hybrid_binarizer.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/binarizer/simple_adaptive_binarizer.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/bitarray.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/bitmatrix.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/bitsource.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/bytematrix.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/characterseteci.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/decoder_result.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/detector_result.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/greyscale_luminance_source.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/greyscale_rotated_luminance_source.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/grid_sampler.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/imagecut.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/kmeans.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/perspective_transform.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/reedsolomon/genericgf.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/reedsolomon/genericgfpoly.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/reedsolomon/reed_solomon_decoder.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/str.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/stringutils.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/unicomblock.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/errorhandler.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/luminance_source.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/decoder/bitmatrixparser.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/decoder/datablock.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/decoder/datamask.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/decoder/decoded_bit_stream_parser.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/decoder/decoder.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/decoder/mode.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/detector/alignment_pattern.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/detector/alignment_pattern_finder.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/detector/detector.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/detector/finder_pattern.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/detector/finder_pattern_finder.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/detector/finder_pattern_info.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/detector/pattern_result.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/error_correction_level.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/format_information.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/qrcode_reader.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/version.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/reader.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/result.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/resultpoint.cpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/binarizermgr.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/decodermgr.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/detector/align.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/detector/ssd_detector.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/imgsource.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/precomp.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/scale/super_scale.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/binarizer.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/binarybitmap.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/array.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/binarizer/adaptive_threshold_mean_binarizer.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/binarizer/fast_window_binarizer.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/binarizer/global_histogram_binarizer.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/binarizer/hybrid_binarizer.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/binarizer/simple_adaptive_binarizer.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/bitarray.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/bitmatrix.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/bitsource.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/bytematrix.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/characterseteci.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/counted.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/decoder_result.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/detector_result.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/greyscale_luminance_source.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/greyscale_rotated_luminance_source.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/grid_sampler.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/imagecut.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/kmeans.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/mathutils.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/perspective_transform.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/reedsolomon/genericgf.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/reedsolomon/genericgfpoly.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/reedsolomon/reed_solomon_decoder.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/str.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/stringutils.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/common/unicomblock.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/decodehints.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/errorhandler.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/luminance_source.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/decoder/bitmatrixparser.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/decoder/datablock.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/decoder/datamask.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/decoder/decoded_bit_stream_parser.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/decoder/decoder.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/decoder/mode.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/decoder/qrcode_decoder_metadata.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/detector/alignment_pattern.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/detector/alignment_pattern_finder.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/detector/detector.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/detector/finder_pattern.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/detector/finder_pattern_finder.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/detector/finder_pattern_info.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/detector/pattern_result.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/error_correction_level.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/format_information.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/qrcode_reader.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/qrcode/version.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/reader.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/result.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/resultpoint.hpp;/workspace/opencv_contrib/modules/wechat_qrcode/src/zxing/zxing.hpp
 //List of wrappers supporting module opencv_wechat_qrcode
 OPENCV_MODULE_opencv_wechat_qrcode_WRAPPERS:INTERNAL=java;objc;python;js
 //The category of the module
@@ -3912,19 +3144,10 @@ OPENCV_MODULE_opencv_world_PRIVATE_REQ_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_world_REQ_DEPS:INTERNAL=opencv_core
 //List of wrappers supporting module opencv_world
 OPENCV_MODULE_opencv_world_WRAPPERS:INTERNAL=
-OPENCV_MODULE_opencv_xfeatures2d_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/xfeatures2d
 //The category of the module
 OPENCV_MODULE_opencv_xfeatures2d_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_xfeatures2d module
-OPENCV_MODULE_opencv_xfeatures2d_DEPS:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_features2d;opencv_calib3d
-//Extra dependencies of opencv_xfeatures2d module
-OPENCV_MODULE_opencv_xfeatures2d_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_xfeatures2d module (for linker)
-OPENCV_MODULE_opencv_xfeatures2d_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_flann;opencv_imgproc;opencv_features2d;opencv_calib3d
 //Brief description of opencv_xfeatures2d module
 OPENCV_MODULE_opencv_xfeatures2d_DESCRIPTION:INTERNAL=Contributed/Experimental Algorithms for Salient 2D Features Detection
-//List of header files for opencv_xfeatures2d
-OPENCV_MODULE_opencv_xfeatures2d_HEADERS:INTERNAL=/workspace/opencv_contrib/modules/xfeatures2d/include/opencv2/xfeatures2d.hpp;/workspace/opencv_contrib/modules/xfeatures2d/include/opencv2/xfeatures2d/cuda.hpp;/workspace/opencv_contrib/modules/xfeatures2d/include/opencv2/xfeatures2d/nonfree.hpp
 OPENCV_MODULE_opencv_xfeatures2d_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_xfeatures2d_LABEL:INTERNAL=Extra;opencv_xfeatures2d
 OPENCV_MODULE_opencv_xfeatures2d_LINK_DEPS:INTERNAL=
@@ -3938,8 +3161,6 @@ OPENCV_MODULE_opencv_xfeatures2d_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_xfeatures2d_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_xfeatures2d module
 OPENCV_MODULE_opencv_xfeatures2d_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_features2d;opencv_calib3d
-//List of source files for opencv_xfeatures2d
-OPENCV_MODULE_opencv_xfeatures2d_SOURCES:INTERNAL=/workspace/opencv_contrib/modules/xfeatures2d/src/affine_feature2d.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/beblid.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/boostdesc.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/brief.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/daisy.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/ellipticKeyPoint.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/fast.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/freak.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/gms.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/harris_lapace_detector.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/latch.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/logos.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/logos/Logos.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/logos/Match.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/logos/Point.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/logos/PointPair.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/lucid.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/msd.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/pct_signatures.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/pct_signatures/grayscale_bitmap.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/pct_signatures/pct_clusterizer.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/pct_signatures/pct_sampler.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/pct_signatures_sqfd.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/stardetector.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/surf.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/surf.cuda.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/surf.ocl.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/tbmr.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/vgg.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/xfeatures2d_init.cpp;/workspace/opencv_contrib/modules/xfeatures2d/src/opencl/surf.cl;/workspace/opencv/build_wasm/modules/xfeatures2d/opencl_kernels_xfeatures2d.cpp;/workspace/opencv/build_wasm/modules/xfeatures2d/opencl_kernels_xfeatures2d.hpp;/workspace/opencv_contrib/modules/xfeatures2d/src/beblid.p256.hpp;/workspace/opencv_contrib/modules/xfeatures2d/src/beblid.p512.hpp;/workspace/opencv_contrib/modules/xfeatures2d/src/logos/Logos.hpp;/workspace/opencv_contrib/modules/xfeatures2d/src/logos/Match.hpp;/workspace/opencv_contrib/modules/xfeatures2d/src/logos/Point.hpp;/workspace/opencv_contrib/modules/xfeatures2d/src/logos/PointPair.hpp;/workspace/opencv_contrib/modules/xfeatures2d/src/msd_pyramid.hpp;/workspace/opencv_contrib/modules/xfeatures2d/src/pct_signatures/constants.hpp;/workspace/opencv_contrib/modules/xfeatures2d/src/pct_signatures/distance.hpp;/workspace/opencv_contrib/modules/xfeatures2d/src/pct_signatures/grayscale_bitmap.hpp;/workspace/opencv_contrib/modules/xfeatures2d/src/pct_signatures/pct_clusterizer.hpp;/workspace/opencv_contrib/modules/xfeatures2d/src/pct_signatures/pct_sampler.hpp;/workspace/opencv_contrib/modules/xfeatures2d/src/pct_signatures/similarity.hpp;/workspace/opencv_contrib/modules/xfeatures2d/src/precomp.hpp;/workspace/opencv_contrib/modules/xfeatures2d/src/surf.hpp;/workspace/opencv_contrib/modules/xfeatures2d/src/teblid.p256.hpp;/workspace/opencv_contrib/modules/xfeatures2d/src/teblid.p512.hpp
 //List of wrappers supporting module opencv_xfeatures2d
 OPENCV_MODULE_opencv_xfeatures2d_WRAPPERS:INTERNAL=python;java;objc
 //The category of the module
@@ -3980,19 +3201,10 @@ OPENCV_MODULE_opencv_xobjdetect_PRIVATE_REQ_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_xobjdetect_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_objdetect;opencv_imgcodecs
 //List of wrappers supporting module opencv_xobjdetect
 OPENCV_MODULE_opencv_xobjdetect_WRAPPERS:INTERNAL=python
-OPENCV_MODULE_opencv_xphoto_BINARY_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/xphoto
 //The category of the module
 OPENCV_MODULE_opencv_xphoto_CLASS:INTERNAL=PUBLIC
-//Flattened dependencies of opencv_xphoto module
-OPENCV_MODULE_opencv_xphoto_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_photo
-//Extra dependencies of opencv_xphoto module
-OPENCV_MODULE_opencv_xphoto_DEPS_EXT:INTERNAL=
-//Flattened dependencies of opencv_xphoto module (for linker)
-OPENCV_MODULE_opencv_xphoto_DEPS_TO_LINK:INTERNAL=opencv_core;opencv_imgproc;opencv_photo
 //Brief description of opencv_xphoto module
 OPENCV_MODULE_opencv_xphoto_DESCRIPTION:INTERNAL=Addon to basic photo module
-//List of header files for opencv_xphoto
-OPENCV_MODULE_opencv_xphoto_HEADERS:INTERNAL=/workspace/opencv_contrib/modules/xphoto/include/opencv2/xphoto.hpp;/workspace/opencv_contrib/modules/xphoto/include/opencv2/xphoto/bm3d_image_denoising.hpp;/workspace/opencv_contrib/modules/xphoto/include/opencv2/xphoto/dct_image_denoising.hpp;/workspace/opencv_contrib/modules/xphoto/include/opencv2/xphoto/inpainting.hpp;/workspace/opencv_contrib/modules/xphoto/include/opencv2/xphoto/oilpainting.hpp;/workspace/opencv_contrib/modules/xphoto/include/opencv2/xphoto/tonemap.hpp;/workspace/opencv_contrib/modules/xphoto/include/opencv2/xphoto/white_balance.hpp
 OPENCV_MODULE_opencv_xphoto_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_xphoto_LABEL:INTERNAL=Extra;opencv_xphoto
 OPENCV_MODULE_opencv_xphoto_LINK_DEPS:INTERNAL=
@@ -4006,19 +3218,12 @@ OPENCV_MODULE_opencv_xphoto_PRIVATE_OPT_DEPS:INTERNAL=
 OPENCV_MODULE_opencv_xphoto_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_xphoto module
 OPENCV_MODULE_opencv_xphoto_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc;opencv_photo
-//List of source files for opencv_xphoto
-OPENCV_MODULE_opencv_xphoto_SOURCES:INTERNAL=/workspace/opencv_contrib/modules/xphoto/src/bm3d_image_denoising.cpp;/workspace/opencv_contrib/modules/xphoto/src/dct_image_denoising.cpp;/workspace/opencv_contrib/modules/xphoto/src/grayworld_white_balance.cpp;/workspace/opencv_contrib/modules/xphoto/src/inpainting.cpp;/workspace/opencv_contrib/modules/xphoto/src/learning_based_color_balance.cpp;/workspace/opencv_contrib/modules/xphoto/src/oilpainting.cpp;/workspace/opencv_contrib/modules/xphoto/src/simple_color_balance.cpp;/workspace/opencv_contrib/modules/xphoto/src/tonemap.cpp;/workspace/opencv_contrib/modules/xphoto/src/advanced_types.hpp;/workspace/opencv_contrib/modules/xphoto/src/annf.hpp;/workspace/opencv_contrib/modules/xphoto/src/blending.hpp;/workspace/opencv_contrib/modules/xphoto/src/bm3d_denoising_invoker_commons.hpp;/workspace/opencv_contrib/modules/xphoto/src/bm3d_denoising_invoker_step1.hpp;/workspace/opencv_contrib/modules/xphoto/src/bm3d_denoising_invoker_step2.hpp;/workspace/opencv_contrib/modules/xphoto/src/bm3d_denoising_invoker_structs.hpp;/workspace/opencv_contrib/modules/xphoto/src/bm3d_denoising_transforms.hpp;/workspace/opencv_contrib/modules/xphoto/src/bm3d_denoising_transforms_1D.hpp;/workspace/opencv_contrib/modules/xphoto/src/bm3d_denoising_transforms_2D.hpp;/workspace/opencv_contrib/modules/xphoto/src/bm3d_denoising_transforms_haar.hpp;/workspace/opencv_contrib/modules/xphoto/src/gcgraph.hpp;/workspace/opencv_contrib/modules/xphoto/src/inpainting_fsr.impl.hpp;/workspace/opencv_contrib/modules/xphoto/src/kaiser_window.hpp;/workspace/opencv_contrib/modules/xphoto/src/learning_based_color_balance_model.hpp;/workspace/opencv_contrib/modules/xphoto/src/norm2.hpp;/workspace/opencv_contrib/modules/xphoto/src/photomontage.hpp;/workspace/opencv_contrib/modules/xphoto/src/whs.hpp
 //List of wrappers supporting module opencv_xphoto
 OPENCV_MODULE_opencv_xphoto_WRAPPERS:INTERNAL=python;java;objc
-OPENCV_OBJC_BINDINGS_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/objc_bindings_generator
-OPENCV_PYTHON_BINDINGS_DIR:INTERNAL=/workspace/opencv/build_wasm/modules/python_bindings_generator
-OPENCV_PYTHON_SIGNATURES_FILE:INTERNAL=/workspace/opencv/build_wasm/modules/python_bindings_generator/pyopencv_signatures.json
-OPENCV_PYTHON_TESTS_CONFIG_FILE:INTERNAL=/workspace/opencv/build_wasm/opencv_python_tests.cfg
-OPENCV_PYTHON_TESTS_CONFIG_FILE_DIR:INTERNAL=/workspace/opencv/build_wasm
 //List of OpenCV modules included into the world
 OPENCV_WORLD_MODULES:INTERNAL=
 //List of OpenCVModules targets
-OpenCVModules_TARGETS:INTERNAL=zlib;libprotobuf;opencv_core;opencv_flann;opencv_imgproc;opencv_intensity_transform;opencv_phase_unwrapping;opencv_photo;opencv_plot;opencv_reg;opencv_signal;opencv_surface_matching;opencv_xphoto;opencv_bioinspired;opencv_dnn;opencv_dnn_objdetect;opencv_dnn_superres;opencv_features2d;opencv_fuzzy;opencv_hfs;opencv_img_hash;opencv_line_descriptor;opencv_saliency;opencv_calib3d;opencv_mcc;opencv_objdetect;opencv_rapid;opencv_rgbd;opencv_structured_light;opencv_video;opencv_wechat_qrcode;opencv_xfeatures2d;opencv_aruco;opencv_bgsegm;opencv_dpm;opencv_face;opencv_tracking;opencv_stereo
+OpenCVModules_TARGETS:INTERNAL=zlib;libprotobuf;opencv_core;opencv_flann;opencv_imgproc;opencv_features2d;opencv_calib3d;opencv_objdetect;opencv_aruco
 //ADVANCED property for variable: PKG_CONFIG_ARGN
 PKG_CONFIG_ARGN-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
@@ -4047,8 +3252,7 @@ ZLIB_LIBRARY:INTERNAL=zlib
 Z_HAVE_UNISTD_H:INTERNAL=1
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/usr/local
-__OPENCV_CMAKE_HOOKS_INIT_MODULE_SOURCES_opencv_dnn:INTERNAL=/workspace/opencv/modules/dnn/cmake/hooks/INIT_MODULE_SOURCES_opencv_dnn.cmake
-__OPENCV_EXPORTED_EXTERNAL_TARGETS:INTERNAL=ocv.3rdparty.flatbuffers
+__OPENCV_EXPORTED_EXTERNAL_TARGETS:INTERNAL=
 __pkg_config_checked_FREETYPE:INTERNAL=1
 __pkg_config_checked_HARFBUZZ:INTERNAL=1
 

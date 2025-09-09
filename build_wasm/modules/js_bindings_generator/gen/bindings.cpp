@@ -87,11 +87,6 @@
 #include "opencv2/imgproc.hpp"
 #include "opencv2/imgproc/bindings.hpp"
 #include "opencv2/imgproc/segmentation.hpp"
-#include "opencv2/photo.hpp"
-#include "opencv2/photo/cuda.hpp"
-#include "opencv2/dnn/dict.hpp"
-#include "opencv2/dnn/dnn.hpp"
-#include "opencv2/dnn/utils/inference_engine.hpp"
 #include "opencv2/features2d.hpp"
 #include "opencv2/calib3d.hpp"
 #include "opencv2/objdetect.hpp"
@@ -102,10 +97,6 @@
 #include "opencv2/objdetect/charuco_detector.hpp"
 #include "opencv2/objdetect/face.hpp"
 #include "opencv2/objdetect/graphical_code_detector.hpp"
-#include "opencv2/video/background_segm.hpp"
-#include "opencv2/video/detail/tracking.detail.hpp"
-#include "opencv2/video/tracking.hpp"
-#include "opencv2/wechat_qrcode.hpp"
 #include "opencv2/aruco.hpp"
 #include "opencv2/aruco/aruco_calib.hpp"
 #include "opencv2/aruco/charuco.hpp"
@@ -1141,34 +1132,6 @@ namespace Wrappers {
         return cv::calcHist(arg1, emscripten::vecFromJSArray<int>(arg2), arg3, arg4, emscripten::vecFromJSArray<int>(arg5), emscripten::vecFromJSArray<float>(arg6));
     }
     
-    void calcOpticalFlowFarneback_wrapper(const cv::Mat& arg1, const cv::Mat& arg2, cv::Mat& arg3, double arg4, int arg5, int arg6, int arg7, int arg8, double arg9, int arg10) {
-        return cv::calcOpticalFlowFarneback(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10);
-    }
-    
-    void calcOpticalFlowPyrLK_wrapper(const cv::Mat& arg1, const cv::Mat& arg2, const cv::Mat& arg3, cv::Mat& arg4, cv::Mat& arg5, cv::Mat& arg6, Size arg7, int arg8, TermCriteria arg9, int arg10, double arg11) {
-        return cv::calcOpticalFlowPyrLK(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11);
-    }
-    
-    void calcOpticalFlowPyrLK_wrapper_1(const cv::Mat& arg1, const cv::Mat& arg2, const cv::Mat& arg3, cv::Mat& arg4, cv::Mat& arg5, cv::Mat& arg6, Size arg7, int arg8, TermCriteria arg9, int arg10) {
-        return cv::calcOpticalFlowPyrLK(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10);
-    }
-    
-    void calcOpticalFlowPyrLK_wrapper_2(const cv::Mat& arg1, const cv::Mat& arg2, const cv::Mat& arg3, cv::Mat& arg4, cv::Mat& arg5, cv::Mat& arg6, Size arg7, int arg8, TermCriteria arg9) {
-        return cv::calcOpticalFlowPyrLK(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);
-    }
-    
-    void calcOpticalFlowPyrLK_wrapper_3(const cv::Mat& arg1, const cv::Mat& arg2, const cv::Mat& arg3, cv::Mat& arg4, cv::Mat& arg5, cv::Mat& arg6, Size arg7, int arg8) {
-        return cv::calcOpticalFlowPyrLK(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
-    }
-    
-    void calcOpticalFlowPyrLK_wrapper_4(const cv::Mat& arg1, const cv::Mat& arg2, const cv::Mat& arg3, cv::Mat& arg4, cv::Mat& arg5, cv::Mat& arg6, Size arg7) {
-        return cv::calcOpticalFlowPyrLK(arg1, arg2, arg3, arg4, arg5, arg6, arg7);
-    }
-    
-    void calcOpticalFlowPyrLK_wrapper_5(const cv::Mat& arg1, const cv::Mat& arg2, const cv::Mat& arg3, cv::Mat& arg4, cv::Mat& arg5, cv::Mat& arg6) {
-        return cv::calcOpticalFlowPyrLK(arg1, arg2, arg3, arg4, arg5, arg6);
-    }
-    
     double calibrateCameraExtended_wrapper(const std::vector<cv::Mat>& arg1, const std::vector<cv::Mat>& arg2, Size arg3, cv::Mat& arg4, cv::Mat& arg5, std::vector<cv::Mat>& arg6, std::vector<cv::Mat>& arg7, cv::Mat& arg8, cv::Mat& arg9, cv::Mat& arg10, int arg11, TermCriteria arg12) {
         return cv::calibrateCamera(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12);
     }
@@ -1733,26 +1696,6 @@ namespace Wrappers {
         return cv::findHomography(arg1, arg2, arg3, arg4);
     }
     
-    double findTransformECC_wrapper(const cv::Mat& arg1, const cv::Mat& arg2, cv::Mat& arg3, int arg4, TermCriteria arg5, const cv::Mat& arg6, int arg7) {
-        return cv::findTransformECC(arg1, arg2, arg3, arg4, arg5, arg6, arg7);
-    }
-    
-    double findTransformECC_wrapper1(const cv::Mat& arg1, const cv::Mat& arg2, cv::Mat& arg3, int arg4, TermCriteria arg5, const cv::Mat& arg6) {
-        return cv::findTransformECC(arg1, arg2, arg3, arg4, arg5, arg6);
-    }
-    
-    double findTransformECC_wrapper1_1(const cv::Mat& arg1, const cv::Mat& arg2, cv::Mat& arg3, int arg4, TermCriteria arg5) {
-        return cv::findTransformECC(arg1, arg2, arg3, arg4, arg5);
-    }
-    
-    double findTransformECC_wrapper1_2(const cv::Mat& arg1, const cv::Mat& arg2, cv::Mat& arg3, int arg4) {
-        return cv::findTransformECC(arg1, arg2, arg3, arg4);
-    }
-    
-    double findTransformECC_wrapper1_3(const cv::Mat& arg1, const cv::Mat& arg2, cv::Mat& arg3) {
-        return cv::findTransformECC(arg1, arg2, arg3);
-    }
-    
     RotatedRect fitEllipse_wrapper(const cv::Mat& arg1) {
         return cv::fitEllipse(arg1);
     }
@@ -1899,10 +1842,6 @@ namespace Wrappers {
     
     void initUndistortRectifyMap_wrapper(const cv::Mat& arg1, const cv::Mat& arg2, const cv::Mat& arg3, const cv::Mat& arg4, Size arg5, int arg6, cv::Mat& arg7, cv::Mat& arg8) {
         return cv::initUndistortRectifyMap(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
-    }
-    
-    void inpaint_wrapper(const cv::Mat& arg1, const cv::Mat& arg2, cv::Mat& arg3, double arg4, int arg5) {
-        return cv::inpaint(arg1, arg2, arg3, arg4, arg5);
     }
     
     void integral_wrapper(const cv::Mat& arg1, cv::Mat& arg2, int arg3) {
@@ -2593,130 +2532,6 @@ namespace Wrappers {
         return cv::aruco::getPredefinedDictionary(arg1);
     }
     
-    Mat blobFromImage_wrapper(const cv::Mat& arg1, double arg2, const Size& arg3, const Scalar& arg4, bool arg5, bool arg6, int arg7) {
-        return cv::dnn::blobFromImage(arg1, arg2, arg3, arg4, arg5, arg6, arg7);
-    }
-    
-    Mat blobFromImage_wrapper_1(const cv::Mat& arg1, double arg2, const Size& arg3, const Scalar& arg4, bool arg5, bool arg6) {
-        return cv::dnn::blobFromImage(arg1, arg2, arg3, arg4, arg5, arg6);
-    }
-    
-    Mat blobFromImage_wrapper_2(const cv::Mat& arg1, double arg2, const Size& arg3, const Scalar& arg4, bool arg5) {
-        return cv::dnn::blobFromImage(arg1, arg2, arg3, arg4, arg5);
-    }
-    
-    Mat blobFromImage_wrapper_3(const cv::Mat& arg1, double arg2, const Size& arg3, const Scalar& arg4) {
-        return cv::dnn::blobFromImage(arg1, arg2, arg3, arg4);
-    }
-    
-    Mat blobFromImage_wrapper_4(const cv::Mat& arg1, double arg2, const Size& arg3) {
-        return cv::dnn::blobFromImage(arg1, arg2, arg3);
-    }
-    
-    Mat blobFromImage_wrapper_5(const cv::Mat& arg1, double arg2) {
-        return cv::dnn::blobFromImage(arg1, arg2);
-    }
-    
-    Mat blobFromImage_wrapper_6(const cv::Mat& arg1) {
-        return cv::dnn::blobFromImage(arg1);
-    }
-    
-    Net readNet_wrapper(const std::string& arg1, const std::string& arg2, const std::string& arg3) {
-        return cv::dnn::readNet(arg1, arg2, arg3);
-    }
-    
-    Net readNet_wrapper_1(const std::string& arg1, const std::string& arg2) {
-        return cv::dnn::readNet(arg1, arg2);
-    }
-    
-    Net readNet_wrapper_2(const std::string& arg1) {
-        return cv::dnn::readNet(arg1);
-    }
-    
-    Net readNet_wrapper1(const std::string& arg1, const emscripten::val& arg2, const emscripten::val& arg3) {
-        return cv::dnn::readNet(arg1, emscripten::vecFromJSArray<uchar>(arg2), emscripten::vecFromJSArray<uchar>(arg3));
-    }
-    
-    Net readNet_wrapper1_1(const std::string& arg1, const emscripten::val& arg2) {
-        return cv::dnn::readNet(arg1, emscripten::vecFromJSArray<uchar>(arg2));
-    }
-    
-    Net readNetFromCaffe_wrapper(const std::string& arg1, const std::string& arg2) {
-        return cv::dnn::readNetFromCaffe(arg1, arg2);
-    }
-    
-    Net readNetFromCaffe_wrapper_1(const std::string& arg1) {
-        return cv::dnn::readNetFromCaffe(arg1);
-    }
-    
-    Net readNetFromCaffe_wrapper1(const emscripten::val& arg1, const emscripten::val& arg2) {
-        return cv::dnn::readNetFromCaffe(emscripten::vecFromJSArray<uchar>(arg1), emscripten::vecFromJSArray<uchar>(arg2));
-    }
-    
-    Net readNetFromCaffe_wrapper1_1(const emscripten::val& arg1) {
-        return cv::dnn::readNetFromCaffe(emscripten::vecFromJSArray<uchar>(arg1));
-    }
-    
-    Net readNetFromDarknet_wrapper(const std::string& arg1, const std::string& arg2) {
-        return cv::dnn::readNetFromDarknet(arg1, arg2);
-    }
-    
-    Net readNetFromDarknet_wrapper_1(const std::string& arg1) {
-        return cv::dnn::readNetFromDarknet(arg1);
-    }
-    
-    Net readNetFromDarknet_wrapper1(const emscripten::val& arg1, const emscripten::val& arg2) {
-        return cv::dnn::readNetFromDarknet(emscripten::vecFromJSArray<uchar>(arg1), emscripten::vecFromJSArray<uchar>(arg2));
-    }
-    
-    Net readNetFromDarknet_wrapper1_1(const emscripten::val& arg1) {
-        return cv::dnn::readNetFromDarknet(emscripten::vecFromJSArray<uchar>(arg1));
-    }
-    
-    Net readNetFromONNX_wrapper(const std::string& arg1) {
-        return cv::dnn::readNetFromONNX(arg1);
-    }
-    
-    Net readNetFromONNX_wrapper1(const emscripten::val& arg1) {
-        return cv::dnn::readNetFromONNX(emscripten::vecFromJSArray<uchar>(arg1));
-    }
-    
-    Net readNetFromTFLite_wrapper(const std::string& arg1) {
-        return cv::dnn::readNetFromTFLite(arg1);
-    }
-    
-    Net readNetFromTFLite_wrapper1(const emscripten::val& arg1) {
-        return cv::dnn::readNetFromTFLite(emscripten::vecFromJSArray<uchar>(arg1));
-    }
-    
-    Net readNetFromTensorflow_wrapper(const std::string& arg1, const std::string& arg2) {
-        return cv::dnn::readNetFromTensorflow(arg1, arg2);
-    }
-    
-    Net readNetFromTensorflow_wrapper_1(const std::string& arg1) {
-        return cv::dnn::readNetFromTensorflow(arg1);
-    }
-    
-    Net readNetFromTensorflow_wrapper1(const emscripten::val& arg1, const emscripten::val& arg2) {
-        return cv::dnn::readNetFromTensorflow(emscripten::vecFromJSArray<uchar>(arg1), emscripten::vecFromJSArray<uchar>(arg2));
-    }
-    
-    Net readNetFromTensorflow_wrapper1_1(const emscripten::val& arg1) {
-        return cv::dnn::readNetFromTensorflow(emscripten::vecFromJSArray<uchar>(arg1));
-    }
-    
-    Net readNetFromTorch_wrapper(const std::string& arg1, bool arg2, bool arg3) {
-        return cv::dnn::readNetFromTorch(arg1, arg2, arg3);
-    }
-    
-    Net readNetFromTorch_wrapper_1(const std::string& arg1, bool arg2) {
-        return cv::dnn::readNetFromTorch(arg1, arg2);
-    }
-    
-    Net readNetFromTorch_wrapper_2(const std::string& arg1) {
-        return cv::dnn::readNetFromTorch(arg1);
-    }
-    
     void fisheye_initUndistortRectifyMap_wrapper(const cv::Mat& arg1, const cv::Mat& arg2, const cv::Mat& arg3, const cv::Mat& arg4, const Size& arg5, int arg6, cv::Mat& arg7, cv::Mat& arg8) {
         return cv::fisheye::initUndistortRectifyMap(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
     }
@@ -2833,50 +2648,6 @@ namespace Wrappers {
         return arg0.setType(arg1);
     }
     
-    void AlignExposures_process_wrapper(cv::AlignExposures& arg0 , const std::vector<cv::Mat>& arg1, std::vector<cv::Mat>&& arg2, const cv::Mat& arg3, const cv::Mat& arg4) {
-        return arg0.process(arg1, arg2, arg3, arg4);
-    }
-    
-    Ptr<AlignMTB> _createAlignMTB_wrapper(int arg1, int arg2, bool arg3) {
-        return cv::createAlignMTB(arg1, arg2, arg3);
-    }
-    
-    Ptr<AlignMTB> _createAlignMTB_wrapper_1(int arg1, int arg2) {
-        return cv::createAlignMTB(arg1, arg2);
-    }
-    
-    Ptr<AlignMTB> _createAlignMTB_wrapper_2(int arg1) {
-        return cv::createAlignMTB(arg1);
-    }
-    
-    Ptr<AlignMTB> _createAlignMTB_wrapper_3() {
-        return cv::createAlignMTB();
-    }
-    
-    Point AlignMTB_calculateShift_wrapper(cv::AlignMTB& arg0 , const cv::Mat& arg1, const cv::Mat& arg2) {
-        return arg0.calculateShift(arg1, arg2);
-    }
-    
-    void AlignMTB_computeBitmaps_wrapper(cv::AlignMTB& arg0 , const cv::Mat& arg1, cv::Mat& arg2, cv::Mat& arg3) {
-        return arg0.computeBitmaps(arg1, arg2, arg3);
-    }
-    
-    void AlignMTB_setCut_wrapper(cv::AlignMTB& arg0 , bool arg1) {
-        return arg0.setCut(arg1);
-    }
-    
-    void AlignMTB_setExcludeRange_wrapper(cv::AlignMTB& arg0 , int arg1) {
-        return arg0.setExcludeRange(arg1);
-    }
-    
-    void AlignMTB_setMaxBits_wrapper(cv::AlignMTB& arg0 , int arg1) {
-        return arg0.setMaxBits(arg1);
-    }
-    
-    void AlignMTB_shiftMat_wrapper(cv::AlignMTB& arg0 , const cv::Mat& arg1, cv::Mat& arg2, const Point arg3) {
-        return arg0.shiftMat(arg1, arg2, arg3);
-    }
-    
     Ptr<BFMatcher> BFMatcher_create_wrapper(int arg1, bool arg2) {
         return cv::BFMatcher::create(arg1, arg2);
     }
@@ -2925,42 +2696,6 @@ namespace Wrappers {
         return arg0.getDefaultName();
     }
     
-    void BackgroundSubtractor_apply_wrapper(cv::BackgroundSubtractor& arg0 , const cv::Mat& arg1, cv::Mat& arg2, double arg3) {
-        return arg0.apply(arg1, arg2, arg3);
-    }
-    
-    void BackgroundSubtractor_apply_wrapper_1(cv::BackgroundSubtractor& arg0 , const cv::Mat& arg1, cv::Mat& arg2) {
-        return arg0.apply(arg1, arg2);
-    }
-    
-    void BackgroundSubtractor_getBackgroundImage_wrapper(cv::BackgroundSubtractor& arg0 , cv::Mat& arg1) {
-        return arg0.getBackgroundImage(arg1);
-    }
-    
-    Ptr<BackgroundSubtractorMOG2> _createBackgroundSubtractorMOG2_wrapper(int arg1, double arg2, bool arg3) {
-        return cv::createBackgroundSubtractorMOG2(arg1, arg2, arg3);
-    }
-    
-    Ptr<BackgroundSubtractorMOG2> _createBackgroundSubtractorMOG2_wrapper_1(int arg1, double arg2) {
-        return cv::createBackgroundSubtractorMOG2(arg1, arg2);
-    }
-    
-    Ptr<BackgroundSubtractorMOG2> _createBackgroundSubtractorMOG2_wrapper_2(int arg1) {
-        return cv::createBackgroundSubtractorMOG2(arg1);
-    }
-    
-    Ptr<BackgroundSubtractorMOG2> _createBackgroundSubtractorMOG2_wrapper_3() {
-        return cv::createBackgroundSubtractorMOG2();
-    }
-    
-    void BackgroundSubtractorMOG2_apply_wrapper(cv::BackgroundSubtractorMOG2& arg0 , const cv::Mat& arg1, cv::Mat& arg2, double arg3) {
-        return arg0.apply(arg1, arg2, arg3);
-    }
-    
-    void BackgroundSubtractorMOG2_apply_wrapper_1(cv::BackgroundSubtractorMOG2& arg0 , const cv::Mat& arg1, cv::Mat& arg2) {
-        return arg0.apply(arg1, arg2);
-    }
-    
     Ptr<CLAHE> _createCLAHE_wrapper(double arg1, Size arg2) {
         return cv::createCLAHE(arg1, arg2);
     }
@@ -2983,58 +2718,6 @@ namespace Wrappers {
     
     void CLAHE_setTilesGridSize_wrapper(cv::CLAHE& arg0 , Size arg1) {
         return arg0.setTilesGridSize(arg1);
-    }
-    
-    void CalibrateCRF_process_wrapper(cv::CalibrateCRF& arg0 , const std::vector<cv::Mat>& arg1, cv::Mat& arg2, const cv::Mat& arg3) {
-        return arg0.process(arg1, arg2, arg3);
-    }
-    
-    Ptr<CalibrateDebevec> _createCalibrateDebevec_wrapper(int arg1, float arg2, bool arg3) {
-        return cv::createCalibrateDebevec(arg1, arg2, arg3);
-    }
-    
-    Ptr<CalibrateDebevec> _createCalibrateDebevec_wrapper_1(int arg1, float arg2) {
-        return cv::createCalibrateDebevec(arg1, arg2);
-    }
-    
-    Ptr<CalibrateDebevec> _createCalibrateDebevec_wrapper_2(int arg1) {
-        return cv::createCalibrateDebevec(arg1);
-    }
-    
-    Ptr<CalibrateDebevec> _createCalibrateDebevec_wrapper_3() {
-        return cv::createCalibrateDebevec();
-    }
-    
-    void CalibrateDebevec_setLambda_wrapper(cv::CalibrateDebevec& arg0 , float arg1) {
-        return arg0.setLambda(arg1);
-    }
-    
-    void CalibrateDebevec_setRandom_wrapper(cv::CalibrateDebevec& arg0 , bool arg1) {
-        return arg0.setRandom(arg1);
-    }
-    
-    void CalibrateDebevec_setSamples_wrapper(cv::CalibrateDebevec& arg0 , int arg1) {
-        return arg0.setSamples(arg1);
-    }
-    
-    Ptr<CalibrateRobertson> _createCalibrateRobertson_wrapper(int arg1, float arg2) {
-        return cv::createCalibrateRobertson(arg1, arg2);
-    }
-    
-    Ptr<CalibrateRobertson> _createCalibrateRobertson_wrapper_1(int arg1) {
-        return cv::createCalibrateRobertson(arg1);
-    }
-    
-    Ptr<CalibrateRobertson> _createCalibrateRobertson_wrapper_2() {
-        return cv::createCalibrateRobertson();
-    }
-    
-    void CalibrateRobertson_setMaxIter_wrapper(cv::CalibrateRobertson& arg0 , int arg1) {
-        return arg0.setMaxIter(arg1);
-    }
-    
-    void CalibrateRobertson_setThreshold_wrapper(cv::CalibrateRobertson& arg0 , float arg1) {
-        return arg0.setThreshold(arg1);
     }
     
     void CascadeClassifier_detectMultiScale_wrapper(cv::CascadeClassifier& arg0 , const cv::Mat& arg1, std::vector<Rect>& arg2, double arg3, int arg4, int arg5, Size arg6, Size arg7) {
@@ -3573,62 +3256,6 @@ namespace Wrappers {
         return arg0.setPass2Only(arg1);
     }
     
-    void MergeDebevec_process_wrapper(cv::MergeDebevec& arg0 , const std::vector<cv::Mat>& arg1, cv::Mat& arg2, const cv::Mat& arg3, const cv::Mat& arg4) {
-        return arg0.process(arg1, arg2, arg3, arg4);
-    }
-    
-    void MergeDebevec_process_wrapper1(cv::MergeDebevec& arg0 , const std::vector<cv::Mat>& arg1, cv::Mat& arg2, const cv::Mat& arg3) {
-        return arg0.process(arg1, arg2, arg3);
-    }
-    
-    void MergeExposures_process_wrapper(cv::MergeExposures& arg0 , const std::vector<cv::Mat>& arg1, cv::Mat& arg2, const cv::Mat& arg3, const cv::Mat& arg4) {
-        return arg0.process(arg1, arg2, arg3, arg4);
-    }
-    
-    Ptr<MergeMertens> _createMergeMertens_wrapper(float arg1, float arg2, float arg3) {
-        return cv::createMergeMertens(arg1, arg2, arg3);
-    }
-    
-    Ptr<MergeMertens> _createMergeMertens_wrapper_1(float arg1, float arg2) {
-        return cv::createMergeMertens(arg1, arg2);
-    }
-    
-    Ptr<MergeMertens> _createMergeMertens_wrapper_2(float arg1) {
-        return cv::createMergeMertens(arg1);
-    }
-    
-    Ptr<MergeMertens> _createMergeMertens_wrapper_3() {
-        return cv::createMergeMertens();
-    }
-    
-    void MergeMertens_process_wrapper(cv::MergeMertens& arg0 , const std::vector<cv::Mat>& arg1, cv::Mat& arg2, const cv::Mat& arg3, const cv::Mat& arg4) {
-        return arg0.process(arg1, arg2, arg3, arg4);
-    }
-    
-    void MergeMertens_process_wrapper1(cv::MergeMertens& arg0 , const std::vector<cv::Mat>& arg1, cv::Mat& arg2) {
-        return arg0.process(arg1, arg2);
-    }
-    
-    void MergeMertens_setContrastWeight_wrapper(cv::MergeMertens& arg0 , float arg1) {
-        return arg0.setContrastWeight(arg1);
-    }
-    
-    void MergeMertens_setExposureWeight_wrapper(cv::MergeMertens& arg0 , float arg1) {
-        return arg0.setExposureWeight(arg1);
-    }
-    
-    void MergeMertens_setSaturationWeight_wrapper(cv::MergeMertens& arg0 , float arg1) {
-        return arg0.setSaturationWeight(arg1);
-    }
-    
-    void MergeRobertson_process_wrapper(cv::MergeRobertson& arg0 , const std::vector<cv::Mat>& arg1, cv::Mat& arg2, const cv::Mat& arg3, const cv::Mat& arg4) {
-        return arg0.process(arg1, arg2, arg3, arg4);
-    }
-    
-    void MergeRobertson_process_wrapper1(cv::MergeRobertson& arg0 , const std::vector<cv::Mat>& arg1, cv::Mat& arg2, const cv::Mat& arg3) {
-        return arg0.process(arg1, arg2, arg3);
-    }
-    
     Ptr<ORB> ORB_create_wrapper(int arg1, float arg2, int arg3, int arg4, int arg5, int arg6, cv::ORB::ScoreType arg7, int arg8, int arg9) {
         return cv::ORB::create(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);
     }
@@ -3759,102 +3386,6 @@ namespace Wrappers {
     
     void SimpleBlobDetector_setParams_wrapper(cv::SimpleBlobDetector& arg0 , const SimpleBlobDetector_Params& arg1) {
         return arg0.setParams(arg1);
-    }
-    
-    void Tonemap_process_wrapper(cv::Tonemap& arg0 , const cv::Mat& arg1, cv::Mat& arg2) {
-        return arg0.process(arg1, arg2);
-    }
-    
-    void Tonemap_setGamma_wrapper(cv::Tonemap& arg0 , float arg1) {
-        return arg0.setGamma(arg1);
-    }
-    
-    Ptr<TonemapDrago> _createTonemapDrago_wrapper(float arg1, float arg2, float arg3) {
-        return cv::createTonemapDrago(arg1, arg2, arg3);
-    }
-    
-    Ptr<TonemapDrago> _createTonemapDrago_wrapper_1(float arg1, float arg2) {
-        return cv::createTonemapDrago(arg1, arg2);
-    }
-    
-    Ptr<TonemapDrago> _createTonemapDrago_wrapper_2(float arg1) {
-        return cv::createTonemapDrago(arg1);
-    }
-    
-    Ptr<TonemapDrago> _createTonemapDrago_wrapper_3() {
-        return cv::createTonemapDrago();
-    }
-    
-    void TonemapDrago_setBias_wrapper(cv::TonemapDrago& arg0 , float arg1) {
-        return arg0.setBias(arg1);
-    }
-    
-    void TonemapDrago_setSaturation_wrapper(cv::TonemapDrago& arg0 , float arg1) {
-        return arg0.setSaturation(arg1);
-    }
-    
-    Ptr<TonemapMantiuk> _createTonemapMantiuk_wrapper(float arg1, float arg2, float arg3) {
-        return cv::createTonemapMantiuk(arg1, arg2, arg3);
-    }
-    
-    Ptr<TonemapMantiuk> _createTonemapMantiuk_wrapper_1(float arg1, float arg2) {
-        return cv::createTonemapMantiuk(arg1, arg2);
-    }
-    
-    Ptr<TonemapMantiuk> _createTonemapMantiuk_wrapper_2(float arg1) {
-        return cv::createTonemapMantiuk(arg1);
-    }
-    
-    Ptr<TonemapMantiuk> _createTonemapMantiuk_wrapper_3() {
-        return cv::createTonemapMantiuk();
-    }
-    
-    void TonemapMantiuk_setSaturation_wrapper(cv::TonemapMantiuk& arg0 , float arg1) {
-        return arg0.setSaturation(arg1);
-    }
-    
-    void TonemapMantiuk_setScale_wrapper(cv::TonemapMantiuk& arg0 , float arg1) {
-        return arg0.setScale(arg1);
-    }
-    
-    Ptr<TonemapReinhard> _createTonemapReinhard_wrapper(float arg1, float arg2, float arg3, float arg4) {
-        return cv::createTonemapReinhard(arg1, arg2, arg3, arg4);
-    }
-    
-    Ptr<TonemapReinhard> _createTonemapReinhard_wrapper_1(float arg1, float arg2, float arg3) {
-        return cv::createTonemapReinhard(arg1, arg2, arg3);
-    }
-    
-    Ptr<TonemapReinhard> _createTonemapReinhard_wrapper_2(float arg1, float arg2) {
-        return cv::createTonemapReinhard(arg1, arg2);
-    }
-    
-    Ptr<TonemapReinhard> _createTonemapReinhard_wrapper_3(float arg1) {
-        return cv::createTonemapReinhard(arg1);
-    }
-    
-    Ptr<TonemapReinhard> _createTonemapReinhard_wrapper_4() {
-        return cv::createTonemapReinhard();
-    }
-    
-    void TonemapReinhard_setColorAdaptation_wrapper(cv::TonemapReinhard& arg0 , float arg1) {
-        return arg0.setColorAdaptation(arg1);
-    }
-    
-    void TonemapReinhard_setIntensity_wrapper(cv::TonemapReinhard& arg0 , float arg1) {
-        return arg0.setIntensity(arg1);
-    }
-    
-    void TonemapReinhard_setLightAdaptation_wrapper(cv::TonemapReinhard& arg0 , float arg1) {
-        return arg0.setLightAdaptation(arg1);
-    }
-    
-    Ptr<TrackerMIL> TrackerMIL_create_wrapper(const TrackerMIL_Params& arg1) {
-        return cv::TrackerMIL::create(arg1);
-    }
-    
-    Ptr<TrackerMIL> TrackerMIL_create_wrapper_1() {
-        return cv::TrackerMIL::create();
     }
     
     void aruco_ArucoDetector_detectMarkers_wrapper(cv::aruco::ArucoDetector& arg0 , const cv::Mat& arg1, std::vector<cv::Mat>& arg2, cv::Mat& arg3, std::vector<cv::Mat>& arg4) {
@@ -3991,50 +3522,6 @@ namespace Wrappers {
     
     bool barcode_BarcodeDetector_detectAndDecodeWithType_wrapper_1(cv::barcode::BarcodeDetector& arg0 , const cv::Mat& arg1, std::vector<string>& arg2, std::vector<string>& arg3) {
         return arg0.detectAndDecodeWithType(arg1, arg2, arg3);
-    }
-    
-    Mat dnn_Net_forward_wrapper(cv::dnn::Net& arg0 , const std::string& arg1) {
-        return arg0.forward(arg1);
-    }
-    
-    Mat dnn_Net_forward_wrapper_1(cv::dnn::Net& arg0 ) {
-        return arg0.forward();
-    }
-    
-    void dnn_Net_forward_wrapper1(cv::dnn::Net& arg0 , std::vector<cv::Mat>& arg1, const std::string& arg2) {
-        return arg0.forward(arg1, arg2);
-    }
-    
-    void dnn_Net_forward_wrapper1_1(cv::dnn::Net& arg0 , std::vector<cv::Mat>& arg1) {
-        return arg0.forward(arg1);
-    }
-    
-    void dnn_Net_forward_wrapper2(cv::dnn::Net& arg0 , std::vector<cv::Mat>& arg1, const emscripten::val& arg2) {
-        return arg0.forward(arg1, emscripten::vecFromJSArray<String>(arg2));
-    }
-    
-    std::vector<std::string> dnn_Net_getUnconnectedOutLayersNames_wrapper(cv::dnn::Net& arg0 ) {
-        return arg0.getUnconnectedOutLayersNames();
-    }
-    
-    void dnn_Net_setInput_wrapper(cv::dnn::Net& arg0 , const cv::Mat& arg1, const std::string& arg2, double arg3, const Scalar& arg4) {
-        return arg0.setInput(arg1, arg2, arg3, arg4);
-    }
-    
-    void dnn_Net_setInput_wrapper_1(cv::dnn::Net& arg0 , const cv::Mat& arg1, const std::string& arg2, double arg3) {
-        return arg0.setInput(arg1, arg2, arg3);
-    }
-    
-    void dnn_Net_setInput_wrapper_2(cv::dnn::Net& arg0 , const cv::Mat& arg1, const std::string& arg2) {
-        return arg0.setInput(arg1, arg2);
-    }
-    
-    void dnn_Net_setInput_wrapper_3(cv::dnn::Net& arg0 , const cv::Mat& arg1) {
-        return arg0.setInput(arg1);
-    }
-    
-    void dnn_Net_setPreferableBackend_wrapper(cv::dnn::Net& arg0 , int arg1) {
-        return arg0.setPreferableBackend(arg1);
     }
     
     IntelligentScissorsMB segmentation_IntelligentScissorsMB_applyImage_wrapper(cv::segmentation::IntelligentScissorsMB& arg0 , const cv::Mat& arg1) {
@@ -4259,20 +3746,6 @@ EMSCRIPTEN_BINDINGS(testBinding) {
     function("calcHist", select_overload<void(const std::vector<cv::Mat>&, const emscripten::val&, const cv::Mat&, cv::Mat&, const emscripten::val&, const emscripten::val&, bool)>(&Wrappers::calcHist_wrapper));
 
     function("calcHist", select_overload<void(const std::vector<cv::Mat>&, const emscripten::val&, const cv::Mat&, cv::Mat&, const emscripten::val&, const emscripten::val&)>(&Wrappers::calcHist_wrapper_1));
-
-    function("calcOpticalFlowFarneback", select_overload<void(const cv::Mat&, const cv::Mat&, cv::Mat&, double, int, int, int, int, double, int)>(&Wrappers::calcOpticalFlowFarneback_wrapper));
-
-    function("calcOpticalFlowPyrLK", select_overload<void(const cv::Mat&, const cv::Mat&, const cv::Mat&, cv::Mat&, cv::Mat&, cv::Mat&, Size, int, TermCriteria, int, double)>(&Wrappers::calcOpticalFlowPyrLK_wrapper));
-
-    function("calcOpticalFlowPyrLK", select_overload<void(const cv::Mat&, const cv::Mat&, const cv::Mat&, cv::Mat&, cv::Mat&, cv::Mat&, Size, int, TermCriteria, int)>(&Wrappers::calcOpticalFlowPyrLK_wrapper_1));
-
-    function("calcOpticalFlowPyrLK", select_overload<void(const cv::Mat&, const cv::Mat&, const cv::Mat&, cv::Mat&, cv::Mat&, cv::Mat&, Size, int, TermCriteria)>(&Wrappers::calcOpticalFlowPyrLK_wrapper_2));
-
-    function("calcOpticalFlowPyrLK", select_overload<void(const cv::Mat&, const cv::Mat&, const cv::Mat&, cv::Mat&, cv::Mat&, cv::Mat&, Size, int)>(&Wrappers::calcOpticalFlowPyrLK_wrapper_3));
-
-    function("calcOpticalFlowPyrLK", select_overload<void(const cv::Mat&, const cv::Mat&, const cv::Mat&, cv::Mat&, cv::Mat&, cv::Mat&, Size)>(&Wrappers::calcOpticalFlowPyrLK_wrapper_4));
-
-    function("calcOpticalFlowPyrLK", select_overload<void(const cv::Mat&, const cv::Mat&, const cv::Mat&, cv::Mat&, cv::Mat&, cv::Mat&)>(&Wrappers::calcOpticalFlowPyrLK_wrapper_5));
 
     function("calibrateCameraExtended", select_overload<double(const std::vector<cv::Mat>&, const std::vector<cv::Mat>&, Size, cv::Mat&, cv::Mat&, std::vector<cv::Mat>&, std::vector<cv::Mat>&, cv::Mat&, cv::Mat&, cv::Mat&, int, TermCriteria)>(&Wrappers::calibrateCameraExtended_wrapper));
 
@@ -4556,16 +4029,6 @@ EMSCRIPTEN_BINDINGS(testBinding) {
 
     function("findHomography1", select_overload<Mat(const cv::Mat&, const cv::Mat&, cv::Mat&, const UsacParams&)>(&Wrappers::findHomography_wrapper1));
 
-    function("findTransformECC", select_overload<double(const cv::Mat&, const cv::Mat&, cv::Mat&, int, TermCriteria, const cv::Mat&, int)>(&Wrappers::findTransformECC_wrapper));
-
-    function("findTransformECC1", select_overload<double(const cv::Mat&, const cv::Mat&, cv::Mat&, int, TermCriteria, const cv::Mat&)>(&Wrappers::findTransformECC_wrapper1));
-
-    function("findTransformECC1", select_overload<double(const cv::Mat&, const cv::Mat&, cv::Mat&, int, TermCriteria)>(&Wrappers::findTransformECC_wrapper1_1));
-
-    function("findTransformECC1", select_overload<double(const cv::Mat&, const cv::Mat&, cv::Mat&, int)>(&Wrappers::findTransformECC_wrapper1_2));
-
-    function("findTransformECC1", select_overload<double(const cv::Mat&, const cv::Mat&, cv::Mat&)>(&Wrappers::findTransformECC_wrapper1_3));
-
     function("fitEllipse", select_overload<RotatedRect(const cv::Mat&)>(&Wrappers::fitEllipse_wrapper));
 
     function("fitEllipseAMS", select_overload<RotatedRect(const cv::Mat&)>(&Wrappers::fitEllipseAMS_wrapper));
@@ -4639,8 +4102,6 @@ EMSCRIPTEN_BINDINGS(testBinding) {
     function("inRange", select_overload<void(const cv::Mat&, const cv::Mat&, const cv::Mat&, cv::Mat&)>(&Wrappers::inRange_wrapper));
 
     function("initUndistortRectifyMap", select_overload<void(const cv::Mat&, const cv::Mat&, const cv::Mat&, const cv::Mat&, Size, int, cv::Mat&, cv::Mat&)>(&Wrappers::initUndistortRectifyMap_wrapper));
-
-    function("inpaint", select_overload<void(const cv::Mat&, const cv::Mat&, cv::Mat&, double, int)>(&Wrappers::inpaint_wrapper));
 
     function("integral", select_overload<void(const cv::Mat&, cv::Mat&, int)>(&Wrappers::integral_wrapper));
 
@@ -4986,68 +4447,6 @@ EMSCRIPTEN_BINDINGS(testBinding) {
 
     function("getPredefinedDictionary", select_overload<Dictionary(int)>(&Wrappers::getPredefinedDictionary_wrapper));
 
-    function("blobFromImage", select_overload<Mat(const cv::Mat&, double, const Size&, const Scalar&, bool, bool, int)>(&Wrappers::blobFromImage_wrapper));
-
-    function("blobFromImage", select_overload<Mat(const cv::Mat&, double, const Size&, const Scalar&, bool, bool)>(&Wrappers::blobFromImage_wrapper_1));
-
-    function("blobFromImage", select_overload<Mat(const cv::Mat&, double, const Size&, const Scalar&, bool)>(&Wrappers::blobFromImage_wrapper_2));
-
-    function("blobFromImage", select_overload<Mat(const cv::Mat&, double, const Size&, const Scalar&)>(&Wrappers::blobFromImage_wrapper_3));
-
-    function("blobFromImage", select_overload<Mat(const cv::Mat&, double, const Size&)>(&Wrappers::blobFromImage_wrapper_4));
-
-    function("blobFromImage", select_overload<Mat(const cv::Mat&, double)>(&Wrappers::blobFromImage_wrapper_5));
-
-    function("blobFromImage", select_overload<Mat(const cv::Mat&)>(&Wrappers::blobFromImage_wrapper_6));
-
-    function("readNet", select_overload<Net(const std::string&, const std::string&, const std::string&)>(&Wrappers::readNet_wrapper));
-
-    function("readNet", select_overload<Net(const std::string&, const std::string&)>(&Wrappers::readNet_wrapper_1));
-
-    function("readNet", select_overload<Net(const std::string&)>(&Wrappers::readNet_wrapper_2));
-
-    function("readNet1", select_overload<Net(const std::string&, const emscripten::val&, const emscripten::val&)>(&Wrappers::readNet_wrapper1));
-
-    function("readNet1", select_overload<Net(const std::string&, const emscripten::val&)>(&Wrappers::readNet_wrapper1_1));
-
-    function("readNetFromCaffe", select_overload<Net(const std::string&, const std::string&)>(&Wrappers::readNetFromCaffe_wrapper));
-
-    function("readNetFromCaffe", select_overload<Net(const std::string&)>(&Wrappers::readNetFromCaffe_wrapper_1));
-
-    function("readNetFromCaffe1", select_overload<Net(const emscripten::val&, const emscripten::val&)>(&Wrappers::readNetFromCaffe_wrapper1));
-
-    function("readNetFromCaffe1", select_overload<Net(const emscripten::val&)>(&Wrappers::readNetFromCaffe_wrapper1_1));
-
-    function("readNetFromDarknet", select_overload<Net(const std::string&, const std::string&)>(&Wrappers::readNetFromDarknet_wrapper));
-
-    function("readNetFromDarknet", select_overload<Net(const std::string&)>(&Wrappers::readNetFromDarknet_wrapper_1));
-
-    function("readNetFromDarknet1", select_overload<Net(const emscripten::val&, const emscripten::val&)>(&Wrappers::readNetFromDarknet_wrapper1));
-
-    function("readNetFromDarknet1", select_overload<Net(const emscripten::val&)>(&Wrappers::readNetFromDarknet_wrapper1_1));
-
-    function("readNetFromONNX", select_overload<Net(const std::string&)>(&Wrappers::readNetFromONNX_wrapper));
-
-    function("readNetFromONNX1", select_overload<Net(const emscripten::val&)>(&Wrappers::readNetFromONNX_wrapper1));
-
-    function("readNetFromTFLite", select_overload<Net(const std::string&)>(&Wrappers::readNetFromTFLite_wrapper));
-
-    function("readNetFromTFLite1", select_overload<Net(const emscripten::val&)>(&Wrappers::readNetFromTFLite_wrapper1));
-
-    function("readNetFromTensorflow", select_overload<Net(const std::string&, const std::string&)>(&Wrappers::readNetFromTensorflow_wrapper));
-
-    function("readNetFromTensorflow", select_overload<Net(const std::string&)>(&Wrappers::readNetFromTensorflow_wrapper_1));
-
-    function("readNetFromTensorflow1", select_overload<Net(const emscripten::val&, const emscripten::val&)>(&Wrappers::readNetFromTensorflow_wrapper1));
-
-    function("readNetFromTensorflow1", select_overload<Net(const emscripten::val&)>(&Wrappers::readNetFromTensorflow_wrapper1_1));
-
-    function("readNetFromTorch", select_overload<Net(const std::string&, bool, bool)>(&Wrappers::readNetFromTorch_wrapper));
-
-    function("readNetFromTorch", select_overload<Net(const std::string&, bool)>(&Wrappers::readNetFromTorch_wrapper_1));
-
-    function("readNetFromTorch", select_overload<Net(const std::string&)>(&Wrappers::readNetFromTorch_wrapper_2));
-
     function("fisheye_initUndistortRectifyMap", select_overload<void(const cv::Mat&, const cv::Mat&, const cv::Mat&, const cv::Mat&, const Size&, int, cv::Mat&, cv::Mat&)>(&Wrappers::fisheye_initUndistortRectifyMap_wrapper));
 
     function("fisheye_projectPoints", select_overload<void(const cv::Mat&, cv::Mat&, const cv::Mat&, const cv::Mat&, const cv::Mat&, const cv::Mat&, double, cv::Mat&)>(&Wrappers::fisheye_projectPoints_wrapper));
@@ -5101,26 +4500,6 @@ EMSCRIPTEN_BINDINGS(testBinding) {
 
     emscripten::class_<cv::Algorithm >("Algorithm");
 
-    emscripten::class_<cv::AlignExposures ,base<Algorithm>>("AlignExposures")
-        .function("process", select_overload<void(cv::AlignExposures&,const std::vector<cv::Mat>&,std::vector<cv::Mat>&&,const cv::Mat&,const cv::Mat&)>(&Wrappers::AlignExposures_process_wrapper), pure_virtual());
-
-    emscripten::class_<cv::AlignMTB ,base<AlignExposures>>("AlignMTB")
-        .constructor(select_overload<Ptr<AlignMTB>(int,int,bool)>(&Wrappers::_createAlignMTB_wrapper))
-        .constructor(select_overload<Ptr<AlignMTB>(int,int)>(&Wrappers::_createAlignMTB_wrapper_1))
-        .constructor(select_overload<Ptr<AlignMTB>(int)>(&Wrappers::_createAlignMTB_wrapper_2))
-        .constructor(select_overload<Ptr<AlignMTB>()>(&Wrappers::_createAlignMTB_wrapper_3))
-        .function("calculateShift", select_overload<Point(cv::AlignMTB&,const cv::Mat&,const cv::Mat&)>(&Wrappers::AlignMTB_calculateShift_wrapper), pure_virtual())
-        .function("computeBitmaps", select_overload<void(cv::AlignMTB&,const cv::Mat&,cv::Mat&,cv::Mat&)>(&Wrappers::AlignMTB_computeBitmaps_wrapper), pure_virtual())
-        .function("getCut", select_overload<bool()const>(&cv::AlignMTB::getCut), pure_virtual())
-        .function("getExcludeRange", select_overload<int()const>(&cv::AlignMTB::getExcludeRange), pure_virtual())
-        .function("getMaxBits", select_overload<int()const>(&cv::AlignMTB::getMaxBits), pure_virtual())
-        .function("setCut", select_overload<void(cv::AlignMTB&,bool)>(&Wrappers::AlignMTB_setCut_wrapper), pure_virtual())
-        .function("setExcludeRange", select_overload<void(cv::AlignMTB&,int)>(&Wrappers::AlignMTB_setExcludeRange_wrapper), pure_virtual())
-        .function("setMaxBits", select_overload<void(cv::AlignMTB&,int)>(&Wrappers::AlignMTB_setMaxBits_wrapper), pure_virtual())
-        .function("shiftMat", select_overload<void(cv::AlignMTB&,const cv::Mat&,cv::Mat&,const Point)>(&Wrappers::AlignMTB_shiftMat_wrapper), pure_virtual())
-        .smart_ptr<Ptr<cv::AlignMTB>>("Ptr<AlignMTB>")
-;
-
     emscripten::class_<cv::BFMatcher ,base<DescriptorMatcher>>("BFMatcher")
         .constructor(select_overload<Ptr<BFMatcher>(int,bool)>(&Wrappers::BFMatcher_create_wrapper))
         .constructor(select_overload<Ptr<BFMatcher>(int)>(&Wrappers::BFMatcher_create_wrapper_1))
@@ -5141,21 +4520,6 @@ EMSCRIPTEN_BINDINGS(testBinding) {
         .smart_ptr<Ptr<cv::BRISK>>("Ptr<BRISK>")
 ;
 
-    emscripten::class_<cv::BackgroundSubtractor ,base<Algorithm>>("BackgroundSubtractor")
-        .function("apply", select_overload<void(cv::BackgroundSubtractor&,const cv::Mat&,cv::Mat&,double)>(&Wrappers::BackgroundSubtractor_apply_wrapper), pure_virtual())
-        .function("apply", select_overload<void(cv::BackgroundSubtractor&,const cv::Mat&,cv::Mat&)>(&Wrappers::BackgroundSubtractor_apply_wrapper_1), pure_virtual())
-        .function("getBackgroundImage", select_overload<void(cv::BackgroundSubtractor&,cv::Mat&)>(&Wrappers::BackgroundSubtractor_getBackgroundImage_wrapper), pure_virtual());
-
-    emscripten::class_<cv::BackgroundSubtractorMOG2 ,base<BackgroundSubtractor>>("BackgroundSubtractorMOG2")
-        .constructor(select_overload<Ptr<BackgroundSubtractorMOG2>(int,double,bool)>(&Wrappers::_createBackgroundSubtractorMOG2_wrapper))
-        .constructor(select_overload<Ptr<BackgroundSubtractorMOG2>(int,double)>(&Wrappers::_createBackgroundSubtractorMOG2_wrapper_1))
-        .constructor(select_overload<Ptr<BackgroundSubtractorMOG2>(int)>(&Wrappers::_createBackgroundSubtractorMOG2_wrapper_2))
-        .constructor(select_overload<Ptr<BackgroundSubtractorMOG2>()>(&Wrappers::_createBackgroundSubtractorMOG2_wrapper_3))
-        .function("apply", select_overload<void(cv::BackgroundSubtractorMOG2&,const cv::Mat&,cv::Mat&,double)>(&Wrappers::BackgroundSubtractorMOG2_apply_wrapper), pure_virtual())
-        .function("apply", select_overload<void(cv::BackgroundSubtractorMOG2&,const cv::Mat&,cv::Mat&)>(&Wrappers::BackgroundSubtractorMOG2_apply_wrapper_1), pure_virtual())
-        .smart_ptr<Ptr<cv::BackgroundSubtractorMOG2>>("Ptr<BackgroundSubtractorMOG2>")
-;
-
     emscripten::class_<cv::CLAHE ,base<Algorithm>>("CLAHE")
         .constructor(select_overload<Ptr<CLAHE>(double,Size)>(&Wrappers::_createCLAHE_wrapper))
         .constructor(select_overload<Ptr<CLAHE>(double)>(&Wrappers::_createCLAHE_wrapper_1))
@@ -5167,35 +4531,6 @@ EMSCRIPTEN_BINDINGS(testBinding) {
         .function("setClipLimit", select_overload<void(cv::CLAHE&,double)>(&Wrappers::CLAHE_setClipLimit_wrapper), pure_virtual())
         .function("setTilesGridSize", select_overload<void(cv::CLAHE&,Size)>(&Wrappers::CLAHE_setTilesGridSize_wrapper), pure_virtual())
         .smart_ptr<Ptr<cv::CLAHE>>("Ptr<CLAHE>")
-;
-
-    emscripten::class_<cv::CalibrateCRF ,base<Algorithm>>("CalibrateCRF")
-        .function("process", select_overload<void(cv::CalibrateCRF&,const std::vector<cv::Mat>&,cv::Mat&,const cv::Mat&)>(&Wrappers::CalibrateCRF_process_wrapper), pure_virtual());
-
-    emscripten::class_<cv::CalibrateDebevec ,base<CalibrateCRF>>("CalibrateDebevec")
-        .constructor(select_overload<Ptr<CalibrateDebevec>(int,float,bool)>(&Wrappers::_createCalibrateDebevec_wrapper))
-        .constructor(select_overload<Ptr<CalibrateDebevec>(int,float)>(&Wrappers::_createCalibrateDebevec_wrapper_1))
-        .constructor(select_overload<Ptr<CalibrateDebevec>(int)>(&Wrappers::_createCalibrateDebevec_wrapper_2))
-        .constructor(select_overload<Ptr<CalibrateDebevec>()>(&Wrappers::_createCalibrateDebevec_wrapper_3))
-        .function("getLambda", select_overload<float()const>(&cv::CalibrateDebevec::getLambda), pure_virtual())
-        .function("getRandom", select_overload<bool()const>(&cv::CalibrateDebevec::getRandom), pure_virtual())
-        .function("getSamples", select_overload<int()const>(&cv::CalibrateDebevec::getSamples), pure_virtual())
-        .function("setLambda", select_overload<void(cv::CalibrateDebevec&,float)>(&Wrappers::CalibrateDebevec_setLambda_wrapper), pure_virtual())
-        .function("setRandom", select_overload<void(cv::CalibrateDebevec&,bool)>(&Wrappers::CalibrateDebevec_setRandom_wrapper), pure_virtual())
-        .function("setSamples", select_overload<void(cv::CalibrateDebevec&,int)>(&Wrappers::CalibrateDebevec_setSamples_wrapper), pure_virtual())
-        .smart_ptr<Ptr<cv::CalibrateDebevec>>("Ptr<CalibrateDebevec>")
-;
-
-    emscripten::class_<cv::CalibrateRobertson ,base<CalibrateCRF>>("CalibrateRobertson")
-        .constructor(select_overload<Ptr<CalibrateRobertson>(int,float)>(&Wrappers::_createCalibrateRobertson_wrapper))
-        .constructor(select_overload<Ptr<CalibrateRobertson>(int)>(&Wrappers::_createCalibrateRobertson_wrapper_1))
-        .constructor(select_overload<Ptr<CalibrateRobertson>()>(&Wrappers::_createCalibrateRobertson_wrapper_2))
-        .function("getMaxIter", select_overload<int()const>(&cv::CalibrateRobertson::getMaxIter), pure_virtual())
-        .function("getRadiance", select_overload<Mat()const>(&cv::CalibrateRobertson::getRadiance), pure_virtual())
-        .function("getThreshold", select_overload<float()const>(&cv::CalibrateRobertson::getThreshold), pure_virtual())
-        .function("setMaxIter", select_overload<void(cv::CalibrateRobertson&,int)>(&Wrappers::CalibrateRobertson_setMaxIter_wrapper), pure_virtual())
-        .function("setThreshold", select_overload<void(cv::CalibrateRobertson&,float)>(&Wrappers::CalibrateRobertson_setThreshold_wrapper), pure_virtual())
-        .smart_ptr<Ptr<cv::CalibrateRobertson>>("Ptr<CalibrateRobertson>")
 ;
 
     emscripten::class_<cv::CascadeClassifier >("CascadeClassifier")
@@ -5416,39 +4751,6 @@ EMSCRIPTEN_BINDINGS(testBinding) {
         .smart_ptr<Ptr<cv::MSER>>("Ptr<MSER>")
 ;
 
-    emscripten::class_<cv::MergeDebevec ,base<MergeExposures>>("MergeDebevec")
-        .constructor(select_overload<Ptr<MergeDebevec>()>(&cv::createMergeDebevec))
-        .function("process", select_overload<void(cv::MergeDebevec&,const std::vector<cv::Mat>&,cv::Mat&,const cv::Mat&,const cv::Mat&)>(&Wrappers::MergeDebevec_process_wrapper), pure_virtual())
-        .function("process1", select_overload<void(cv::MergeDebevec&,const std::vector<cv::Mat>&,cv::Mat&,const cv::Mat&)>(&Wrappers::MergeDebevec_process_wrapper1), pure_virtual())
-        .smart_ptr<Ptr<cv::MergeDebevec>>("Ptr<MergeDebevec>")
-;
-
-    emscripten::class_<cv::MergeExposures ,base<Algorithm>>("MergeExposures")
-        .function("process", select_overload<void(cv::MergeExposures&,const std::vector<cv::Mat>&,cv::Mat&,const cv::Mat&,const cv::Mat&)>(&Wrappers::MergeExposures_process_wrapper), pure_virtual());
-
-    emscripten::class_<cv::MergeMertens ,base<MergeExposures>>("MergeMertens")
-        .constructor(select_overload<Ptr<MergeMertens>(float,float,float)>(&Wrappers::_createMergeMertens_wrapper))
-        .constructor(select_overload<Ptr<MergeMertens>(float,float)>(&Wrappers::_createMergeMertens_wrapper_1))
-        .constructor(select_overload<Ptr<MergeMertens>(float)>(&Wrappers::_createMergeMertens_wrapper_2))
-        .constructor(select_overload<Ptr<MergeMertens>()>(&Wrappers::_createMergeMertens_wrapper_3))
-        .function("getContrastWeight", select_overload<float()const>(&cv::MergeMertens::getContrastWeight), pure_virtual())
-        .function("getExposureWeight", select_overload<float()const>(&cv::MergeMertens::getExposureWeight), pure_virtual())
-        .function("getSaturationWeight", select_overload<float()const>(&cv::MergeMertens::getSaturationWeight), pure_virtual())
-        .function("process", select_overload<void(cv::MergeMertens&,const std::vector<cv::Mat>&,cv::Mat&,const cv::Mat&,const cv::Mat&)>(&Wrappers::MergeMertens_process_wrapper), pure_virtual())
-        .function("process1", select_overload<void(cv::MergeMertens&,const std::vector<cv::Mat>&,cv::Mat&)>(&Wrappers::MergeMertens_process_wrapper1), pure_virtual())
-        .function("setContrastWeight", select_overload<void(cv::MergeMertens&,float)>(&Wrappers::MergeMertens_setContrastWeight_wrapper), pure_virtual())
-        .function("setExposureWeight", select_overload<void(cv::MergeMertens&,float)>(&Wrappers::MergeMertens_setExposureWeight_wrapper), pure_virtual())
-        .function("setSaturationWeight", select_overload<void(cv::MergeMertens&,float)>(&Wrappers::MergeMertens_setSaturationWeight_wrapper), pure_virtual())
-        .smart_ptr<Ptr<cv::MergeMertens>>("Ptr<MergeMertens>")
-;
-
-    emscripten::class_<cv::MergeRobertson ,base<MergeExposures>>("MergeRobertson")
-        .constructor(select_overload<Ptr<MergeRobertson>()>(&cv::createMergeRobertson))
-        .function("process", select_overload<void(cv::MergeRobertson&,const std::vector<cv::Mat>&,cv::Mat&,const cv::Mat&,const cv::Mat&)>(&Wrappers::MergeRobertson_process_wrapper), pure_virtual())
-        .function("process1", select_overload<void(cv::MergeRobertson&,const std::vector<cv::Mat>&,cv::Mat&,const cv::Mat&)>(&Wrappers::MergeRobertson_process_wrapper1), pure_virtual())
-        .smart_ptr<Ptr<cv::MergeRobertson>>("Ptr<MergeRobertson>")
-;
-
     emscripten::class_<cv::ORB ,base<Feature2D>>("ORB")
         .constructor(select_overload<Ptr<ORB>(int,float,int,int,int,int,cv::ORB::ScoreType,int,int)>(&Wrappers::ORB_create_wrapper))
         .constructor(select_overload<Ptr<ORB>(int,float,int,int,int,int,cv::ORB::ScoreType,int)>(&Wrappers::ORB_create_wrapper_1))
@@ -5530,65 +4832,6 @@ EMSCRIPTEN_BINDINGS(testBinding) {
         .property("minConvexity", &cv::SimpleBlobDetector::Params::minConvexity)
         .property("maxConvexity", &cv::SimpleBlobDetector::Params::maxConvexity)
         .property("collectContours", &cv::SimpleBlobDetector::Params::collectContours);
-
-    emscripten::class_<cv::Tonemap ,base<Algorithm>>("Tonemap")
-        .function("getGamma", select_overload<float()const>(&cv::Tonemap::getGamma), pure_virtual())
-        .function("process", select_overload<void(cv::Tonemap&,const cv::Mat&,cv::Mat&)>(&Wrappers::Tonemap_process_wrapper), pure_virtual())
-        .function("setGamma", select_overload<void(cv::Tonemap&,float)>(&Wrappers::Tonemap_setGamma_wrapper), pure_virtual());
-
-    emscripten::class_<cv::TonemapDrago ,base<Tonemap>>("TonemapDrago")
-        .constructor(select_overload<Ptr<TonemapDrago>(float,float,float)>(&Wrappers::_createTonemapDrago_wrapper))
-        .constructor(select_overload<Ptr<TonemapDrago>(float,float)>(&Wrappers::_createTonemapDrago_wrapper_1))
-        .constructor(select_overload<Ptr<TonemapDrago>(float)>(&Wrappers::_createTonemapDrago_wrapper_2))
-        .constructor(select_overload<Ptr<TonemapDrago>()>(&Wrappers::_createTonemapDrago_wrapper_3))
-        .function("getBias", select_overload<float()const>(&cv::TonemapDrago::getBias), pure_virtual())
-        .function("getSaturation", select_overload<float()const>(&cv::TonemapDrago::getSaturation), pure_virtual())
-        .function("setBias", select_overload<void(cv::TonemapDrago&,float)>(&Wrappers::TonemapDrago_setBias_wrapper), pure_virtual())
-        .function("setSaturation", select_overload<void(cv::TonemapDrago&,float)>(&Wrappers::TonemapDrago_setSaturation_wrapper), pure_virtual())
-        .smart_ptr<Ptr<cv::TonemapDrago>>("Ptr<TonemapDrago>")
-;
-
-    emscripten::class_<cv::TonemapMantiuk ,base<Tonemap>>("TonemapMantiuk")
-        .constructor(select_overload<Ptr<TonemapMantiuk>(float,float,float)>(&Wrappers::_createTonemapMantiuk_wrapper))
-        .constructor(select_overload<Ptr<TonemapMantiuk>(float,float)>(&Wrappers::_createTonemapMantiuk_wrapper_1))
-        .constructor(select_overload<Ptr<TonemapMantiuk>(float)>(&Wrappers::_createTonemapMantiuk_wrapper_2))
-        .constructor(select_overload<Ptr<TonemapMantiuk>()>(&Wrappers::_createTonemapMantiuk_wrapper_3))
-        .function("getSaturation", select_overload<float()const>(&cv::TonemapMantiuk::getSaturation), pure_virtual())
-        .function("getScale", select_overload<float()const>(&cv::TonemapMantiuk::getScale), pure_virtual())
-        .function("setSaturation", select_overload<void(cv::TonemapMantiuk&,float)>(&Wrappers::TonemapMantiuk_setSaturation_wrapper), pure_virtual())
-        .function("setScale", select_overload<void(cv::TonemapMantiuk&,float)>(&Wrappers::TonemapMantiuk_setScale_wrapper), pure_virtual())
-        .smart_ptr<Ptr<cv::TonemapMantiuk>>("Ptr<TonemapMantiuk>")
-;
-
-    emscripten::class_<cv::TonemapReinhard ,base<Tonemap>>("TonemapReinhard")
-        .constructor(select_overload<Ptr<TonemapReinhard>(float,float,float,float)>(&Wrappers::_createTonemapReinhard_wrapper))
-        .constructor(select_overload<Ptr<TonemapReinhard>(float,float,float)>(&Wrappers::_createTonemapReinhard_wrapper_1))
-        .constructor(select_overload<Ptr<TonemapReinhard>(float,float)>(&Wrappers::_createTonemapReinhard_wrapper_2))
-        .constructor(select_overload<Ptr<TonemapReinhard>(float)>(&Wrappers::_createTonemapReinhard_wrapper_3))
-        .constructor(select_overload<Ptr<TonemapReinhard>()>(&Wrappers::_createTonemapReinhard_wrapper_4))
-        .function("getColorAdaptation", select_overload<float()const>(&cv::TonemapReinhard::getColorAdaptation), pure_virtual())
-        .function("getIntensity", select_overload<float()const>(&cv::TonemapReinhard::getIntensity), pure_virtual())
-        .function("getLightAdaptation", select_overload<float()const>(&cv::TonemapReinhard::getLightAdaptation), pure_virtual())
-        .function("setColorAdaptation", select_overload<void(cv::TonemapReinhard&,float)>(&Wrappers::TonemapReinhard_setColorAdaptation_wrapper), pure_virtual())
-        .function("setIntensity", select_overload<void(cv::TonemapReinhard&,float)>(&Wrappers::TonemapReinhard_setIntensity_wrapper), pure_virtual())
-        .function("setLightAdaptation", select_overload<void(cv::TonemapReinhard&,float)>(&Wrappers::TonemapReinhard_setLightAdaptation_wrapper), pure_virtual())
-        .smart_ptr<Ptr<cv::TonemapReinhard>>("Ptr<TonemapReinhard>")
-;
-
-    emscripten::class_<cv::TrackerMIL ,base<Tracker>>("TrackerMIL")
-        .constructor(select_overload<Ptr<TrackerMIL>(const TrackerMIL_Params&)>(&Wrappers::TrackerMIL_create_wrapper))
-        .constructor(select_overload<Ptr<TrackerMIL>()>(&Wrappers::TrackerMIL_create_wrapper_1))
-        .smart_ptr<Ptr<cv::TrackerMIL>>("Ptr<TrackerMIL>")
-;
-
-    emscripten::class_<cv::TrackerMIL::Params >("TrackerMIL_Params")
-        .property("samplerInitInRadius", &cv::TrackerMIL::Params::samplerInitInRadius)
-        .property("samplerInitMaxNegNum", &cv::TrackerMIL::Params::samplerInitMaxNegNum)
-        .property("samplerSearchWinSize", &cv::TrackerMIL::Params::samplerSearchWinSize)
-        .property("samplerTrackInRadius", &cv::TrackerMIL::Params::samplerTrackInRadius)
-        .property("samplerTrackMaxPosNum", &cv::TrackerMIL::Params::samplerTrackMaxPosNum)
-        .property("samplerTrackMaxNegNum", &cv::TrackerMIL::Params::samplerTrackMaxNegNum)
-        .property("featureSetNumFeatures", &cv::TrackerMIL::Params::featureSetNumFeatures);
 
     emscripten::class_<cv::UsacParams >("UsacParams")
         .constructor<>()
@@ -5721,19 +4964,6 @@ EMSCRIPTEN_BINDINGS(testBinding) {
         .function("decodeWithType", select_overload<bool(cv::barcode::BarcodeDetector&,const cv::Mat&,const cv::Mat&,std::vector<string>&,std::vector<string>&)>(&Wrappers::barcode_BarcodeDetector_decodeWithType_wrapper))
         .function("detectAndDecodeWithType", select_overload<bool(cv::barcode::BarcodeDetector&,const cv::Mat&,std::vector<string>&,std::vector<string>&,cv::Mat&)>(&Wrappers::barcode_BarcodeDetector_detectAndDecodeWithType_wrapper))
         .function("detectAndDecodeWithType", select_overload<bool(cv::barcode::BarcodeDetector&,const cv::Mat&,std::vector<string>&,std::vector<string>&)>(&Wrappers::barcode_BarcodeDetector_detectAndDecodeWithType_wrapper_1));
-
-    emscripten::class_<cv::dnn::Net >("dnn_Net")
-        .function("forward", select_overload<Mat(cv::dnn::Net&,const std::string&)>(&Wrappers::dnn_Net_forward_wrapper))
-        .function("forward", select_overload<Mat(cv::dnn::Net&)>(&Wrappers::dnn_Net_forward_wrapper_1))
-        .function("forward1", select_overload<void(cv::dnn::Net&,std::vector<cv::Mat>&,const std::string&)>(&Wrappers::dnn_Net_forward_wrapper1))
-        .function("forward1", select_overload<void(cv::dnn::Net&,std::vector<cv::Mat>&)>(&Wrappers::dnn_Net_forward_wrapper1_1))
-        .function("forward2", select_overload<void(cv::dnn::Net&,std::vector<cv::Mat>&,const emscripten::val&)>(&Wrappers::dnn_Net_forward_wrapper2))
-        .function("getUnconnectedOutLayersNames", select_overload<std::vector<std::string>(cv::dnn::Net&)>(&Wrappers::dnn_Net_getUnconnectedOutLayersNames_wrapper))
-        .function("setInput", select_overload<void(cv::dnn::Net&,const cv::Mat&,const std::string&,double,const Scalar&)>(&Wrappers::dnn_Net_setInput_wrapper))
-        .function("setInput", select_overload<void(cv::dnn::Net&,const cv::Mat&,const std::string&,double)>(&Wrappers::dnn_Net_setInput_wrapper_1))
-        .function("setInput", select_overload<void(cv::dnn::Net&,const cv::Mat&,const std::string&)>(&Wrappers::dnn_Net_setInput_wrapper_2))
-        .function("setInput", select_overload<void(cv::dnn::Net&,const cv::Mat&)>(&Wrappers::dnn_Net_setInput_wrapper_3))
-        .function("setPreferableBackend", select_overload<void(cv::dnn::Net&,int)>(&Wrappers::dnn_Net_setPreferableBackend_wrapper));
 
     emscripten::class_<cv::segmentation::IntelligentScissorsMB >("segmentation_IntelligentScissorsMB")
         .constructor<>()
@@ -6492,14 +5722,6 @@ EMSCRIPTEN_BINDINGS(testBinding) {
         .value("SCORE_METHOD_MAGSAC", ScoreMethod::SCORE_METHOD_MAGSAC)
         .value("SCORE_METHOD_LMEDS", ScoreMethod::SCORE_METHOD_LMEDS);
 
-    emscripten::enum_<SeamlessCloneFlags>("SeamlessCloneFlags")
-        .value("NORMAL_CLONE", SeamlessCloneFlags::NORMAL_CLONE)
-        .value("MIXED_CLONE", SeamlessCloneFlags::MIXED_CLONE)
-        .value("MONOCHROME_TRANSFER", SeamlessCloneFlags::MONOCHROME_TRANSFER)
-        .value("NORMAL_CLONE_WIDE", SeamlessCloneFlags::NORMAL_CLONE_WIDE)
-        .value("MIXED_CLONE_WIDE", SeamlessCloneFlags::MIXED_CLONE_WIDE)
-        .value("MONOCHROME_TRANSFER_WIDE", SeamlessCloneFlags::MONOCHROME_TRANSFER_WIDE);
-
     emscripten::enum_<ShapeMatchModes>("ShapeMatchModes")
         .value("CONTOURS_MATCH_I1", ShapeMatchModes::CONTOURS_MATCH_I1)
         .value("CONTOURS_MATCH_I2", ShapeMatchModes::CONTOURS_MATCH_I2)
@@ -6717,55 +5939,6 @@ EMSCRIPTEN_BINDINGS(testBinding) {
         .value("TEST_LT", detail::TestOp::TEST_LT)
         .value("TEST_GE", detail::TestOp::TEST_GE)
         .value("TEST_GT", detail::TestOp::TEST_GT);
-
-    emscripten::enum_<detail::TrackerSamplerCSC::MODE>("detail_TrackerSamplerCSC_MODE")
-        .value("MODE_INIT_POS", detail::TrackerSamplerCSC::MODE::MODE_INIT_POS)
-        .value("MODE_INIT_NEG", detail::TrackerSamplerCSC::MODE::MODE_INIT_NEG)
-        .value("MODE_TRACK_POS", detail::TrackerSamplerCSC::MODE::MODE_TRACK_POS)
-        .value("MODE_TRACK_NEG", detail::TrackerSamplerCSC::MODE::MODE_TRACK_NEG)
-        .value("MODE_DETECT", detail::TrackerSamplerCSC::MODE::MODE_DETECT);
-
-    emscripten::enum_<dnn::Backend>("dnn_Backend")
-        .value("DNN_BACKEND_DEFAULT", dnn::Backend::DNN_BACKEND_DEFAULT)
-        .value("DNN_BACKEND_HALIDE", dnn::Backend::DNN_BACKEND_HALIDE)
-        .value("DNN_BACKEND_INFERENCE_ENGINE", dnn::Backend::DNN_BACKEND_INFERENCE_ENGINE)
-        .value("DNN_BACKEND_OPENCV", dnn::Backend::DNN_BACKEND_OPENCV)
-        .value("DNN_BACKEND_VKCOM", dnn::Backend::DNN_BACKEND_VKCOM)
-        .value("DNN_BACKEND_CUDA", dnn::Backend::DNN_BACKEND_CUDA)
-        .value("DNN_BACKEND_WEBNN", dnn::Backend::DNN_BACKEND_WEBNN)
-        .value("DNN_BACKEND_TIMVX", dnn::Backend::DNN_BACKEND_TIMVX)
-        .value("DNN_BACKEND_CANN", dnn::Backend::DNN_BACKEND_CANN);
-
-    emscripten::enum_<dnn::DataLayout>("dnn_DataLayout")
-        .value("DNN_LAYOUT_UNKNOWN", dnn::DataLayout::DNN_LAYOUT_UNKNOWN)
-        .value("DNN_LAYOUT_ND", dnn::DataLayout::DNN_LAYOUT_ND)
-        .value("DNN_LAYOUT_NCHW", dnn::DataLayout::DNN_LAYOUT_NCHW)
-        .value("DNN_LAYOUT_NCDHW", dnn::DataLayout::DNN_LAYOUT_NCDHW)
-        .value("DNN_LAYOUT_NHWC", dnn::DataLayout::DNN_LAYOUT_NHWC)
-        .value("DNN_LAYOUT_NDHWC", dnn::DataLayout::DNN_LAYOUT_NDHWC)
-        .value("DNN_LAYOUT_PLANAR", dnn::DataLayout::DNN_LAYOUT_PLANAR);
-
-    emscripten::enum_<dnn::ImagePaddingMode>("dnn_ImagePaddingMode")
-        .value("DNN_PMODE_NULL", dnn::ImagePaddingMode::DNN_PMODE_NULL)
-        .value("DNN_PMODE_CROP_CENTER", dnn::ImagePaddingMode::DNN_PMODE_CROP_CENTER)
-        .value("DNN_PMODE_LETTERBOX", dnn::ImagePaddingMode::DNN_PMODE_LETTERBOX);
-
-    emscripten::enum_<dnn::SoftNMSMethod>("dnn_SoftNMSMethod")
-        .value("SOFTNMS_LINEAR", dnn::SoftNMSMethod::SOFTNMS_LINEAR)
-        .value("SOFTNMS_GAUSSIAN", dnn::SoftNMSMethod::SOFTNMS_GAUSSIAN);
-
-    emscripten::enum_<dnn::Target>("dnn_Target")
-        .value("DNN_TARGET_CPU", dnn::Target::DNN_TARGET_CPU)
-        .value("DNN_TARGET_OPENCL", dnn::Target::DNN_TARGET_OPENCL)
-        .value("DNN_TARGET_OPENCL_FP16", dnn::Target::DNN_TARGET_OPENCL_FP16)
-        .value("DNN_TARGET_MYRIAD", dnn::Target::DNN_TARGET_MYRIAD)
-        .value("DNN_TARGET_VULKAN", dnn::Target::DNN_TARGET_VULKAN)
-        .value("DNN_TARGET_FPGA", dnn::Target::DNN_TARGET_FPGA)
-        .value("DNN_TARGET_CUDA", dnn::Target::DNN_TARGET_CUDA)
-        .value("DNN_TARGET_CUDA_FP16", dnn::Target::DNN_TARGET_CUDA_FP16)
-        .value("DNN_TARGET_HDDL", dnn::Target::DNN_TARGET_HDDL)
-        .value("DNN_TARGET_NPU", dnn::Target::DNN_TARGET_NPU)
-        .value("DNN_TARGET_CPU_FP16", dnn::Target::DNN_TARGET_CPU_FP16);
 
     emscripten::enum_<utils::logging::LogLevel>("utils_logging_LogLevel")
         .value("LOG_LEVEL_SILENT", utils::logging::LogLevel::LOG_LEVEL_SILENT)
@@ -7611,12 +6784,6 @@ EMSCRIPTEN_BINDINGS(testBinding) {
 
     constant("DFT_SCALE", static_cast<long>(cv::DFT_SCALE));
 
-    constant("DISOpticalFlow_PRESET_FAST", static_cast<long>(cv::DISOpticalFlow::PRESET_FAST));
-
-    constant("DISOpticalFlow_PRESET_MEDIUM", static_cast<long>(cv::DISOpticalFlow::PRESET_MEDIUM));
-
-    constant("DISOpticalFlow_PRESET_ULTRAFAST", static_cast<long>(cv::DISOpticalFlow::PRESET_ULTRAFAST));
-
     constant("DIST_C", static_cast<long>(cv::DIST_C));
 
     constant("DIST_FAIR", static_cast<long>(cv::DIST_FAIR));
@@ -7835,10 +7002,6 @@ EMSCRIPTEN_BINDINGS(testBinding) {
 
     constant("HOUGH_STANDARD", static_cast<long>(cv::HOUGH_STANDARD));
 
-    constant("INPAINT_NS", static_cast<long>(cv::INPAINT_NS));
-
-    constant("INPAINT_TELEA", static_cast<long>(cv::INPAINT_TELEA));
-
     constant("INTERSECT_FULL", static_cast<long>(cv::INTERSECT_FULL));
 
     constant("INTERSECT_NONE", static_cast<long>(cv::INTERSECT_NONE));
@@ -7883,8 +7046,6 @@ EMSCRIPTEN_BINDINGS(testBinding) {
 
     constant("KMEANS_USE_INITIAL_LABELS", static_cast<long>(cv::KMEANS_USE_INITIAL_LABELS));
 
-    constant("LDR_SIZE", static_cast<long>(cv::LDR_SIZE));
-
     constant("LINE_4", static_cast<long>(cv::LINE_4));
 
     constant("LINE_8", static_cast<long>(cv::LINE_8));
@@ -7927,14 +7088,6 @@ EMSCRIPTEN_BINDINGS(testBinding) {
 
     constant("MARKER_TRIANGLE_UP", static_cast<long>(cv::MARKER_TRIANGLE_UP));
 
-    constant("MIXED_CLONE", static_cast<long>(cv::MIXED_CLONE));
-
-    constant("MIXED_CLONE_WIDE", static_cast<long>(cv::MIXED_CLONE_WIDE));
-
-    constant("MONOCHROME_TRANSFER", static_cast<long>(cv::MONOCHROME_TRANSFER));
-
-    constant("MONOCHROME_TRANSFER_WIDE", static_cast<long>(cv::MONOCHROME_TRANSFER_WIDE));
-
     constant("MORPH_BLACKHAT", static_cast<long>(cv::MORPH_BLACKHAT));
 
     constant("MORPH_CLOSE", static_cast<long>(cv::MORPH_CLOSE));
@@ -7959,14 +7112,6 @@ EMSCRIPTEN_BINDINGS(testBinding) {
 
     constant("MORPH_TOPHAT", static_cast<long>(cv::MORPH_TOPHAT));
 
-    constant("MOTION_AFFINE", static_cast<long>(cv::MOTION_AFFINE));
-
-    constant("MOTION_EUCLIDEAN", static_cast<long>(cv::MOTION_EUCLIDEAN));
-
-    constant("MOTION_HOMOGRAPHY", static_cast<long>(cv::MOTION_HOMOGRAPHY));
-
-    constant("MOTION_TRANSLATION", static_cast<long>(cv::MOTION_TRANSLATION));
-
     constant("Mat_AUTO_STEP", static_cast<long>(cv::Mat::AUTO_STEP));
 
     constant("Mat_CONTINUOUS_FLAG", static_cast<long>(cv::Mat::CONTINUOUS_FLAG));
@@ -7989,12 +7134,6 @@ EMSCRIPTEN_BINDINGS(testBinding) {
 
     constant("NONE_POLISHER", static_cast<long>(cv::NONE_POLISHER));
 
-    constant("NORMAL_CLONE", static_cast<long>(cv::NORMAL_CLONE));
-
-    constant("NORMAL_CLONE_WIDE", static_cast<long>(cv::NORMAL_CLONE_WIDE));
-
-    constant("NORMCONV_FILTER", static_cast<long>(cv::NORMCONV_FILTER));
-
     constant("NORM_HAMMING", static_cast<long>(cv::NORM_HAMMING));
 
     constant("NORM_HAMMING2", static_cast<long>(cv::NORM_HAMMING2));
@@ -8012,12 +7151,6 @@ EMSCRIPTEN_BINDINGS(testBinding) {
     constant("NORM_RELATIVE", static_cast<long>(cv::NORM_RELATIVE));
 
     constant("NORM_TYPE_MASK", static_cast<long>(cv::NORM_TYPE_MASK));
-
-    constant("OPTFLOW_FARNEBACK_GAUSSIAN", static_cast<long>(cv::OPTFLOW_FARNEBACK_GAUSSIAN));
-
-    constant("OPTFLOW_LK_GET_MIN_EIGENVALS", static_cast<long>(cv::OPTFLOW_LK_GET_MIN_EIGENVALS));
-
-    constant("OPTFLOW_USE_INITIAL_FLOW", static_cast<long>(cv::OPTFLOW_USE_INITIAL_FLOW));
 
     constant("ORB_FAST_SCORE", static_cast<long>(cv::ORB::FAST_SCORE));
 
@@ -8138,8 +7271,6 @@ EMSCRIPTEN_BINDINGS(testBinding) {
     constant("QuatEnum_INT_ZYZ", static_cast<long>(cv::QuatEnum::INT_ZYZ));
 
     constant("RANSAC", static_cast<long>(cv::RANSAC));
-
-    constant("RECURS_FILTER", static_cast<long>(cv::RECURS_FILTER));
 
     constant("REDUCE_AVG", static_cast<long>(cv::REDUCE_AVG));
 
@@ -8626,80 +7757,6 @@ EMSCRIPTEN_BINDINGS(testBinding) {
     constant("TEST_LT", static_cast<long>(cv::detail::TEST_LT));
 
     constant("TEST_NE", static_cast<long>(cv::detail::TEST_NE));
-
-    constant("TrackerSamplerCSC_MODE_DETECT", static_cast<long>(cv::detail::TrackerSamplerCSC::MODE_DETECT));
-
-    constant("TrackerSamplerCSC_MODE_INIT_NEG", static_cast<long>(cv::detail::TrackerSamplerCSC::MODE_INIT_NEG));
-
-    constant("TrackerSamplerCSC_MODE_INIT_POS", static_cast<long>(cv::detail::TrackerSamplerCSC::MODE_INIT_POS));
-
-    constant("TrackerSamplerCSC_MODE_TRACK_NEG", static_cast<long>(cv::detail::TrackerSamplerCSC::MODE_TRACK_NEG));
-
-    constant("TrackerSamplerCSC_MODE_TRACK_POS", static_cast<long>(cv::detail::TrackerSamplerCSC::MODE_TRACK_POS));
-
-    constant("DNN_BACKEND_CANN", static_cast<long>(cv::dnn::DNN_BACKEND_CANN));
-
-    constant("DNN_BACKEND_CUDA", static_cast<long>(cv::dnn::DNN_BACKEND_CUDA));
-
-    constant("DNN_BACKEND_DEFAULT", static_cast<long>(cv::dnn::DNN_BACKEND_DEFAULT));
-
-    constant("DNN_BACKEND_HALIDE", static_cast<long>(cv::dnn::DNN_BACKEND_HALIDE));
-
-    constant("DNN_BACKEND_INFERENCE_ENGINE", static_cast<long>(cv::dnn::DNN_BACKEND_INFERENCE_ENGINE));
-
-    constant("DNN_BACKEND_OPENCV", static_cast<long>(cv::dnn::DNN_BACKEND_OPENCV));
-
-    constant("DNN_BACKEND_TIMVX", static_cast<long>(cv::dnn::DNN_BACKEND_TIMVX));
-
-    constant("DNN_BACKEND_VKCOM", static_cast<long>(cv::dnn::DNN_BACKEND_VKCOM));
-
-    constant("DNN_BACKEND_WEBNN", static_cast<long>(cv::dnn::DNN_BACKEND_WEBNN));
-
-    constant("DNN_LAYOUT_NCDHW", static_cast<long>(cv::dnn::DNN_LAYOUT_NCDHW));
-
-    constant("DNN_LAYOUT_NCHW", static_cast<long>(cv::dnn::DNN_LAYOUT_NCHW));
-
-    constant("DNN_LAYOUT_ND", static_cast<long>(cv::dnn::DNN_LAYOUT_ND));
-
-    constant("DNN_LAYOUT_NDHWC", static_cast<long>(cv::dnn::DNN_LAYOUT_NDHWC));
-
-    constant("DNN_LAYOUT_NHWC", static_cast<long>(cv::dnn::DNN_LAYOUT_NHWC));
-
-    constant("DNN_LAYOUT_PLANAR", static_cast<long>(cv::dnn::DNN_LAYOUT_PLANAR));
-
-    constant("DNN_LAYOUT_UNKNOWN", static_cast<long>(cv::dnn::DNN_LAYOUT_UNKNOWN));
-
-    constant("DNN_PMODE_CROP_CENTER", static_cast<long>(cv::dnn::DNN_PMODE_CROP_CENTER));
-
-    constant("DNN_PMODE_LETTERBOX", static_cast<long>(cv::dnn::DNN_PMODE_LETTERBOX));
-
-    constant("DNN_PMODE_NULL", static_cast<long>(cv::dnn::DNN_PMODE_NULL));
-
-    constant("DNN_TARGET_CPU", static_cast<long>(cv::dnn::DNN_TARGET_CPU));
-
-    constant("DNN_TARGET_CPU_FP16", static_cast<long>(cv::dnn::DNN_TARGET_CPU_FP16));
-
-    constant("DNN_TARGET_CUDA", static_cast<long>(cv::dnn::DNN_TARGET_CUDA));
-
-    constant("DNN_TARGET_CUDA_FP16", static_cast<long>(cv::dnn::DNN_TARGET_CUDA_FP16));
-
-    constant("DNN_TARGET_FPGA", static_cast<long>(cv::dnn::DNN_TARGET_FPGA));
-
-    constant("DNN_TARGET_HDDL", static_cast<long>(cv::dnn::DNN_TARGET_HDDL));
-
-    constant("DNN_TARGET_MYRIAD", static_cast<long>(cv::dnn::DNN_TARGET_MYRIAD));
-
-    constant("DNN_TARGET_NPU", static_cast<long>(cv::dnn::DNN_TARGET_NPU));
-
-    constant("DNN_TARGET_OPENCL", static_cast<long>(cv::dnn::DNN_TARGET_OPENCL));
-
-    constant("DNN_TARGET_OPENCL_FP16", static_cast<long>(cv::dnn::DNN_TARGET_OPENCL_FP16));
-
-    constant("DNN_TARGET_VULKAN", static_cast<long>(cv::dnn::DNN_TARGET_VULKAN));
-
-    constant("SoftNMSMethod_SOFTNMS_GAUSSIAN", static_cast<long>(cv::dnn::SoftNMSMethod::SOFTNMS_GAUSSIAN));
-
-    constant("SoftNMSMethod_SOFTNMS_LINEAR", static_cast<long>(cv::dnn::SoftNMSMethod::SOFTNMS_LINEAR));
 
     constant("FISHEYE_CALIB_CHECK_COND", static_cast<long>(cv::fisheye::CALIB_CHECK_COND));
 

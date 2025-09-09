@@ -322,162 +322,6 @@ opencv_imgproc/fast:
 .PHONY : opencv_imgproc/fast
 
 #=============================================================================
-# Target rules for targets named opencv_intensity_transform
-
-# Build rule for target.
-opencv_intensity_transform: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_intensity_transform
-.PHONY : opencv_intensity_transform
-
-# fast build rule for target.
-opencv_intensity_transform/fast:
-	$(MAKE) $(MAKESILENT) -f modules/intensity_transform/CMakeFiles/opencv_intensity_transform.dir/build.make modules/intensity_transform/CMakeFiles/opencv_intensity_transform.dir/build
-.PHONY : opencv_intensity_transform/fast
-
-#=============================================================================
-# Target rules for targets named opencv_phase_unwrapping
-
-# Build rule for target.
-opencv_phase_unwrapping: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_phase_unwrapping
-.PHONY : opencv_phase_unwrapping
-
-# fast build rule for target.
-opencv_phase_unwrapping/fast:
-	$(MAKE) $(MAKESILENT) -f modules/phase_unwrapping/CMakeFiles/opencv_phase_unwrapping.dir/build.make modules/phase_unwrapping/CMakeFiles/opencv_phase_unwrapping.dir/build
-.PHONY : opencv_phase_unwrapping/fast
-
-#=============================================================================
-# Target rules for targets named opencv_photo
-
-# Build rule for target.
-opencv_photo: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_photo
-.PHONY : opencv_photo
-
-# fast build rule for target.
-opencv_photo/fast:
-	$(MAKE) $(MAKESILENT) -f modules/photo/CMakeFiles/opencv_photo.dir/build.make modules/photo/CMakeFiles/opencv_photo.dir/build
-.PHONY : opencv_photo/fast
-
-#=============================================================================
-# Target rules for targets named opencv_plot
-
-# Build rule for target.
-opencv_plot: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_plot
-.PHONY : opencv_plot
-
-# fast build rule for target.
-opencv_plot/fast:
-	$(MAKE) $(MAKESILENT) -f modules/plot/CMakeFiles/opencv_plot.dir/build.make modules/plot/CMakeFiles/opencv_plot.dir/build
-.PHONY : opencv_plot/fast
-
-#=============================================================================
-# Target rules for targets named opencv_reg
-
-# Build rule for target.
-opencv_reg: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_reg
-.PHONY : opencv_reg
-
-# fast build rule for target.
-opencv_reg/fast:
-	$(MAKE) $(MAKESILENT) -f modules/reg/CMakeFiles/opencv_reg.dir/build.make modules/reg/CMakeFiles/opencv_reg.dir/build
-.PHONY : opencv_reg/fast
-
-#=============================================================================
-# Target rules for targets named opencv_signal
-
-# Build rule for target.
-opencv_signal: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_signal
-.PHONY : opencv_signal
-
-# fast build rule for target.
-opencv_signal/fast:
-	$(MAKE) $(MAKESILENT) -f modules/signal/CMakeFiles/opencv_signal.dir/build.make modules/signal/CMakeFiles/opencv_signal.dir/build
-.PHONY : opencv_signal/fast
-
-#=============================================================================
-# Target rules for targets named opencv_surface_matching
-
-# Build rule for target.
-opencv_surface_matching: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_surface_matching
-.PHONY : opencv_surface_matching
-
-# fast build rule for target.
-opencv_surface_matching/fast:
-	$(MAKE) $(MAKESILENT) -f modules/surface_matching/CMakeFiles/opencv_surface_matching.dir/build.make modules/surface_matching/CMakeFiles/opencv_surface_matching.dir/build
-.PHONY : opencv_surface_matching/fast
-
-#=============================================================================
-# Target rules for targets named opencv_xphoto
-
-# Build rule for target.
-opencv_xphoto: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_xphoto
-.PHONY : opencv_xphoto
-
-# fast build rule for target.
-opencv_xphoto/fast:
-	$(MAKE) $(MAKESILENT) -f modules/xphoto/CMakeFiles/opencv_xphoto.dir/build.make modules/xphoto/CMakeFiles/opencv_xphoto.dir/build
-.PHONY : opencv_xphoto/fast
-
-#=============================================================================
-# Target rules for targets named opencv_bioinspired
-
-# Build rule for target.
-opencv_bioinspired: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_bioinspired
-.PHONY : opencv_bioinspired
-
-# fast build rule for target.
-opencv_bioinspired/fast:
-	$(MAKE) $(MAKESILENT) -f modules/bioinspired/CMakeFiles/opencv_bioinspired.dir/build.make modules/bioinspired/CMakeFiles/opencv_bioinspired.dir/build
-.PHONY : opencv_bioinspired/fast
-
-#=============================================================================
-# Target rules for targets named opencv_dnn
-
-# Build rule for target.
-opencv_dnn: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_dnn
-.PHONY : opencv_dnn
-
-# fast build rule for target.
-opencv_dnn/fast:
-	$(MAKE) $(MAKESILENT) -f modules/dnn/CMakeFiles/opencv_dnn.dir/build.make modules/dnn/CMakeFiles/opencv_dnn.dir/build
-.PHONY : opencv_dnn/fast
-
-#=============================================================================
-# Target rules for targets named opencv_dnn_objdetect
-
-# Build rule for target.
-opencv_dnn_objdetect: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_dnn_objdetect
-.PHONY : opencv_dnn_objdetect
-
-# fast build rule for target.
-opencv_dnn_objdetect/fast:
-	$(MAKE) $(MAKESILENT) -f modules/dnn_objdetect/CMakeFiles/opencv_dnn_objdetect.dir/build.make modules/dnn_objdetect/CMakeFiles/opencv_dnn_objdetect.dir/build
-.PHONY : opencv_dnn_objdetect/fast
-
-#=============================================================================
-# Target rules for targets named opencv_dnn_superres
-
-# Build rule for target.
-opencv_dnn_superres: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_dnn_superres
-.PHONY : opencv_dnn_superres
-
-# fast build rule for target.
-opencv_dnn_superres/fast:
-	$(MAKE) $(MAKESILENT) -f modules/dnn_superres/CMakeFiles/opencv_dnn_superres.dir/build.make modules/dnn_superres/CMakeFiles/opencv_dnn_superres.dir/build
-.PHONY : opencv_dnn_superres/fast
-
-#=============================================================================
 # Target rules for targets named opencv_features2d
 
 # Build rule for target.
@@ -489,71 +333,6 @@ opencv_features2d: cmake_check_build_system
 opencv_features2d/fast:
 	$(MAKE) $(MAKESILENT) -f modules/features2d/CMakeFiles/opencv_features2d.dir/build.make modules/features2d/CMakeFiles/opencv_features2d.dir/build
 .PHONY : opencv_features2d/fast
-
-#=============================================================================
-# Target rules for targets named opencv_fuzzy
-
-# Build rule for target.
-opencv_fuzzy: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_fuzzy
-.PHONY : opencv_fuzzy
-
-# fast build rule for target.
-opencv_fuzzy/fast:
-	$(MAKE) $(MAKESILENT) -f modules/fuzzy/CMakeFiles/opencv_fuzzy.dir/build.make modules/fuzzy/CMakeFiles/opencv_fuzzy.dir/build
-.PHONY : opencv_fuzzy/fast
-
-#=============================================================================
-# Target rules for targets named opencv_hfs
-
-# Build rule for target.
-opencv_hfs: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_hfs
-.PHONY : opencv_hfs
-
-# fast build rule for target.
-opencv_hfs/fast:
-	$(MAKE) $(MAKESILENT) -f modules/hfs/CMakeFiles/opencv_hfs.dir/build.make modules/hfs/CMakeFiles/opencv_hfs.dir/build
-.PHONY : opencv_hfs/fast
-
-#=============================================================================
-# Target rules for targets named opencv_img_hash
-
-# Build rule for target.
-opencv_img_hash: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_img_hash
-.PHONY : opencv_img_hash
-
-# fast build rule for target.
-opencv_img_hash/fast:
-	$(MAKE) $(MAKESILENT) -f modules/img_hash/CMakeFiles/opencv_img_hash.dir/build.make modules/img_hash/CMakeFiles/opencv_img_hash.dir/build
-.PHONY : opencv_img_hash/fast
-
-#=============================================================================
-# Target rules for targets named opencv_line_descriptor
-
-# Build rule for target.
-opencv_line_descriptor: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_line_descriptor
-.PHONY : opencv_line_descriptor
-
-# fast build rule for target.
-opencv_line_descriptor/fast:
-	$(MAKE) $(MAKESILENT) -f modules/line_descriptor/CMakeFiles/opencv_line_descriptor.dir/build.make modules/line_descriptor/CMakeFiles/opencv_line_descriptor.dir/build
-.PHONY : opencv_line_descriptor/fast
-
-#=============================================================================
-# Target rules for targets named opencv_saliency
-
-# Build rule for target.
-opencv_saliency: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_saliency
-.PHONY : opencv_saliency
-
-# fast build rule for target.
-opencv_saliency/fast:
-	$(MAKE) $(MAKESILENT) -f modules/saliency/CMakeFiles/opencv_saliency.dir/build.make modules/saliency/CMakeFiles/opencv_saliency.dir/build
-.PHONY : opencv_saliency/fast
 
 #=============================================================================
 # Target rules for targets named opencv_calib3d
@@ -569,19 +348,6 @@ opencv_calib3d/fast:
 .PHONY : opencv_calib3d/fast
 
 #=============================================================================
-# Target rules for targets named opencv_mcc
-
-# Build rule for target.
-opencv_mcc: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_mcc
-.PHONY : opencv_mcc
-
-# fast build rule for target.
-opencv_mcc/fast:
-	$(MAKE) $(MAKESILENT) -f modules/mcc/CMakeFiles/opencv_mcc.dir/build.make modules/mcc/CMakeFiles/opencv_mcc.dir/build
-.PHONY : opencv_mcc/fast
-
-#=============================================================================
 # Target rules for targets named opencv_objdetect
 
 # Build rule for target.
@@ -593,84 +359,6 @@ opencv_objdetect: cmake_check_build_system
 opencv_objdetect/fast:
 	$(MAKE) $(MAKESILENT) -f modules/objdetect/CMakeFiles/opencv_objdetect.dir/build.make modules/objdetect/CMakeFiles/opencv_objdetect.dir/build
 .PHONY : opencv_objdetect/fast
-
-#=============================================================================
-# Target rules for targets named opencv_rapid
-
-# Build rule for target.
-opencv_rapid: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_rapid
-.PHONY : opencv_rapid
-
-# fast build rule for target.
-opencv_rapid/fast:
-	$(MAKE) $(MAKESILENT) -f modules/rapid/CMakeFiles/opencv_rapid.dir/build.make modules/rapid/CMakeFiles/opencv_rapid.dir/build
-.PHONY : opencv_rapid/fast
-
-#=============================================================================
-# Target rules for targets named opencv_rgbd
-
-# Build rule for target.
-opencv_rgbd: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_rgbd
-.PHONY : opencv_rgbd
-
-# fast build rule for target.
-opencv_rgbd/fast:
-	$(MAKE) $(MAKESILENT) -f modules/rgbd/CMakeFiles/opencv_rgbd.dir/build.make modules/rgbd/CMakeFiles/opencv_rgbd.dir/build
-.PHONY : opencv_rgbd/fast
-
-#=============================================================================
-# Target rules for targets named opencv_structured_light
-
-# Build rule for target.
-opencv_structured_light: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_structured_light
-.PHONY : opencv_structured_light
-
-# fast build rule for target.
-opencv_structured_light/fast:
-	$(MAKE) $(MAKESILENT) -f modules/structured_light/CMakeFiles/opencv_structured_light.dir/build.make modules/structured_light/CMakeFiles/opencv_structured_light.dir/build
-.PHONY : opencv_structured_light/fast
-
-#=============================================================================
-# Target rules for targets named opencv_video
-
-# Build rule for target.
-opencv_video: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_video
-.PHONY : opencv_video
-
-# fast build rule for target.
-opencv_video/fast:
-	$(MAKE) $(MAKESILENT) -f modules/video/CMakeFiles/opencv_video.dir/build.make modules/video/CMakeFiles/opencv_video.dir/build
-.PHONY : opencv_video/fast
-
-#=============================================================================
-# Target rules for targets named opencv_wechat_qrcode
-
-# Build rule for target.
-opencv_wechat_qrcode: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_wechat_qrcode
-.PHONY : opencv_wechat_qrcode
-
-# fast build rule for target.
-opencv_wechat_qrcode/fast:
-	$(MAKE) $(MAKESILENT) -f modules/wechat_qrcode/CMakeFiles/opencv_wechat_qrcode.dir/build.make modules/wechat_qrcode/CMakeFiles/opencv_wechat_qrcode.dir/build
-.PHONY : opencv_wechat_qrcode/fast
-
-#=============================================================================
-# Target rules for targets named opencv_xfeatures2d
-
-# Build rule for target.
-opencv_xfeatures2d: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_xfeatures2d
-.PHONY : opencv_xfeatures2d
-
-# fast build rule for target.
-opencv_xfeatures2d/fast:
-	$(MAKE) $(MAKESILENT) -f modules/xfeatures2d/CMakeFiles/opencv_xfeatures2d.dir/build.make modules/xfeatures2d/CMakeFiles/opencv_xfeatures2d.dir/build
-.PHONY : opencv_xfeatures2d/fast
 
 #=============================================================================
 # Target rules for targets named opencv_aruco
@@ -686,45 +374,6 @@ opencv_aruco/fast:
 .PHONY : opencv_aruco/fast
 
 #=============================================================================
-# Target rules for targets named opencv_bgsegm
-
-# Build rule for target.
-opencv_bgsegm: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_bgsegm
-.PHONY : opencv_bgsegm
-
-# fast build rule for target.
-opencv_bgsegm/fast:
-	$(MAKE) $(MAKESILENT) -f modules/bgsegm/CMakeFiles/opencv_bgsegm.dir/build.make modules/bgsegm/CMakeFiles/opencv_bgsegm.dir/build
-.PHONY : opencv_bgsegm/fast
-
-#=============================================================================
-# Target rules for targets named opencv_dpm
-
-# Build rule for target.
-opencv_dpm: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_dpm
-.PHONY : opencv_dpm
-
-# fast build rule for target.
-opencv_dpm/fast:
-	$(MAKE) $(MAKESILENT) -f modules/dpm/CMakeFiles/opencv_dpm.dir/build.make modules/dpm/CMakeFiles/opencv_dpm.dir/build
-.PHONY : opencv_dpm/fast
-
-#=============================================================================
-# Target rules for targets named opencv_face
-
-# Build rule for target.
-opencv_face: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_face
-.PHONY : opencv_face
-
-# fast build rule for target.
-opencv_face/fast:
-	$(MAKE) $(MAKESILENT) -f modules/face/CMakeFiles/opencv_face.dir/build.make modules/face/CMakeFiles/opencv_face.dir/build
-.PHONY : opencv_face/fast
-
-#=============================================================================
 # Target rules for targets named gen_opencv_js_source
 
 # Build rule for target.
@@ -736,32 +385,6 @@ gen_opencv_js_source: cmake_check_build_system
 gen_opencv_js_source/fast:
 	$(MAKE) $(MAKESILENT) -f modules/js_bindings_generator/CMakeFiles/gen_opencv_js_source.dir/build.make modules/js_bindings_generator/CMakeFiles/gen_opencv_js_source.dir/build
 .PHONY : gen_opencv_js_source/fast
-
-#=============================================================================
-# Target rules for targets named opencv_tracking
-
-# Build rule for target.
-opencv_tracking: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_tracking
-.PHONY : opencv_tracking
-
-# fast build rule for target.
-opencv_tracking/fast:
-	$(MAKE) $(MAKESILENT) -f modules/tracking/CMakeFiles/opencv_tracking.dir/build.make modules/tracking/CMakeFiles/opencv_tracking.dir/build
-.PHONY : opencv_tracking/fast
-
-#=============================================================================
-# Target rules for targets named gen_opencv_java_source
-
-# Build rule for target.
-gen_opencv_java_source: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gen_opencv_java_source
-.PHONY : gen_opencv_java_source
-
-# fast build rule for target.
-gen_opencv_java_source/fast:
-	$(MAKE) $(MAKESILENT) -f modules/java_bindings_generator/CMakeFiles/gen_opencv_java_source.dir/build.make modules/java_bindings_generator/CMakeFiles/gen_opencv_java_source.dir/build
-.PHONY : gen_opencv_java_source/fast
 
 #=============================================================================
 # Target rules for targets named opencv_js
@@ -841,84 +464,6 @@ opencv_test_js/fast:
 	$(MAKE) $(MAKESILENT) -f modules/js/CMakeFiles/opencv_test_js.dir/build.make modules/js/CMakeFiles/opencv_test_js.dir/build
 .PHONY : opencv_test_js/fast
 
-#=============================================================================
-# Target rules for targets named gen_opencv_objc_source_osx
-
-# Build rule for target.
-gen_opencv_objc_source_osx: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gen_opencv_objc_source_osx
-.PHONY : gen_opencv_objc_source_osx
-
-# fast build rule for target.
-gen_opencv_objc_source_osx/fast:
-	$(MAKE) $(MAKESILENT) -f modules/objc_bindings_generator/CMakeFiles/gen_opencv_objc_source_osx.dir/build.make modules/objc_bindings_generator/CMakeFiles/gen_opencv_objc_source_osx.dir/build
-.PHONY : gen_opencv_objc_source_osx/fast
-
-#=============================================================================
-# Target rules for targets named gen_opencv_objc_source_ios
-
-# Build rule for target.
-gen_opencv_objc_source_ios: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gen_opencv_objc_source_ios
-.PHONY : gen_opencv_objc_source_ios
-
-# fast build rule for target.
-gen_opencv_objc_source_ios/fast:
-	$(MAKE) $(MAKESILENT) -f modules/objc_bindings_generator/CMakeFiles/gen_opencv_objc_source_ios.dir/build.make modules/objc_bindings_generator/CMakeFiles/gen_opencv_objc_source_ios.dir/build
-.PHONY : gen_opencv_objc_source_ios/fast
-
-#=============================================================================
-# Target rules for targets named gen_opencv_objc_source_visionos
-
-# Build rule for target.
-gen_opencv_objc_source_visionos: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gen_opencv_objc_source_visionos
-.PHONY : gen_opencv_objc_source_visionos
-
-# fast build rule for target.
-gen_opencv_objc_source_visionos/fast:
-	$(MAKE) $(MAKESILENT) -f modules/objc_bindings_generator/CMakeFiles/gen_opencv_objc_source_visionos.dir/build.make modules/objc_bindings_generator/CMakeFiles/gen_opencv_objc_source_visionos.dir/build
-.PHONY : gen_opencv_objc_source_visionos/fast
-
-#=============================================================================
-# Target rules for targets named gen_opencv_objc_source
-
-# Build rule for target.
-gen_opencv_objc_source: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gen_opencv_objc_source
-.PHONY : gen_opencv_objc_source
-
-# fast build rule for target.
-gen_opencv_objc_source/fast:
-	$(MAKE) $(MAKESILENT) -f modules/objc_bindings_generator/CMakeFiles/gen_opencv_objc_source.dir/build.make modules/objc_bindings_generator/CMakeFiles/gen_opencv_objc_source.dir/build
-.PHONY : gen_opencv_objc_source/fast
-
-#=============================================================================
-# Target rules for targets named opencv_stereo
-
-# Build rule for target.
-opencv_stereo: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opencv_stereo
-.PHONY : opencv_stereo
-
-# fast build rule for target.
-opencv_stereo/fast:
-	$(MAKE) $(MAKESILENT) -f modules/stereo/CMakeFiles/opencv_stereo.dir/build.make modules/stereo/CMakeFiles/opencv_stereo.dir/build
-.PHONY : opencv_stereo/fast
-
-#=============================================================================
-# Target rules for targets named gen_opencv_python_source
-
-# Build rule for target.
-gen_opencv_python_source: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gen_opencv_python_source
-.PHONY : gen_opencv_python_source
-
-# fast build rule for target.
-gen_opencv_python_source/fast:
-	$(MAKE) $(MAKESILENT) -f modules/python_bindings_generator/CMakeFiles/gen_opencv_python_source.dir/build.make modules/python_bindings_generator/CMakeFiles/gen_opencv_python_source.dir/build
-.PHONY : gen_opencv_python_source/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -934,13 +479,7 @@ help:
 	@echo "... package_source"
 	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... gen_opencv_java_source"
 	@echo "... gen_opencv_js_source"
-	@echo "... gen_opencv_objc_source"
-	@echo "... gen_opencv_objc_source_ios"
-	@echo "... gen_opencv_objc_source_osx"
-	@echo "... gen_opencv_objc_source_visionos"
-	@echo "... gen_opencv_python_source"
 	@echo "... opencv.js"
 	@echo "... opencv_js_loader"
 	@echo "... opencv_js_perf"
@@ -953,42 +492,13 @@ help:
 	@echo "... uninstall"
 	@echo "... libprotobuf"
 	@echo "... opencv_aruco"
-	@echo "... opencv_bgsegm"
-	@echo "... opencv_bioinspired"
 	@echo "... opencv_calib3d"
 	@echo "... opencv_core"
-	@echo "... opencv_dnn"
-	@echo "... opencv_dnn_objdetect"
-	@echo "... opencv_dnn_superres"
-	@echo "... opencv_dpm"
-	@echo "... opencv_face"
 	@echo "... opencv_features2d"
 	@echo "... opencv_flann"
-	@echo "... opencv_fuzzy"
-	@echo "... opencv_hfs"
-	@echo "... opencv_img_hash"
 	@echo "... opencv_imgproc"
-	@echo "... opencv_intensity_transform"
 	@echo "... opencv_js"
-	@echo "... opencv_line_descriptor"
-	@echo "... opencv_mcc"
 	@echo "... opencv_objdetect"
-	@echo "... opencv_phase_unwrapping"
-	@echo "... opencv_photo"
-	@echo "... opencv_plot"
-	@echo "... opencv_rapid"
-	@echo "... opencv_reg"
-	@echo "... opencv_rgbd"
-	@echo "... opencv_saliency"
-	@echo "... opencv_signal"
-	@echo "... opencv_stereo"
-	@echo "... opencv_structured_light"
-	@echo "... opencv_surface_matching"
-	@echo "... opencv_tracking"
-	@echo "... opencv_video"
-	@echo "... opencv_wechat_qrcode"
-	@echo "... opencv_xfeatures2d"
-	@echo "... opencv_xphoto"
 	@echo "... zlib"
 .PHONY : help
 

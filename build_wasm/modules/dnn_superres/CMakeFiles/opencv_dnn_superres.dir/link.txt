@@ -1,2 +1,0 @@
-/workspace/opencv/emsdk/upstream/emscripten/emar qc ../../lib/libopencv_dnn_superres.a CMakeFiles/opencv_dnn_superres.dir/src/dnn_superres.cpp.o
-/workspace/opencv/emsdk/upstream/emscripten/emranlib ../../lib/libopencv_dnn_superres.a

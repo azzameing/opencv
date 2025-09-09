@@ -697,19 +697,5 @@ modules/objdetect/CMakeFiles/opencv_objdetect.dir/src/barcode.cpp.o: \
   /workspace/opencv/modules/objdetect/src/barcode_decoder/ean8_decoder.hpp \
   /workspace/opencv/modules/objdetect/src/barcode_detector/bardetect.hpp \
   /workspace/opencv/modules/objdetect/src/barcode_decoder/common/super_scale.hpp \
-  /workspace/opencv/modules/dnn/include/opencv2/dnn.hpp \
-  /workspace/opencv/modules/dnn/include/opencv2/dnn/dnn.hpp \
-  /workspace/opencv/modules/core/include/opencv2/core/async.hpp \
-  /workspace/opencv/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/chrono \
-  /workspace/opencv/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__chrono/file_clock.h \
-  /workspace/opencv/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/forward_list \
-  /workspace/opencv/modules/dnn/include/opencv2/dnn/../dnn/version.hpp \
-  /workspace/opencv/modules/dnn/include/opencv2/dnn/dict.hpp \
-  /workspace/opencv/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/map \
-  /workspace/opencv/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__tree \
-  /workspace/opencv/modules/dnn/include/opencv2/dnn/layer.hpp \
-  /workspace/opencv/modules/dnn/include/opencv2/dnn/dnn.inl.hpp \
-  /workspace/opencv/modules/dnn/include/opencv2/dnn/utils/inference_engine.hpp \
-  /workspace/opencv/modules/dnn/include/opencv2/dnn/utils/../dnn.hpp \
   /workspace/opencv/modules/objdetect/src/barcode_decoder/common/utils.hpp \
   /workspace/opencv/modules/objdetect/src/graphical_code_detector_impl.hpp

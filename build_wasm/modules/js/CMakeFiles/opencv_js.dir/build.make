@@ -99,17 +99,11 @@ bin/opencv_js.js: modules/js/CMakeFiles/opencv_js.dir/build.make
 bin/opencv_js.js: lib/libopencv_core.a
 bin/opencv_js.js: lib/libopencv_flann.a
 bin/opencv_js.js: lib/libopencv_imgproc.a
-bin/opencv_js.js: lib/libopencv_photo.a
-bin/opencv_js.js: lib/libopencv_dnn.a
 bin/opencv_js.js: lib/libopencv_features2d.a
 bin/opencv_js.js: lib/libopencv_calib3d.a
 bin/opencv_js.js: lib/libopencv_objdetect.a
-bin/opencv_js.js: lib/libopencv_video.a
-bin/opencv_js.js: lib/libopencv_wechat_qrcode.a
 bin/opencv_js.js: lib/libopencv_aruco.a
 bin/opencv_js.js: lib/libopencv_objdetect.a
-bin/opencv_js.js: lib/libopencv_dnn.a
-bin/opencv_js.js: 3rdparty/lib/liblibprotobuf.a
 bin/opencv_js.js: lib/libopencv_calib3d.a
 bin/opencv_js.js: lib/libopencv_features2d.a
 bin/opencv_js.js: lib/libopencv_flann.a

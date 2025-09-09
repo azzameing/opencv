@@ -690,19 +690,6 @@ modules/js/CMakeFiles/opencv_js.dir/__/js_bindings_generator/gen/bindings.cpp.o:
   /workspace/opencv/modules/imgproc/include/opencv2/./imgproc/segmentation.hpp \
   /workspace/opencv/modules/imgproc/include/opencv2/imgproc/bindings.hpp \
   /workspace/opencv/modules/imgproc/include/opencv2/imgproc/segmentation.hpp \
-  /workspace/opencv/modules/photo/include/opencv2/photo.hpp \
-  /workspace/opencv/modules/photo/include/opencv2/photo/cuda.hpp \
-  /workspace/opencv/modules/core/include/opencv2/core/cuda.hpp \
-  /workspace/opencv/modules/core/include/opencv2/core/cuda_types.hpp \
-  /workspace/opencv/modules/core/include/opencv2/core/cuda.inl.hpp \
-  /workspace/opencv/modules/dnn/include/opencv2/dnn/dict.hpp \
-  /workspace/opencv/modules/dnn/include/opencv2/dnn/dnn.hpp \
-  /workspace/opencv/modules/dnn/include/opencv2/dnn/../dnn/version.hpp \
-  /workspace/opencv/modules/dnn/include/opencv2/dnn/layer.hpp \
-  /workspace/opencv/modules/dnn/include/opencv2/dnn.hpp \
-  /workspace/opencv/modules/dnn/include/opencv2/dnn/dnn.inl.hpp \
-  /workspace/opencv/modules/dnn/include/opencv2/dnn/utils/inference_engine.hpp \
-  /workspace/opencv/modules/dnn/include/opencv2/dnn/utils/../dnn.hpp \
   /workspace/opencv/modules/features2d/include/opencv2/features2d.hpp \
   /workspace/opencv/modules/flann/include/opencv2/flann/miniflann.hpp \
   /workspace/opencv/modules/flann/include/opencv2/flann/defines.h \
@@ -718,10 +705,6 @@ modules/js/CMakeFiles/opencv_js.dir/__/js_bindings_generator/gen/bindings.cpp.o:
   /workspace/opencv/modules/objdetect/include/opencv2/objdetect/face.hpp \
   /workspace/opencv/modules/objdetect/include/opencv2/objdetect/charuco_detector.hpp \
   /workspace/opencv/modules/objdetect/include/opencv2/objdetect/barcode.hpp \
-  /workspace/opencv/modules/video/include/opencv2/video/background_segm.hpp \
-  /workspace/opencv/modules/video/include/opencv2/video/detail/tracking.detail.hpp \
-  /workspace/opencv/modules/video/include/opencv2/video/tracking.hpp \
-  /workspace/opencv_contrib/modules/wechat_qrcode/include/opencv2/wechat_qrcode.hpp \
   /workspace/opencv_contrib/modules/aruco/include/opencv2/aruco.hpp \
   /workspace/opencv_contrib/modules/aruco/include/opencv2/aruco/aruco_calib.hpp \
   /workspace/opencv_contrib/modules/aruco/include/opencv2/aruco/charuco.hpp \

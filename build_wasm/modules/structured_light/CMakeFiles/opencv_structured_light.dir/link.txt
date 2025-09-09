@@ -1,2 +1,0 @@
-/workspace/opencv/emsdk/upstream/emscripten/emar qc ../../lib/libopencv_structured_light.a CMakeFiles/opencv_structured_light.dir/src/graycodepattern.cpp.o CMakeFiles/opencv_structured_light.dir/src/sinusoidalpattern.cpp.o
-/workspace/opencv/emsdk/upstream/emscripten/emranlib ../../lib/libopencv_structured_light.a
