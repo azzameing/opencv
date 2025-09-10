@@ -1,28 +1,58 @@
-tasks:
-  - init: |
-      # Clone necessary repositories
-      git clone https://github.com/emscripten-core/emsdk.git
-      git clone https://github.com/opencv/opencv_contrib.git
-      python3 -m pip install numpy
-      
-      # Install and activate the emsdk toolchain
-      cd emsdk
-      ./emsdk install latest
-      ./emsdk activate latest
-      
-      # Return to the parent directory
-      cd ..
-      
-      # Create and navigate to the build directory
-      mkdir build
-      cd build
-      
-      # Set up the environment for the current session
-      source ../emsdk/emsdk_env.sh
+# .gitpod.yml — Build OpenCV.js (WASM + Threads + SIMD) with opencv_contrib
+# Notes:
+# - Requires an image that has Emscripten available (e.g., your .gitpod.Dockerfile).
+# - OpenCV.js docs: --cmake_option "-DOPENCV_EXTRA_MODULES_PATH=..." to enable contrib.
+#   https://docs.opencv.org/4.x/d4/da1/tutorial_js_setup.html
 
-      # Run the build commands
-      emcmake cmake -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules ../../opencv
-      emmake make -j$(nproc)
-    
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - name: opencv.js (wasm + threads + simd + contrib)
+    init: |
+      set -euo pipefail
+
+      # Use all cores for faster builds
+      export MAKEFLAGS="-j$(nproc)"
+
+      # Ensure Emscripten env is active (if your Dockerfile installs EMSDK locally)
+      if [ -f "/opt/emsdk/emsdk_env.sh" ]; then
+        source /opt/emsdk/emsdk_env.sh
+      fi
+
+      # Clone opencv_contrib matching the current branch (fallback to 4.x)
+      OPENCV_BRANCH="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo 4.x)"
+      if [ ! -d "./opencv_contrib" ]; then
+        echo "Cloning opencv_contrib (branch: ${OPENCV_BRANCH})..."
+        git clone --depth=1 -b "${OPENCV_BRANCH}" https://github.com/opencv/opencv_contrib.git \
+        || git clone --depth=1 -b "4.x" https://github.com/opencv/opencv_contrib.git
+      fi
+
+      # CMake option for contrib modules (official variable)
+      # https://docs.opencv.org/4.x/d7/d9f/tutorial_linux_install.html
+      CMAKE_OPTS="-DOPENCV_EXTRA_MODULES_PATH=$(pwd)/opencv_contrib/modules"
+
+      # Build OpenCV.js with separate .wasm + threads + SIMD
+      mkdir -p build_js
+      emcmake python3 ./platforms/js/build_js.py build_js \
+        --disable_single_file --threads --simd \
+        --cmake_option="${CMAKE_OPTS}"
+
+      echo "==== Artifacts in build_js/bin ===="
+      ls -lh build_js/bin || true
+
     command: |
-      echo "Build is complete. Files are in the 'build' directory."
+      # Serve artifacts (opencv.js, *.wasm, tests.html) on port 8080
+      cd build_js/bin || exit 0
+      npx http-server -p 8080 --cors
+
+ports:
+  - name: OpenCV.js test server
+    port: 8080
+    onOpen: open-browser
+
+vscode:
+  extensions:
+    - ms-vscode.cpptools
+    - ms-python.python
+    - ms-toolsai.jupyter
