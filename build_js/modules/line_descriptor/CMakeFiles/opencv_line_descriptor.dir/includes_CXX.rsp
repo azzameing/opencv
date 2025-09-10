@@ -1,0 +1,1 @@
+-I/workspace/opencv/3rdparty/dlpack/include -I/workspace/opencv/build_js -I/workspace/opencv/opencv_contrib/modules/line_descriptor/include -I/workspace/opencv/build_js/modules/line_descriptor -I/workspace/opencv/modules/core/include -I/workspace/opencv/modules/flann/include -I/workspace/opencv/modules/imgproc/include -I/workspace/opencv/modules/features2d/include

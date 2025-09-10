@@ -1,0 +1,1 @@
+-I/workspace/opencv/3rdparty/dlpack/include -I/workspace/opencv/build_js -I/workspace/opencv/modules/calib3d/include -I/workspace/opencv/build_js/modules/calib3d -I/workspace/opencv/modules/core/include -I/workspace/opencv/modules/flann/include -I/workspace/opencv/modules/imgproc/include -I/workspace/opencv/modules/features2d/include

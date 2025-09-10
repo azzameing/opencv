@@ -1,0 +1,19 @@
+# Target labels
+ Extra
+ opencv_plot
+ Module
+# Source files and their labels
+/workspace/opencv/opencv_contrib/modules/plot/include/opencv2/plot.hpp
+ Extra
+ opencv_plot
+ Module
+/workspace/opencv/opencv_contrib/modules/plot/src/plot.cpp
+ Extra
+ opencv_plot
+ Module
+/workspace/opencv/opencv_contrib/modules/plot/src/precomp.hpp
+ Extra
+ opencv_plot
+ Module
+/workspace/opencv/build_js/cvconfig.h
+/workspace/opencv/build_js/opencv2/opencv_modules.hpp
